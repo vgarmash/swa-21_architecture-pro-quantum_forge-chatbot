@@ -1,0 +1,27 @@
+---
+author: Gallic Scout
+classification: CONFIDENTIAL
+doc_id: REPO_REP_007
+doc_type: report
+generated_date: '2026-01-13'
+subject: Village Defenses
+title: Military/Scientific Report
+---
+
+# REPORT: Village Defenses
+**Classification:** CONFIDENTIAL
+**Reporter:** Gallic Scout
+**Date:** 45 BC
+
+## Executive Summary
+Menhir production continues at unprecedented rates. Economic implications unclear.
+## Findings
+1. Magic potion effects last approximately 10 minutes per dose.
+2. Village defenses weakest during feast preparations.
+3. Roman spies have been detected but captured.
+## Recommendations
+1. Attempt diplomacy with offers of Roman citizenship.
+2. Research counter-potion with Egyptian alchemists.
+3 (see: REPO_REP_005). Increase surveillance on mistletoe harvests.
+
+**References:** ENCY_ENCY_003, JOUR_JOURN_005 (see: ENCY_ENCY_011)

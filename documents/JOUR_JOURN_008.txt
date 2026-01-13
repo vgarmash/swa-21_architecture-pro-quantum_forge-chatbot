@@ -1,0 +1,18 @@
+---
+author: Getafix
+date: October 08, 0050 BC
+doc_id: JOUR_JOURN_008
+doc_type: journal
+generated_date: '2026-01-13'
+mood: Angry
+title: Journal of Getafix
+---
+
+## Entry #47
+
+*Date: October 08, 0050 BC*
+*Location: Lutetia*
+
+Today we had another encounter with the Romans. Julius Caesar tried to attack our village, but as usual, (See related documents on Magic Potion) made short work of them.
+
+*Observation:* Cacofonix is practicing a new song. May the gods help us all (see: MYTH_MYTH_003). (see: ENCY_ENCY_013)

@@ -1,0 +1,18 @@
+---
+author: Asterix
+date: October 24, 0050 BC
+doc_id: JOUR_JOURN_010
+doc_type: journal
+generated_date: '2026-01-13'
+mood: Worried
+title: Journal of Asterix
+---
+
+## Entry #24
+
+*Date: October 24, 0050 BC*
+*Location: Roman Camp*
+
+Discussed potion ingredients with Getafix. The mistletoe is particularly potent this season. Note: avoid using oak from the northern grove.
+
+*Observation:* Cacofonix is practicing a new song. May the gods help us all. (see: JOUR_JOURN_007)

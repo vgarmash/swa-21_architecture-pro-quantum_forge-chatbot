@@ -1,0 +1,18 @@
+---
+author: Getafix
+date: July 01, 0050 BC
+doc_id: JOUR_JOURN_005
+doc_type: journal
+generated_date: '2026-01-13'
+mood: Angry
+title: Journal of Getafix
+---
+
+## Entry #10
+
+*Date: July 01, 0050 BC*
+*Location: Roman Camp*
+
+Obelix and I went menhir hunting today. Found a particularly fine specimen near Menhir Quarry (see: ENCY_ENCY_015) (see: LETT_LETTER_004). Must remember to avoid the wild boar traps!
+
+*Observation:* Noticed Roman scouts near the northern border. (see: JOUR_JOURN_008)

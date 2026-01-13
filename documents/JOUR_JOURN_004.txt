@@ -1,0 +1,18 @@
+---
+author: Obelix
+date: October 02, 0050 BC
+doc_id: JOUR_JOURN_004
+doc_type: journal
+generated_date: '2026-01-13'
+mood: Worried
+title: Journal of Obelix
+---
+
+## Entry #23
+
+*Date: October 02, 0050 BC*
+*Location: Lutetia*
+
+Another feast tonight. As expected, Cacofonix started singing and had to be restrained. The fish from Unhygienix was particularly salty today.
+
+*Observation:* Cacofonix is practicing a new song (see: REPO_REP_001). May the gods help us all.

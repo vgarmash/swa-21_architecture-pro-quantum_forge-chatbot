@@ -1,0 +1,17 @@
+---
+doc_id: MYTH_MYTH_004
+doc_type: myth
+estimated_age: 207 years
+generated_date: '2026-01-13'
+region: Armorica
+storyteller: Druid Storyteller
+title: 'Myth: First Menhir'
+---
+
+# The Legend of First Menhir
+
+*As told by Druid Storyteller*
+
+In ancient times, giants roamed the land. When they slept, their fingers turned to stone, creating the first menhirs...
+
+**Moral:** Some curses are blessings in disguise.

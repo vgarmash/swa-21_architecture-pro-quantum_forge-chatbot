@@ -1,0 +1,18 @@
+---
+authority: Village Council
+doc_id: DECR_DECR_001
+doc_type: decree
+effective_date: 49 BC
+generated_date: '2026-01-13'
+jurisdiction: All Gaul
+title: Official Decree
+---
+
+# DECREE OF VILLAGE COUNCIL
+
+By order of Village Council, the consumption of magic potion is restricted to defensive purposes only. Violators will face boar-cleaning duties.
+
+**Signed,**
+Village Council
+
+**Witnessed by:** Two village elders

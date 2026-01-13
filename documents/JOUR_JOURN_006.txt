@@ -1,0 +1,18 @@
+---
+author: Obelix
+date: September 21, 0050 BC
+doc_id: JOUR_JOURN_006
+doc_type: journal
+generated_date: '2026-01-13'
+mood: Happy
+title: Journal of Obelix
+---
+
+## Entry #48
+
+*Date: September 21, 0050 BC*
+*Location: Forest*
+
+Discussed potion ingredients with Getafix. The mistletoe is particularly potent this season (see: DECR_DECR_003). Note: avoid using oak from the northern grove.
+
+*Observation:* The fish from Unhygienix smells worse than usual.

@@ -1,0 +1,28 @@
+---
+author: Gallic Scholars Collective
+doc_id: ENCY_ENCY_006
+doc_type: encyclopedia
+generated_date: '2026-01-13'
+keywords:
+- Gaul
+- Roman
+- Village
+- Magic
+- army
+- government
+- society
+publication_date: 46 BC
+title: 'Encyclopedia: Roman Military Tactics'
+---
+
+# Roman Military Tactics
+
+Roman military tactics in Gaul involve the construction of fortified camps (Babaorum, Laudanum, etc.) surrounding resistant villages.
+Standard procedure includes attempted diplomacy, followed by siege tactics, though neither has succeeded against the Armorican village.
+Caesar's forces are known for their discipline, engineering prowess, and persistence despite repeated defeats.
+Intelligence gathering remains a challenge due to Gaulish loyalty and the language barrier.
+
+## See Also
+- ENCY_ENCY_002
+- ENCY_ENCY_005
+- ENCY_ENCY_003

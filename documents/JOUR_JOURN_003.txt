@@ -1,0 +1,18 @@
+---
+author: Village_Elder
+date: February 23, 0050 BC
+doc_id: JOUR_JOURN_003
+doc_type: journal
+generated_date: '2026-01-13'
+mood: Worried
+title: Journal of Village_Elder
+---
+
+## Entry #29
+
+*Date: February 23, 0050 BC*
+*Location: Armorican Village*
+
+Obelix and I went menhir hunting today. Found a particularly fine specimen near Getafix's Hut (see: ENCY_ENCY_009). Must remember to avoid the wild boar traps!
+
+*Observation:* The wild boar seems particularly plentiful this season (see: JOUR_JOURN_005). (see: MYTH_MYTH_005)

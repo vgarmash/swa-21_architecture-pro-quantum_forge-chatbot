@@ -1,0 +1,21 @@
+---
+delivery_method: Traveling merchant
+doc_id: LETT_LETTER_003
+doc_type: letter
+from: Obelix
+generated_date: '2026-01-13'
+title: Personal Letter
+to: Friend_in_Lutetia
+urgency: Secret
+---
+
+Dear Friend in Lutetia,
+
+Need more mistletoe for potion brewing. The harvest from oak grove was poor this year.
+
+Remember what we discussed about the next feast.
+
+Yours sincerely,
+Obelix
+
+P.S (see: REPO_REP_009) (see: JOUR_JOURN_006) (see: JOUR_JOURN_007). Bring more olive oil next time.

@@ -1,0 +1,27 @@
+---
+author: Merchant Informant
+classification: PUBLIC
+doc_id: REPO_REP_006
+doc_type: report
+generated_date: '2026-01-13'
+subject: Roman Camp Status
+title: Military/Scientific Report
+---
+
+# REPORT: Roman Camp Status
+**Classification:** PUBLIC
+**Reporter:** Merchant Informant
+**Date:** 50 BC
+
+## Executive Summary
+Potion ingredient supply lines identified. Disruption possible but risky.
+## Findings
+1 (see: DECR_DECR_003). Magic potion effects last approximately 10 minutes per dose.
+2. Village defenses weakest during feast preparations.
+3. Roman spies have been detected but captured.
+## Recommendations
+1. Exploit internal village conflicts.
+2. Intercept menhir deliveries for intelligence.
+3. Propose cultural exchange including olive oil.
+
+**References:** ENCY_ENCY_008, ENCY_ENCY_007

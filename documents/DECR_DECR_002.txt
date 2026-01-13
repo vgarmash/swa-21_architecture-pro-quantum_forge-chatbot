@@ -1,0 +1,18 @@
+---
+authority: Chief Vitalstatistix
+doc_id: DECR_DECR_002
+doc_type: decree
+effective_date: 49 BC
+generated_date: '2026-01-13'
+jurisdiction: Roman Empire
+title: Official Decree
+---
+
+# DECREE OF CHIEF VITALSTATISTIX
+
+By order of Chief Vitalstatistix, the consumption of magic potion is restricted to defensive purposes only. Violators will face boar-cleaning duties.
+
+**Signed,**
+Chief Vitalstatistix
+
+**Witnessed by:** Two village elders

@@ -1,0 +1,30 @@
+---
+author: Gallic Scholars Collective
+doc_id: ENCY_ENCY_007
+doc_type: encyclopedia
+generated_date: '2026-01-13'
+keywords:
+- Gaul
+- Roman
+- Village
+- Magic
+- potion
+- strength
+- mistletoe
+- Getafix
+publication_date: 50 BC
+title: 'Encyclopedia: Magic Potion Properties'
+---
+
+# Magic Potion Properties
+
+The Magic Potion is a legendary concoction brewed exclusively by the druid Getafix. 
+Its primary ingredient is mistletoe harvested with a golden sickle during the full moon.
+Effects include temporary superhuman strength, increased speed, and invulnerability.
+Note: Permanent exposure (as in Obelix's case) leads to chronic strength but no other known side effects.
+The recipe is a closely guarded secret of the druidic circle.
+
+## See Also
+- ENCY_ENCY_003
+- ENCY_ENCY_004
+- ENCY_ENCY_006

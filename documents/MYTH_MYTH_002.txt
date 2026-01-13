@@ -1,0 +1,17 @@
+---
+doc_id: MYTH_MYTH_002
+doc_type: myth
+estimated_age: 187 years
+generated_date: '2026-01-13'
+region: Armorica
+storyteller: Traveling Bard
+title: 'Myth: First Menhir'
+---
+
+# The Legend of First Menhir
+
+*As told by Traveling Bard*
+
+In ancient times, giants roamed the land. When they slept, their fingers turned to stone, creating the first menhirs...
+
+**Moral:** Strength comes from unity, not just potion.

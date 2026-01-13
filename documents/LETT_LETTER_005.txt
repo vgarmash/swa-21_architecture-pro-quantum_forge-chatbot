@@ -1,0 +1,21 @@
+---
+delivery_method: Secret agent
+doc_id: LETT_LETTER_005
+doc_type: letter
+from: Getafix
+generated_date: '2026-01-13'
+title: Personal Letter
+to: Friend_in_Lutetia
+urgency: Secret
+---
+
+Dear Friend in Lutetia,
+
+Important news! The Romans from Rome are planning something. Saw them drilling near the forest.
+
+Remember what we discussed about the potion formula.
+
+Yours sincerely,
+Getafix
+
+P.S. Bring more olive oil next time. (see: ENCY_ENCY_003) (see: LETT_LETTER_003)

@@ -1,0 +1,27 @@
+---
+author: Gallic Scout
+classification: INTERNAL
+doc_id: REPO_REP_009
+doc_type: report
+generated_date: '2026-01-13'
+subject: Magic Potion Analysis
+title: Military/Scientific Report
+---
+
+# REPORT: Magic Potion Analysis
+**Classification:** INTERNAL
+**Reporter:** Gallic Scout
+**Date:** 47 BC
+
+## Executive Summary
+Menhir production continues at unprecedented rates. Economic implications unclear.
+## Findings
+1 (see: REPO_REP_001). Obelix's strength appears permanent and non-diminishing.
+2. Getafix obtains mistletoe from three secret locations.
+3. Village morale remains high despite Roman pressure.
+## Recommendations
+1. Exploit internal village conflicts.
+2 (see: ENCY_ENCY_003). Intercept menhir deliveries for intelligence.
+3 (see: ENCY_ENCY_006). Propose cultural exchange including olive oil.
+
+**References:** ENCY_ENCY_011, ENCY_ENCY_013

@@ -1,0 +1,21 @@
+---
+delivery_method: Messenger pigeon
+doc_id: LETT_LETTER_002
+doc_type: letter
+from: Roman_Soldier
+generated_date: '2026-01-13'
+title: Personal Letter
+to: Friend_in_Lutetia
+urgency: Urgent
+---
+
+Dear Friend in Lutetia,
+
+I hope this letter finds you well. Things here in the village are as chaotic as ever (see: ENCY_ENCY_007). Fulliautomatix and Unhygienix had another fight today.
+
+Remember what we discussed about the next feast.
+
+Yours sincerely,
+Roman_Soldier
+
+P.S (see: DECR_DECR_005) (see: REPO_REP_002). Don't forget the boar for the feast!

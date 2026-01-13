@@ -1,0 +1,17 @@
+---
+doc_id: MYTH_MYTH_001
+doc_type: myth
+estimated_age: 494 years
+generated_date: '2026-01-13'
+region: Armorica
+storyteller: Druid Storyteller
+title: 'Myth: The Singing Bard'
+---
+
+# The Legend of The Singing Bard
+
+*As told by Druid Storyteller*
+
+Cacofonix was once a great singer, but he insulted the god of music, who cursed him to sing off-key forever...
+
+**Moral:** Never underestimate a Gaul with a full stomach.

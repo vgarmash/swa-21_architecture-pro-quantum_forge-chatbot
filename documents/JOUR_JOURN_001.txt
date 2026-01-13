@@ -1,0 +1,18 @@
+---
+author: Obelix
+date: April 06, 0050 BC
+doc_id: JOUR_JOURN_001
+doc_type: journal
+generated_date: '2026-01-13'
+mood: Happy
+title: Journal of Obelix
+---
+
+## Entry #49
+
+*Date: April 06, 0050 BC*
+*Location: Lutetia*
+
+Discussed potion ingredients with Getafix. The mistletoe is particularly potent this season. Note: avoid using oak from the northern grove.
+
+*Observation:* Noticed Roman scouts near the northern border. (see: REPO_REP_005)

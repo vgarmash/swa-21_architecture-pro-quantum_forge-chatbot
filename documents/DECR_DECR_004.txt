@@ -1,0 +1,18 @@
+---
+authority: Chief Vitalstatistix
+doc_id: DECR_DECR_004
+doc_type: decree
+effective_date: 50 BC
+generated_date: '2026-01-13'
+jurisdiction: All Gaul
+title: Official Decree
+---
+
+# DECREE OF CHIEF VITALSTATISTIX
+
+All menhirs must be properly labeled with delivery information. Unlabeled menhirs will be considered property of Chief Vitalstatistix.
+
+**Signed,**
+Chief Vitalstatistix
+
+**Witnessed by:** Druid apprentice

@@ -1,0 +1,21 @@
+---
+delivery_method: Messenger pigeon
+doc_id: LETT_LETTER_004
+doc_type: letter
+from: Roman_Soldier
+generated_date: '2026-01-13'
+title: Personal Letter
+to: Roman_Command
+urgency: Secret
+---
+
+Dear Roman Command,
+
+I hope this letter finds you well. Things here in the village are as chaotic as ever (see: ENCY_ENCY_012). Fulliautomatix and Unhygienix had another fight today.
+
+Remember what we discussed about the next feast.
+
+Yours sincerely,
+Roman_Soldier
+
+P.S (see: LETT_LETTER_005). Bring more olive oil next time. (see: ENCY_ENCY_003)

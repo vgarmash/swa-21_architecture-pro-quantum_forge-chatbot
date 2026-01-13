@@ -1,0 +1,28 @@
+---
+author: Gallic Scholars Collective
+doc_id: ENCY_ENCY_010
+doc_type: encyclopedia
+generated_date: '2026-01-13'
+keywords:
+- Gaul
+- Roman
+- Village
+- Magic
+- artifact
+- tool
+- equipment
+publication_date: 45 BC
+title: 'Encyclopedia: Menhir Types and Uses'
+---
+
+# Menhir Types and Uses
+
+Menhirs are large, shaped standing stones used for ceremonial purposes and as Obelix's primary trade.
+Classification includes: Standard (2m), Grande (3m), and Colossal (4m+).
+Quarrying techniques involve careful splitting along natural stone lines.
+Delivery logistics remain a mystery, as Obelix transports them single-handedly without visible strain.
+
+## See Also
+- ENCY_ENCY_008
+- ENCY_ENCY_004
+- ENCY_ENCY_007

@@ -1,0 +1,27 @@
+---
+author: Merchant Informant
+classification: PUBLIC
+doc_id: REPO_REP_005
+doc_type: report
+generated_date: '2026-01-13'
+subject: Village Defenses
+title: Military/Scientific Report
+---
+
+# REPORT: Village Defenses
+**Classification:** PUBLIC
+**Reporter:** Merchant Informant
+**Date:** 46 BC
+
+## Executive Summary
+Menhir production continues at unprecedented rates. Economic implications unclear.
+## Findings
+1 (see: LETT_LETTER_004). Magic potion effects last approximately 10 minutes per dose.
+2. Village defenses weakest during feast preparations.
+3. Roman spies have been detected but captured.
+## Recommendations
+1 (see: JOUR_JOURN_002). Wait for natural generational change in leadership.
+2. Study potion's long-term effects on Obelix.
+3 (see: LETT_LETTER_004). Establish trade relations to build dependency.
+
+**References:** JOUR_JOURN_007, JOUR_JOURN_002

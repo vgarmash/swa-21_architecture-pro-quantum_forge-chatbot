@@ -1,0 +1,28 @@
+---
+author: Gallic Scholars Collective
+doc_id: ENCY_ENCY_005
+doc_type: encyclopedia
+generated_date: '2026-01-13'
+keywords:
+- Gaul
+- Roman
+- Village
+- Magic
+- people
+- personality
+- biography
+publication_date: 48 BC
+title: 'Encyclopedia: Druidic Practices'
+---
+
+# Druidic Practices
+
+Druidic practices include herbalism, astronomy, and the preservation of oral history.
+The annual gathering at the Forest of the Carnutes is mandatory for all druids.
+Getafix is considered among the most skilled, particularly for his mastery of potion brewing.
+Druids serve as judges, teachers, and healers in Gallic society, commanding great respect.
+
+## See Also
+- ENCY_ENCY_002
+- ENCY_ENCY_001
+- ENCY_ENCY_003

@@ -1,0 +1,17 @@
+---
+doc_id: MYTH_MYTH_005
+doc_type: myth
+estimated_age: 161 years
+generated_date: '2026-01-13'
+region: Armorica
+storyteller: Traveling Bard
+title: 'Myth: Origin of Magic Potion'
+---
+
+# The Legend of Origin of Magic Potion
+
+*As told by Traveling Bard*
+
+Long before the Romans came, the druid Getafix was studying mistletoe when a lightning bolt struck his cauldron...
+
+**Moral:** Some curses are blessings in disguise.

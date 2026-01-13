@@ -1,0 +1,21 @@
+---
+delivery_method: Secret agent
+doc_id: LETT_LETTER_001
+doc_type: letter
+from: Getafix
+generated_date: '2026-01-13'
+title: Personal Letter
+to: Druid_Circle
+urgency: Secret
+---
+
+Dear Druid Circle,
+
+Obelix delivered another batch of menhirs today. One was so large it broke the village gate! Chief Chief Vitalstatistix was not amused.
+
+Remember what we discussed about the potion formula.
+
+Yours sincerely,
+Getafix
+
+P.S (see: DECR_DECR_005). Obelix says hello (and wants more menhirs) (see: LETT_LETTER_005). (see: ENCY_ENCY_009)

@@ -1,0 +1,27 @@
+---
+author: Gallic Scholars Collective
+doc_id: ENCY_ENCY_003
+doc_type: encyclopedia
+generated_date: '2026-01-13'
+keywords:
+- Gaul
+- Roman
+- Village
+- Magic
+- geography
+- location
+- territory
+publication_date: 45 BC
+title: 'Encyclopedia: Gallic Village Structure'
+---
+
+# Gallic Village Structure
+
+The Armorican Village is structured around a central square with Chief Vitalstatistix's hut at the highest point.
+Key infrastructure includes Getafix's potion laboratory, the menhir quarry, and the fishmonger's stall.
+Defense relies on natural forest barriers and the strategic use of magic potion.
+Social hierarchy places the chief at the top, followed by warriors, then craftsmen, with the bard (Cacofonix) nominally respected but often restrained.
+
+## See Also
+- ENCY_ENCY_001
+- ENCY_ENCY_002
