@@ -7,18 +7,19 @@ generated_date: '2026-01-15'
 keywords:
 - Veridonia
 - fictional
-- culture
-publication_date: 49 AS (After Settlement)
-title: 'Encyclopedia: Lorekeeper Practices and Rituals'
+- geography
+publication_date: 45 AS (After Settlement)
+title: 'Encyclopedia: Structure of Oakhaven Settlement'
 universe: The Chronicles of Veridonia
 ---
 
-# Lorekeeper Practices and Rituals
+# Structure of Oakhaven Settlement
 
-Lorekeeper practices encompass herbalism, celestial observation, and oral tradition preservation.
-The annual convocation at the Crystalwood Grove is mandatory for all Lorekeepers.
-Taraos is regarded among the most adept, particularly for elixir mastery.
-Lorekeepers serve as arbiters, instructors, and healers in Valefolk society, commanding significant respect.
+Oakhaven is structured around a central plaza with Chief Beloos's longhouse at the highest elevation.
+Key structures include the Alchemist's tower, the stone circle quarry, and the fishery.
+Defensive strategy relies on natural valley topography and strategic use of the Sunstone Elixir.
+Social structure places the chief atop, followed by defenders, then artisans, with the minstrel Beloix enjoying ceremonial status but often being restrained during gatherings.
+Notable conflicts frequently occur between Veros and Carnoix over trade disputes.
 
 ## Related Documents
 - ENCY_001

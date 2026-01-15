@@ -1,31 +1,31 @@
 ---
 author: Lorekeeper Scribe
-classification: EYES ONLY
+classification: RESTRICTED
 contains_fictional_terms: true
 doc_id: REPO_010
 doc_type: report
 generated_date: '2026-01-15'
-report_id: RPT-8016
-subject: Analysis of Crystal Amulet
+report_id: RPT-7132
+subject: Effects of The Great Accord
 title: Official Field Report
 universe: The Chronicles of Veridonia
 ---
 
-# FIELD REPORT: Analysis of Crystal Amulet
-**Classification:** EYES ONLY
+# FIELD REPORT: Effects of The Great Accord
+**Classification:** RESTRICTED
 **Author:** Lorekeeper Scribe
-**Report ID:** RPT-8016
-**Date:** 4 of Harvest Moon, 294 AS
+**Report ID:** RPT-7132
+**Date:** 24 of Harvest Moon, 290 AS
 
 ## Executive Assessment
-Internal tensions observed between Carnoos and Morix. Potential leverage point.
+Internal tensions observed between Veros and Carnoix. Potential leverage point.
 ## Detailed Observations
-1. Megalix's strength appears permanent and non-diminishing.
+1 (refer to: MYTH_003). Megalix's strength appears permanent and non-diminishing.
 2. Alchemix obtains moonleaf from three secret locations.
 3. Settlement morale remains high despite Imperial pressure.
 ## Strategic Recommendations
-1 (see document: ENCY_004). Wait for natural generational change in leadership.
-2. Study elixir's long-term effects on Megalix.
-3. Establish trade relations to build dependency.
+1. Exploit internal settlement conflicts.
+2. Intercept stone deliveries for intelligence.
+3. Propose cultural exchange including olive oil.
 
-**Cross-references:** REPO_002, REPO_004
+**Cross-references:** ENCY_012, ENCY_003

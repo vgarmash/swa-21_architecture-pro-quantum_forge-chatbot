@@ -1,23 +1,23 @@
 ---
 contains_fictional_terms: true
-delivery: Coded message
+delivery: Carrier hawk
 doc_id: LETT_003
 doc_type: letter
-from: Taraos
+from: Carnoix
 generated_date: '2026-01-15'
 title: Private Correspondence
 to: Lorekeeper Circle
 universe: The Chronicles of Veridonia
-urgency: Routine
+urgency: Confidential
 ---
 
 To Lorekeeper Circle,
 
 Critical intelligence: Imperials from Fort Ferrum are preparing an excursion. Observed drilling near the western woods.
 
-Recall our discussion regarding Imperial movements.
+Recall our discussion regarding the elixir formula.
 
 In fellowship,
-Taraos
+Carnoix
 
-P.S. Bring more olive amphorae next caravan.
+P.S. Burn this after reading—Imperials intercept messages.

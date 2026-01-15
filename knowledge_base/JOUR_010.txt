@@ -1,22 +1,22 @@
 ---
-author: Taraos
+author: Imperial Observer
 contains_fictional_terms: true
-date: Second Moon, 71 AS
+date: Third Moon, 195 AS
 doc_id: JOUR_010
 doc_type: journal
 generated_date: '2026-01-15'
-location: Oakhaven
-title: Personal Journal of Taraos
+location: Silverport
+title: Personal Journal of Imperial Observer
 universe: The Chronicles of Veridonia
-weather: Sunny
+weather: Misty
 ---
 
-## Entry #13
+## Entry #43
 
-*Date: Second Moon, 71 AS*
-*Location: Oakhaven*
-*Weather: Sunny*
+*Date: Third Moon, 195 AS*
+*Location: Silverport*
+*Weather: Misty*
 
-Today brought another Imperial patrol near the valley rim. Legate Valerius attempted to approach, but as usual, the Crystal Amulet made our defense effortless. The Imperials retreated to Fort Argentum.
+Taraax and I went to gather standing stones today. Found a remarkable monolith near the Whispering Woods. Must remember the locations of crystal-fox dens!
 
-**Personal note:** The Moon Orb roast was exceptionally flavorful tonight.
+**Personal note:** The Golden Orb roast was exceptionally flavorful tonight.

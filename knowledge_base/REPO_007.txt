@@ -5,7 +5,7 @@ contains_fictional_terms: true
 doc_id: REPO_007
 doc_type: report
 generated_date: '2026-01-15'
-report_id: RPT-8761
+report_id: RPT-3549
 subject: Oakhaven Defensive Capabilities
 title: Official Field Report
 universe: The Chronicles of Veridonia
@@ -14,18 +14,18 @@ universe: The Chronicles of Veridonia
 # FIELD REPORT: Oakhaven Defensive Capabilities
 **Classification:** EYES ONLY
 **Author:** Imperial Legate
-**Report ID:** RPT-8761
-**Date:** 2 of Harvest Moon, 293 AS
+**Report ID:** RPT-3549
+**Date:** 8 of Harvest Moon, 296 AS
 
 ## Executive Assessment
 Production of standing stones continues at notable volume. Economic implications require further study.
 ## Detailed Observations
-1. Fish supply chain vulnerable to interception.
-2 (detailed in: REPO_001). Minstrel's singing causes measurable discomfort.
-3. Forest stag population stable and abundant.
+1 (detailed in: JOUR_006). Elixir effects last approximately 10 minutes per dose.
+2 (see document: ENCY_004). Settlement defenses weakest during gathering preparations.
+3. Imperial agents have been detected but captured.
 ## Strategic Recommendations
 1. Attempt diplomacy with offers of Imperial citizenship.
 2. Research counter-elixir with alchemists.
 3. Increase surveillance on moonleaf harvests.
 
-**Cross-references:** ENCY_001, ENCY_014
+**Cross-references:** REPO_002, ENCY_009

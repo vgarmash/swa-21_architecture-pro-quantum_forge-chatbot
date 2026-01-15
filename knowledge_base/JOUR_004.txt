@@ -1,22 +1,22 @@
 ---
-author: Taraos
+author: Imperial Observer
 contains_fictional_terms: true
-date: Second Moon, 62 AS
+date: Second Moon, 210 AS
 doc_id: JOUR_004
 doc_type: journal
 generated_date: '2026-01-15'
-location: Silverport
-title: Personal Journal of Taraos
+location: Oakhaven
+title: Personal Journal of Imperial Observer
 universe: The Chronicles of Veridonia
-weather: Sunny
+weather: Misty
 ---
 
-## Entry #8
+## Entry #11
 
-*Date: Second Moon, 62 AS*
-*Location: Silverport*
-*Weather: Sunny*
+*Date: Second Moon, 210 AS*
+*Location: Oakhaven*
+*Weather: Misty*
 
-Community gathering tonight. Predictably, Lugous began his ballad and had to be escorted out. The catch from Morix was unusually brine-heavy today.
+Discussed herb cultivation with Carnoix. The Crystal way is particularly potent this season. Note: avoid specimens from the northern grove—they induce drowsiness.
 
 **Personal note:** Noticed Imperial scouts mapping the eastern pass.

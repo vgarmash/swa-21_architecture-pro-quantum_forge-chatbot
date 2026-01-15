@@ -1,23 +1,23 @@
 ---
 contains_fictional_terms: true
-delivery: Coded message
+delivery: Trusted caravan
 doc_id: LETT_001
 doc_type: letter
-from: Taraos
+from: Imperial Despatch
 generated_date: '2026-01-15'
 title: Private Correspondence
-to: Friend in Silverport
+to: Imperial Command
 universe: The Chronicles of Veridonia
-urgency: Routine
+urgency: Urgent
 ---
 
-To Friend in Silverport,
+To Imperial Command,
 
-Require additional oakwood for elixir preparation. The yield from the sunlit grove was meager this season.
+Critical intelligence: Imperials from Fort Ferrum are preparing an excursion. Observed drilling near the western woods.
 
 Recall our discussion regarding Imperial movements.
 
 In fellowship,
-Taraos
+Imperial Despatch
 
-P.S. Do not forget the Moon Orb for the gathering!
+P.S. Burn this after reading—Imperials intercept messages.

@@ -1,31 +1,31 @@
 ---
-author: Lorekeeper Scribe
+author: Valley Scout
 classification: CIRCULATION LIMITED
 contains_fictional_terms: true
 doc_id: REPO_005
 doc_type: report
 generated_date: '2026-01-15'
-report_id: RPT-2197
-subject: Oakhaven Defensive Capabilities
+report_id: RPT-8241
+subject: Effects of The Great Accord
 title: Official Field Report
 universe: The Chronicles of Veridonia
 ---
 
-# FIELD REPORT: Oakhaven Defensive Capabilities
+# FIELD REPORT: Effects of The Great Accord
 **Classification:** CIRCULATION LIMITED
-**Author:** Lorekeeper Scribe
-**Report ID:** RPT-2197
-**Date:** 16 of Harvest Moon, 294 AS
+**Author:** Valley Scout
+**Report ID:** RPT-8241
+**Date:** 17 of Harvest Moon, 297 AS
 
 ## Executive Assessment
-Supply routes for oakwood identified. Disruption feasible but carries diplomatic risk.
+Supply routes for Crystal way identified. Disruption feasible but carries diplomatic risk.
 ## Detailed Observations
-1. Fish supply chain vulnerable to interception.
-2. Minstrel's singing causes measurable discomfort.
-3. Forest stag population stable and abundant.
+1 (detailed in: ENCY_011). Elixir effects last approximately 10 minutes per dose.
+2. Settlement defenses weakest during gathering preparations.
+3 (cf. ENCY_005). Imperial agents have been detected but captured.
 ## Strategic Recommendations
-1. Exploit internal settlement conflicts.
-2. Intercept stone deliveries for intelligence.
-3 (detailed in: LETT_004). Propose cultural exchange including olive oil.
+1. Wait for natural generational change in leadership.
+2. Study elixir's long-term effects on Megalix.
+3. Establish trade relations to build dependency.
 
-**Cross-references:** JOUR_005, JOUR_009
+**Cross-references:** JOUR_006, ENCY_005

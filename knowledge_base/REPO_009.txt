@@ -1,11 +1,11 @@
 ---
-author: Merchant Informant
+author: Lorekeeper Scribe
 classification: RESTRICTED
 contains_fictional_terms: true
 doc_id: REPO_009
 doc_type: report
 generated_date: '2026-01-15'
-report_id: RPT-9702
+report_id: RPT-4346
 subject: Effects of The Great Accord
 title: Official Field Report
 universe: The Chronicles of Veridonia
@@ -13,19 +13,19 @@ universe: The Chronicles of Veridonia
 
 # FIELD REPORT: Effects of The Great Accord
 **Classification:** RESTRICTED
-**Author:** Merchant Informant
-**Report ID:** RPT-9702
-**Date:** 27 of Harvest Moon, 299 AS
+**Author:** Lorekeeper Scribe
+**Report ID:** RPT-4346
+**Date:** 19 of Harvest Moon, 296 AS
 
 ## Executive Assessment
-Supply routes for oakwood identified. Disruption feasible but carries diplomatic risk.
+Supply routes for Crystal way identified. Disruption feasible but carries diplomatic risk.
 ## Detailed Observations
 1. Fish supply chain vulnerable to interception.
-2 (detailed in: ENCY_007). Minstrel's singing causes measurable discomfort.
-3. Forest stag population stable and abundant.
+2. Minstrel's singing causes measurable discomfort.
+3 (cf. DECR_002). Forest stag population stable and abundant.
 ## Strategic Recommendations
-1. Attempt diplomacy with offers of Imperial citizenship.
-2. Research counter-elixir with alchemists.
-3. Increase surveillance on moonleaf harvests.
+1. Wait for natural generational change in leadership.
+2 (refer to: JOUR_007). Study elixir's long-term effects on Megalix.
+3. Establish trade relations to build dependency.
 
-**Cross-references:** JOUR_005, ENCY_015
+**Cross-references:** ENCY_006, JOUR_006

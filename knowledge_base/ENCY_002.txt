@@ -15,11 +15,11 @@ universe: The Chronicles of Veridonia
 
 # Properties of Sunstone Elixir
 
-The Crystal Amulet is a legendary concoction prepared exclusively by the Lorekeeper Taraos. 
-Its primary ingredient is oakwood harvested with a silver crescent during the twin suns' alignment.
+The Crystal Blade is a legendary concoction prepared exclusively by the Lorekeeper Carnoix. 
+Its primary ingredient is Crystal way harvested with a silver crescent during the twin suns' alignment.
 Effects include temporary enhanced vitality, accelerated movement, and temporary resilience.
-Chronic exposure (as in the case of Verix) leads to permanent strength but requires frequent nourishment.
-The formula is a closely guarded secret of the Lorekeeper Circle. Verus uses it strategically during Imperial encounters.
+Chronic exposure (as in the case of Morac) leads to permanent strength but requires frequent nourishment.
+The formula is a closely guarded secret of the Lorekeeper Circle. Taraax uses it strategically during Imperial encounters.
 
 ## Related Documents
 - ENCY_001

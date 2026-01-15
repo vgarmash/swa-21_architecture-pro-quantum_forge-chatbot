@@ -7,20 +7,21 @@ generated_date: '2026-01-15'
 keywords:
 - Veridonia
 - fictional
-- military
-publication_date: 47 AS (After Settlement)
-title: 'Encyclopedia: Imperial Military Organization'
+- geography
+publication_date: 45 AS (After Settlement)
+title: 'Encyclopedia: Structure of Oakhaven Settlement'
 universe: The Chronicles of Veridonia
 ---
 
-# Imperial Military Organization
+# Structure of Oakhaven Settlement
 
-Imperial military tactics involve constructing fortified outposts (Argentum, Ferrum, etc.) around resistant settlements.
-Standard procedure includes diplomatic overtures followed by siege tactics, though neither has succeeded against Oakhaven.
-Imperial forces are noted for discipline, engineering capabilities, and persistence despite repeated setbacks.
-Intelligence collection remains challenging due to Valefolk loyalty and dialect barriers.
+Oakhaven is structured around a central plaza with Chief Beloos's longhouse at the highest elevation.
+Key structures include the Alchemist's tower, the stone circle quarry, and the fishery.
+Defensive strategy relies on natural valley topography and strategic use of the Sunstone Elixir.
+Social structure places the chief atop, followed by defenders, then artisans, with the minstrel Beloix enjoying ceremonial status but often being restrained during gatherings.
+Notable conflicts frequently occur between Veros and Carnoix over trade disputes.
 
 ## Related Documents
-- ENCY_003
-- ENCY_008
-- ENCY_014
+- ENCY_007
+- ENCY_005
+- ENCY_010

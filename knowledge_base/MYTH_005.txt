@@ -2,7 +2,7 @@
 contains_fictional_terms: true
 doc_id: MYTH_005
 doc_type: myth
-estimated_origin: 554 years before settlement
+estimated_origin: 678 years before settlement
 generated_date: '2026-01-15'
 myth_type: alchemy
 region: Emerald Valley
@@ -15,6 +15,6 @@ universe: The Chronicles of Veridonia
 
 *As recounted by Traveling Skald*
 
-Before the Imperials came, the Lorekeeper Taraos was studying oakwood when twin sunbeams converged on his alembic...
+Before the Imperials came, the Lorekeeper Carnoix was studying Crystal way when twin sunbeams converged on his alembic...
 
 **Lesson:** Never underestimate valley-dwellers after a feast.

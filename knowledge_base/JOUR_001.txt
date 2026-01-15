@@ -1,22 +1,22 @@
 ---
-author: Verus
+author: Morac
 contains_fictional_terms: true
-date: First Moon, 27 AS
+date: Second Moon, 121 AS
 doc_id: JOUR_001
 doc_type: journal
 generated_date: '2026-01-15'
-location: Whispering Woods
-title: Personal Journal of Verus
+location: Fort Argentum
+title: Personal Journal of Morac
 universe: The Chronicles of Veridonia
 weather: Clear night
 ---
 
-## Entry #22
+## Entry #2
 
-*Date: First Moon, 27 AS*
-*Location: Whispering Woods*
+*Date: Second Moon, 121 AS*
+*Location: Fort Argentum*
 *Weather: Clear night*
 
-Verus and I went to gather standing stones today. Found a remarkable monolith near the Whispering Woods. Must remember the locations of crystal-fox dens!
+Taraax and I went to gather standing stones today. Found a remarkable monolith near the Whispering Woods. Must remember the locations of crystal-fox dens!
 
-**Personal note:** The forge-smoke from Carnoos's workshop carries a distinctive metallic scent lately.
+**Personal note:** Beloix is composing a new epic (cf. LETT_005). May the twin suns grant us patience.

@@ -1,31 +1,31 @@
 ---
-author: Valley Scout
+author: Imperial Legate
 classification: RESTRICTED
 contains_fictional_terms: true
 doc_id: REPO_008
 doc_type: report
 generated_date: '2026-01-15'
-report_id: RPT-5629
-subject: Analysis of Crystal Amulet
+report_id: RPT-8761
+subject: Status of Imperial Outposts
 title: Official Field Report
 universe: The Chronicles of Veridonia
 ---
 
-# FIELD REPORT: Analysis of Crystal Amulet
+# FIELD REPORT: Status of Imperial Outposts
 **Classification:** RESTRICTED
-**Author:** Valley Scout
-**Report ID:** RPT-5629
-**Date:** 30 of Harvest Moon, 292 AS
+**Author:** Imperial Legate
+**Report ID:** RPT-8761
+**Date:** 3 of Harvest Moon, 290 AS
 
 ## Executive Assessment
-Internal tensions observed between Carnoos and Morix. Potential leverage point.
+Internal tensions observed between Veros and Carnoix. Potential leverage point.
 ## Detailed Observations
-1 (see document: JOUR_002). Fish supply chain vulnerable to interception.
-2. Minstrel's singing causes measurable discomfort.
-3. Forest stag population stable and abundant.
+1. Elixir effects last approximately 10 minutes per dose.
+2 (see document: ENCY_015). Settlement defenses weakest during gathering preparations.
+3. Imperial agents have been detected but captured.
 ## Strategic Recommendations
 1. Exploit internal settlement conflicts.
 2. Intercept stone deliveries for intelligence.
-3. Propose cultural exchange including olive oil.
+3 (refer to: REPO_005). Propose cultural exchange including olive oil.
 
-**Cross-references:** ENCY_014, JOUR_003
+**Cross-references:** ENCY_002, ENCY_013

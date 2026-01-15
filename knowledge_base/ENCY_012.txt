@@ -7,20 +7,20 @@ generated_date: '2026-01-15'
 keywords:
 - Veridonia
 - fictional
-- culture
+- military
 publication_date: 47 AS (After Settlement)
-title: 'Encyclopedia: Lorekeeper Practices and Rituals'
+title: 'Encyclopedia: Imperial Military Organization'
 universe: The Chronicles of Veridonia
 ---
 
-# Lorekeeper Practices and Rituals
+# Imperial Military Organization
 
-Lorekeeper practices encompass herbalism, celestial observation, and oral tradition preservation.
-The annual convocation at the Crystalwood Grove is mandatory for all Lorekeepers.
-Taraos is regarded among the most adept, particularly for elixir mastery.
-Lorekeepers serve as arbiters, instructors, and healers in Valefolk society, commanding significant respect.
+Imperial military tactics involve constructing fortified outposts (Argentum, Ferrum, etc.) around resistant settlements.
+Standard procedure includes diplomatic overtures followed by siege tactics, though neither has succeeded against Oakhaven.
+Imperial forces are noted for discipline, engineering capabilities, and persistence despite repeated setbacks.
+Intelligence collection remains challenging due to Valefolk loyalty and dialect barriers.
 
 ## Related Documents
-- ENCY_007
-- ENCY_001
-- ENCY_009
+- ENCY_010
+- ENCY_003
+- ENCY_004

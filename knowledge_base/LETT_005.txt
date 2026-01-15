@@ -1,23 +1,23 @@
 ---
 contains_fictional_terms: true
-delivery: Trusted caravan
+delivery: Coded message
 doc_id: LETT_005
 doc_type: letter
-from: Taraos
+from: Carnoix
 generated_date: '2026-01-15'
 title: Private Correspondence
-to: Imperial Command
+to: Lorekeeper Circle
 universe: The Chronicles of Veridonia
 urgency: Routine
 ---
 
-To Imperial Command,
+To Lorekeeper Circle,
 
-Critical intelligence: Imperials from Fort Ferrum are preparing an excursion. Observed drilling near the western woods.
+I trust this finds you well. Matters here proceed with usual vigor (detailed in: LETT_004). Veros and Carnoix had another dispute today over trade rights.
 
-Recall our discussion regarding Imperial movements.
+Recall our discussion regarding the upcoming gathering.
 
 In fellowship,
-Taraos
+Carnoix
 
-P.S. Bring more olive amphorae next caravan.
+P.S (see document: JOUR_009). Morac sends greetings (and requests more standing stones).

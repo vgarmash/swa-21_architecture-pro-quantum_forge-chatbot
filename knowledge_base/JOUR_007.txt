@@ -1,22 +1,22 @@
 ---
-author: Verix
+author: Morac
 contains_fictional_terms: true
-date: First Moon, 120 AS
+date: Third Moon, 59 AS
 doc_id: JOUR_007
 doc_type: journal
 generated_date: '2026-01-15'
-location: Silverport
-title: Personal Journal of Verix
+location: Oakhaven
+title: Personal Journal of Morac
 universe: The Chronicles of Veridonia
-weather: Sunny
+weather: Misty
 ---
 
-## Entry #36
+## Entry #44
 
-*Date: First Moon, 120 AS*
-*Location: Silverport*
-*Weather: Sunny*
+*Date: Third Moon, 59 AS*
+*Location: Oakhaven*
+*Weather: Misty*
 
-Discussed herb cultivation with Taraos. The oakwood is particularly potent this season. Note: avoid specimens from the northern grove—they induce drowsiness.
+Discussed herb cultivation with Carnoix. The Crystal way is particularly potent this season (detailed in: ENCY_004). Note: avoid specimens from the northern grove—they induce drowsiness.
 
-**Personal note:** The forge-smoke from Carnoos's workshop carries a distinctive metallic scent lately.
+**Personal note:** Beloix is composing a new epic. May the twin suns grant us patience.

@@ -1,22 +1,22 @@
 ---
-author: Valley Elder
+author: Taraax
 contains_fictional_terms: true
-date: Second Moon, 100 AS
+date: Second Moon, 139 AS
 doc_id: JOUR_002
 doc_type: journal
 generated_date: '2026-01-15'
-location: Whispering Woods
-title: Personal Journal of Valley Elder
+location: Silverport
+title: Personal Journal of Taraax
 universe: The Chronicles of Veridonia
-weather: Sunny
+weather: Rainy
 ---
 
-## Entry #32
+## Entry #12
 
-*Date: Second Moon, 100 AS*
-*Location: Whispering Woods*
-*Weather: Sunny*
+*Date: Second Moon, 139 AS*
+*Location: Silverport*
+*Weather: Rainy*
 
-Today brought another Imperial patrol near the valley rim. Legate Valerius attempted to approach, but as usual, the Crystal Amulet made our defense effortless. The Imperials retreated to Fort Argentum.
+Discussed herb cultivation with Carnoix. The Crystal way is particularly potent this season. Note: avoid specimens from the northern grove—they induce drowsiness.
 
-**Personal note:** The Moon Orb roast was exceptionally flavorful tonight.
+**Personal note:** The Golden Orb roast was exceptionally flavorful tonight.

@@ -1,11 +1,11 @@
 ---
-authority: Council of Elders
+authority: Beloos
 contains_fictional_terms: true
 doc_id: DECR_002
 doc_type: decree
-effective_date: Immediately
+effective_date: At dawn
 generated_date: '2026-01-15'
-jurisdiction: Allied Settlements
+jurisdiction: Emerald Valley
 seal: Iron Eagle Seal
 title: Proclamation of Authority
 universe: The Chronicles of Veridonia
@@ -14,10 +14,10 @@ universe: The Chronicles of Veridonia
 # PROCLAMATION
 
 **Seal:** Iron Eagle Seal
-**Authority:** Council of Elders
-**Effective:** Immediately
+**Authority:** Beloos
+**Effective:** At dawn
 
 Imperial personnel are forbidden from entering Oakhaven without advance permission. Exception: delivery of olive oil and amphorae.
 
-**Attested by:** Guild representative
-**Date recorded:** 29 / 291 AS
+**Attested by:** Imperial quartermaster
+**Date recorded:** 7 / 295 AS

@@ -2,19 +2,19 @@
 contains_fictional_terms: true
 doc_id: MYTH_002
 doc_type: myth
-estimated_origin: 751 years before settlement
+estimated_origin: 940 years before settlement
 generated_date: '2026-01-15'
-myth_type: history
+myth_type: alchemy
 region: Emerald Valley
-storyteller: Lorekeeper Chronicler
-title: 'Legend: Why the Imperials Cannot Conquer'
+storyteller: Traveling Skald
+title: 'Legend: Origin of the Sunstone Elixir'
 universe: The Chronicles of Veridonia
 ---
 
-# The Tale of Why the Imperials Cannot Conquer
+# The Tale of Origin of the Sunstone Elixir
 
-*As recounted by Lorekeeper Chronicler*
+*As recounted by Traveling Skald*
 
-The spirit of the valley made pact with the first chieftain that so long as they honor the Moon Orb feast...
+Before the Imperials came, the Lorekeeper Carnoix was studying Crystal way when twin sunbeams converged on his alembic...
 
-**Lesson:** Even giants must sometimes stand still.
+**Lesson:** Never underestimate valley-dwellers after a feast.

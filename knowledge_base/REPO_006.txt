@@ -1,31 +1,31 @@
 ---
-author: Lorekeeper Scribe
-classification: CIRCULATION LIMITED
+author: Merchant Informant
+classification: RESTRICTED
 contains_fictional_terms: true
 doc_id: REPO_006
 doc_type: report
 generated_date: '2026-01-15'
-report_id: RPT-8340
+report_id: RPT-6415
 subject: Oakhaven Defensive Capabilities
 title: Official Field Report
 universe: The Chronicles of Veridonia
 ---
 
 # FIELD REPORT: Oakhaven Defensive Capabilities
-**Classification:** CIRCULATION LIMITED
-**Author:** Lorekeeper Scribe
-**Report ID:** RPT-8340
-**Date:** 18 of Harvest Moon, 299 AS
+**Classification:** RESTRICTED
+**Author:** Merchant Informant
+**Report ID:** RPT-6415
+**Date:** 21 of Harvest Moon, 296 AS
 
 ## Executive Assessment
-The settlement remains resilient primarily due to Crystal Amulet. Alternative approaches under review.
+Supply routes for Crystal way identified. Disruption feasible but carries diplomatic risk.
 ## Detailed Observations
-1 (see document: JOUR_008). Fish supply chain vulnerable to interception.
-2. Minstrel's singing causes measurable discomfort.
-3. Forest stag population stable and abundant.
+1. Megalix's strength appears permanent and non-diminishing.
+2 (refer to: REPO_009). Alchemix obtains moonleaf from three secret locations.
+3. Settlement morale remains high despite Imperial pressure.
 ## Strategic Recommendations
-1. Exploit internal settlement conflicts.
+1 (cf. REPO_008). Exploit internal settlement conflicts.
 2. Intercept stone deliveries for intelligence.
-3 (see document: MYTH_002). Propose cultural exchange including olive oil.
+3. Propose cultural exchange including olive oil.
 
-**Cross-references:** JOUR_009, ENCY_014
+**Cross-references:** JOUR_003, ENCY_009

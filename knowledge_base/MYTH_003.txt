@@ -2,19 +2,19 @@
 contains_fictional_terms: true
 doc_id: MYTH_003
 doc_type: myth
-estimated_origin: 653 years before settlement
+estimated_origin: 582 years before settlement
 generated_date: '2026-01-15'
-myth_type: history
+myth_type: archeology
 region: Emerald Valley
 storyteller: Valley Elder
-title: 'Legend: Why the Imperials Cannot Conquer'
+title: 'Legend: The First Standing Stone'
 universe: The Chronicles of Veridonia
 ---
 
-# The Tale of Why the Imperials Cannot Conquer
+# The Tale of The First Standing Stone
 
 *As recounted by Valley Elder*
 
-The spirit of the valley made pact with the first chieftain that so long as they honor the Moon Orb feast...
+In elder times, earth-giants walked the land. Where they paused to rest, their shadows petrified into the first standing stones...
 
-**Lesson:** Some curses conceal unexpected blessings.
+**Lesson:** Even giants must sometimes stand still.

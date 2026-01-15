@@ -3,21 +3,21 @@ contains_fictional_terms: true
 delivery: Trusted caravan
 doc_id: LETT_002
 doc_type: letter
-from: Verix
+from: Valley Merchant
 generated_date: '2026-01-15'
 title: Private Correspondence
-to: Friend in Silverport
+to: Kinsfolk
 universe: The Chronicles of Veridonia
 urgency: Routine
 ---
 
-To Friend in Silverport,
+To Kinsfolk,
 
-Verix delivered another load of standing stones today. One monolith was so massive it cracked the gate lintel! Chief Morac expressed measured displeasure.
+Morac delivered another load of standing stones today. One monolith was so massive it cracked the gate lintel! Chief Beloos expressed measured displeasure.
 
-Recall our discussion regarding the upcoming gathering.
+Recall our discussion regarding Imperial movements.
 
 In fellowship,
-Verix
+Valley Merchant
 
-P.S. Verix sends greetings (and requests more standing stones).
+P.S. Bring more olive amphorae next caravan.

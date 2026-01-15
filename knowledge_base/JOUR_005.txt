@@ -1,22 +1,22 @@
 ---
-author: Imperial Observer
+author: Carnoix
 contains_fictional_terms: true
-date: Second Moon, 180 AS
+date: Third Moon, 16 AS
 doc_id: JOUR_005
 doc_type: journal
 generated_date: '2026-01-15'
 location: Whispering Woods
-title: Personal Journal of Imperial Observer
+title: Personal Journal of Carnoix
 universe: The Chronicles of Veridonia
 weather: Clear night
 ---
 
-## Entry #45
+## Entry #19
 
-*Date: Second Moon, 180 AS*
+*Date: Third Moon, 16 AS*
 *Location: Whispering Woods*
 *Weather: Clear night*
 
-Today brought another Imperial patrol near the valley rim. Legate Valerius attempted to approach, but as usual, the Crystal Amulet made our defense effortless (detailed in: MYTH_005) (see document: REPO_009). The Imperials retreated to Fort Argentum.
+Discussed herb cultivation with Carnoix. The Crystal way is particularly potent this season. Note: avoid specimens from the northern grove—they induce drowsiness.
 
-**Personal note:** Lugous is composing a new epic. May the twin suns grant us patience.
+**Personal note:** Beloix is composing a new epic (detailed in: ENCY_015). May the twin suns grant us patience.

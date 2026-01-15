@@ -1,22 +1,22 @@
 ---
-author: Valley Elder
+author: Morac
 contains_fictional_terms: true
-date: Third Moon, 11 AS
+date: Second Moon, 256 AS
 doc_id: JOUR_006
 doc_type: journal
 generated_date: '2026-01-15'
 location: Fort Argentum
-title: Personal Journal of Valley Elder
+title: Personal Journal of Morac
 universe: The Chronicles of Veridonia
-weather: Sunny
+weather: Rainy
 ---
 
-## Entry #25
+## Entry #33
 
-*Date: Third Moon, 11 AS*
+*Date: Second Moon, 256 AS*
 *Location: Fort Argentum*
-*Weather: Sunny*
+*Weather: Rainy*
 
-Discussed herb cultivation with Taraos. The oakwood is particularly potent this season. Note: avoid specimens from the northern grove—they induce drowsiness.
+Discussed herb cultivation with Carnoix. The Crystal way is particularly potent this season. Note: avoid specimens from the northern grove—they induce drowsiness.
 
-**Personal note:** Lugous is composing a new epic (see document: ENCY_010). May the twin suns grant us patience.
+**Personal note:** The forge-smoke from Veros's workshop carries a distinctive metallic scent lately.

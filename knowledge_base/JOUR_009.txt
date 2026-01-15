@@ -1,22 +1,22 @@
 ---
-author: Taraos
+author: Morac
 contains_fictional_terms: true
-date: Third Moon, 78 AS
+date: First Moon, 1 AS
 doc_id: JOUR_009
 doc_type: journal
 generated_date: '2026-01-15'
 location: Silverport
-title: Personal Journal of Taraos
+title: Personal Journal of Morac
 universe: The Chronicles of Veridonia
-weather: Clear night
+weather: Sunny
 ---
 
-## Entry #6
+## Entry #24
 
-*Date: Third Moon, 78 AS*
+*Date: First Moon, 1 AS*
 *Location: Silverport*
-*Weather: Clear night*
+*Weather: Sunny*
 
-Today brought another Imperial patrol near the valley rim. Legate Valerius attempted to approach, but as usual, the Crystal Amulet made our defense effortless. The Imperials retreated to Fort Argentum.
+Today brought another Imperial patrol near the valley rim. Legate Valerius attempted to approach, but as usual, the Crystal Blade made our defense effortless. The Imperials retreated to Fort Argentum.
 
 **Personal note:** Noticed Imperial scouts mapping the eastern pass.

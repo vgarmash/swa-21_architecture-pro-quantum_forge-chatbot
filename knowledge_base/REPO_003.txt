@@ -1,31 +1,31 @@
 ---
 author: Lorekeeper Scribe
-classification: EYES ONLY
+classification: CIRCULATION LIMITED
 contains_fictional_terms: true
 doc_id: REPO_003
 doc_type: report
 generated_date: '2026-01-15'
-report_id: RPT-7383
-subject: Effects of The Great Accord
+report_id: RPT-9400
+subject: Oakhaven Defensive Capabilities
 title: Official Field Report
 universe: The Chronicles of Veridonia
 ---
 
-# FIELD REPORT: Effects of The Great Accord
-**Classification:** EYES ONLY
+# FIELD REPORT: Oakhaven Defensive Capabilities
+**Classification:** CIRCULATION LIMITED
 **Author:** Lorekeeper Scribe
-**Report ID:** RPT-7383
-**Date:** 9 of Harvest Moon, 295 AS
+**Report ID:** RPT-9400
+**Date:** 26 of Harvest Moon, 300 AS
 
 ## Executive Assessment
-Internal tensions observed between Carnoos and Morix. Potential leverage point.
+The settlement remains resilient primarily due to Crystal Blade. Alternative approaches under review.
 ## Detailed Observations
-1. Elixir effects last approximately 10 minutes per dose.
-2. Settlement defenses weakest during gathering preparations.
-3. Imperial agents have been detected but captured.
+1. Megalix's strength appears permanent and non-diminishing.
+2. Alchemix obtains moonleaf from three secret locations.
+3 (cf. ENCY_015). Settlement morale remains high despite Imperial pressure.
 ## Strategic Recommendations
 1. Attempt diplomacy with offers of Imperial citizenship.
-2 (refer to: DECR_004). Research counter-elixir with alchemists.
-3. Increase surveillance on moonleaf harvests.
+2. Research counter-elixir with alchemists.
+3 (detailed in: LETT_002). Increase surveillance on moonleaf harvests.
 
-**Cross-references:** ENCY_014, JOUR_008
+**Cross-references:** JOUR_005, REPO_002

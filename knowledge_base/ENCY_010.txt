@@ -7,20 +7,20 @@ generated_date: '2026-01-15'
 keywords:
 - Veridonia
 - fictional
-- archeology
-publication_date: 49 AS (After Settlement)
-title: 'Encyclopedia: Types of Standing Stones'
+- culture
+publication_date: 47 AS (After Settlement)
+title: 'Encyclopedia: Lorekeeper Practices and Rituals'
 universe: The Chronicles of Veridonia
 ---
 
-# Types of Standing Stones
+# Lorekeeper Practices and Rituals
 
-Standing stones are large, shaped monoliths used ceremonially and as Verix's primary trade.
-Classification includes: Standard (2m), Grande (3m), and Colossal (4m+).
-Quarrying techniques involve precise fracturing along natural stone planes.
-Transport logistics remain enigmatic, as Verix conveys them single-handedly without apparent exertion.
+Lorekeeper practices encompass herbalism, celestial observation, and oral tradition preservation.
+The annual convocation at the Crystalwood Grove is mandatory for all Lorekeepers.
+Carnoix is regarded among the most adept, particularly for elixir mastery.
+Lorekeepers serve as arbiters, instructors, and healers in Valefolk society, commanding significant respect.
 
 ## Related Documents
 - ENCY_005
-- ENCY_001
-- ENCY_007
+- ENCY_009
+- ENCY_008

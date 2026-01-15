@@ -2,19 +2,19 @@
 contains_fictional_terms: true
 doc_id: MYTH_004
 doc_type: myth
-estimated_origin: 778 years before settlement
+estimated_origin: 608 years before settlement
 generated_date: '2026-01-15'
-myth_type: archeology
+myth_type: alchemy
 region: Emerald Valley
-storyteller: Lorekeeper Chronicler
-title: 'Legend: The First Standing Stone'
+storyteller: Valley Elder
+title: 'Legend: Origin of the Sunstone Elixir'
 universe: The Chronicles of Veridonia
 ---
 
-# The Tale of The First Standing Stone
+# The Tale of Origin of the Sunstone Elixir
 
-*As recounted by Lorekeeper Chronicler*
+*As recounted by Valley Elder*
 
-In elder times, earth-giants walked the land. Where they paused to rest, their shadows petrified into the first standing stones...
+Before the Imperials came, the Lorekeeper Carnoix was studying Crystal way when twin sunbeams converged on his alembic...
 
-**Lesson:** Never underestimate valley-dwellers after a feast.
+**Lesson:** True strength flows from unity, not elixirs.
