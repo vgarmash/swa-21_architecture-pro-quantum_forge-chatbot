@@ -1,0 +1,20 @@
+---
+contains_fictional_terms: true
+doc_id: MYTH_001
+doc_type: myth
+estimated_origin: 807 years before settlement
+generated_date: '2026-01-15'
+myth_type: archeology
+region: Emerald Valley
+storyteller: Lorekeeper Chronicler
+title: 'Legend: The First Standing Stone'
+universe: The Chronicles of Veridonia
+---
+
+# The Tale of The First Standing Stone
+
+*As recounted by Lorekeeper Chronicler*
+
+In elder times, earth-giants walked the land. Where they paused to rest, their shadows petrified into the first standing stones...
+
+**Lesson:** Even giants must sometimes stand still.

@@ -1,0 +1,25 @@
+---
+author: Emerald Valley Scholars
+contains_fictional_terms: true
+doc_id: ENCY_003
+doc_type: encyclopedia
+generated_date: '2026-01-15'
+keywords:
+- Veridonia
+- fictional
+- culture
+publication_date: 49 AS (After Settlement)
+title: 'Encyclopedia: Lorekeeper Practices and Rituals'
+universe: The Chronicles of Veridonia
+---
+
+# Lorekeeper Practices and Rituals
+
+Lorekeeper practices encompass herbalism, celestial observation, and oral tradition preservation.
+The annual convocation at the Crystalwood Grove is mandatory for all Lorekeepers.
+Taraos is regarded among the most adept, particularly for elixir mastery.
+Lorekeepers serve as arbiters, instructors, and healers in Valefolk society, commanding significant respect.
+
+## Related Documents
+- ENCY_001
+- ENCY_002

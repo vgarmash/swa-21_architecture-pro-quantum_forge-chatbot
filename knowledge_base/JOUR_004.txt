@@ -1,0 +1,22 @@
+---
+author: Taraos
+contains_fictional_terms: true
+date: Second Moon, 62 AS
+doc_id: JOUR_004
+doc_type: journal
+generated_date: '2026-01-15'
+location: Silverport
+title: Personal Journal of Taraos
+universe: The Chronicles of Veridonia
+weather: Sunny
+---
+
+## Entry #8
+
+*Date: Second Moon, 62 AS*
+*Location: Silverport*
+*Weather: Sunny*
+
+Community gathering tonight. Predictably, Lugous began his ballad and had to be escorted out. The catch from Morix was unusually brine-heavy today.
+
+**Personal note:** Noticed Imperial scouts mapping the eastern pass.

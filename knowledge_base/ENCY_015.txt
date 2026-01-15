@@ -1,0 +1,26 @@
+---
+author: Emerald Valley Scholars
+contains_fictional_terms: true
+doc_id: ENCY_015
+doc_type: encyclopedia
+generated_date: '2026-01-15'
+keywords:
+- Veridonia
+- fictional
+- military
+publication_date: 47 AS (After Settlement)
+title: 'Encyclopedia: Imperial Military Organization'
+universe: The Chronicles of Veridonia
+---
+
+# Imperial Military Organization
+
+Imperial military tactics involve constructing fortified outposts (Argentum, Ferrum, etc.) around resistant settlements.
+Standard procedure includes diplomatic overtures followed by siege tactics, though neither has succeeded against Oakhaven.
+Imperial forces are noted for discipline, engineering capabilities, and persistence despite repeated setbacks.
+Intelligence collection remains challenging due to Valefolk loyalty and dialect barriers.
+
+## Related Documents
+- ENCY_003
+- ENCY_008
+- ENCY_014

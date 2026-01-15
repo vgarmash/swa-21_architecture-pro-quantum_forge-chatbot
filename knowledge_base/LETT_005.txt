@@ -1,0 +1,23 @@
+---
+contains_fictional_terms: true
+delivery: Trusted caravan
+doc_id: LETT_005
+doc_type: letter
+from: Taraos
+generated_date: '2026-01-15'
+title: Private Correspondence
+to: Imperial Command
+universe: The Chronicles of Veridonia
+urgency: Routine
+---
+
+To Imperial Command,
+
+Critical intelligence: Imperials from Fort Ferrum are preparing an excursion. Observed drilling near the western woods.
+
+Recall our discussion regarding Imperial movements.
+
+In fellowship,
+Taraos
+
+P.S. Bring more olive amphorae next caravan.

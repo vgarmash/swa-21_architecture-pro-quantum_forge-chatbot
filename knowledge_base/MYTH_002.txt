@@ -1,0 +1,20 @@
+---
+contains_fictional_terms: true
+doc_id: MYTH_002
+doc_type: myth
+estimated_origin: 751 years before settlement
+generated_date: '2026-01-15'
+myth_type: history
+region: Emerald Valley
+storyteller: Lorekeeper Chronicler
+title: 'Legend: Why the Imperials Cannot Conquer'
+universe: The Chronicles of Veridonia
+---
+
+# The Tale of Why the Imperials Cannot Conquer
+
+*As recounted by Lorekeeper Chronicler*
+
+The spirit of the valley made pact with the first chieftain that so long as they honor the Moon Orb feast...
+
+**Lesson:** Even giants must sometimes stand still.

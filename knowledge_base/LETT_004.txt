@@ -1,0 +1,23 @@
+---
+contains_fictional_terms: true
+delivery: Trusted caravan
+doc_id: LETT_004
+doc_type: letter
+from: Imperial Despatch
+generated_date: '2026-01-15'
+title: Private Correspondence
+to: Imperial Command
+universe: The Chronicles of Veridonia
+urgency: Routine
+---
+
+To Imperial Command,
+
+Require additional oakwood for elixir preparation. The yield from the sacred copse was meager this season.
+
+Recall our discussion regarding Imperial movements.
+
+In fellowship,
+Imperial Despatch
+
+P.S. Do not forget the Moon Orb for the gathering!

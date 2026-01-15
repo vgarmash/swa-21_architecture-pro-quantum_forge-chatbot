@@ -1,0 +1,22 @@
+---
+author: Valley Elder
+contains_fictional_terms: true
+date: Second Moon, 100 AS
+doc_id: JOUR_002
+doc_type: journal
+generated_date: '2026-01-15'
+location: Whispering Woods
+title: Personal Journal of Valley Elder
+universe: The Chronicles of Veridonia
+weather: Sunny
+---
+
+## Entry #32
+
+*Date: Second Moon, 100 AS*
+*Location: Whispering Woods*
+*Weather: Sunny*
+
+Today brought another Imperial patrol near the valley rim. Legate Valerius attempted to approach, but as usual, the Crystal Amulet made our defense effortless. The Imperials retreated to Fort Argentum.
+
+**Personal note:** The Moon Orb roast was exceptionally flavorful tonight.

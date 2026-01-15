@@ -1,0 +1,31 @@
+---
+author: Lorekeeper Scribe
+classification: EYES ONLY
+contains_fictional_terms: true
+doc_id: REPO_004
+doc_type: report
+generated_date: '2026-01-15'
+report_id: RPT-4860
+subject: Status of Imperial Outposts
+title: Official Field Report
+universe: The Chronicles of Veridonia
+---
+
+# FIELD REPORT: Status of Imperial Outposts
+**Classification:** EYES ONLY
+**Author:** Lorekeeper Scribe
+**Report ID:** RPT-4860
+**Date:** 5 of Harvest Moon, 297 AS
+
+## Executive Assessment
+The settlement remains resilient primarily due to Crystal Amulet. Alternative approaches under review.
+## Detailed Observations
+1. Megalix's strength appears permanent and non-diminishing.
+2 (refer to: ENCY_015). Alchemix obtains moonleaf from three secret locations.
+3. Settlement morale remains high despite Imperial pressure.
+## Strategic Recommendations
+1. Attempt diplomacy with offers of Imperial citizenship.
+2 (detailed in: JOUR_001). Research counter-elixir with alchemists.
+3. Increase surveillance on moonleaf harvests.
+
+**Cross-references:** JOUR_010, ENCY_004

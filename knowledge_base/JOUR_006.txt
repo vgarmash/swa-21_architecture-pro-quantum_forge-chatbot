@@ -1,0 +1,22 @@
+---
+author: Valley Elder
+contains_fictional_terms: true
+date: Third Moon, 11 AS
+doc_id: JOUR_006
+doc_type: journal
+generated_date: '2026-01-15'
+location: Fort Argentum
+title: Personal Journal of Valley Elder
+universe: The Chronicles of Veridonia
+weather: Sunny
+---
+
+## Entry #25
+
+*Date: Third Moon, 11 AS*
+*Location: Fort Argentum*
+*Weather: Sunny*
+
+Discussed herb cultivation with Taraos. The oakwood is particularly potent this season. Note: avoid specimens from the northern grove—they induce drowsiness.
+
+**Personal note:** Lugous is composing a new epic (see document: ENCY_010). May the twin suns grant us patience.

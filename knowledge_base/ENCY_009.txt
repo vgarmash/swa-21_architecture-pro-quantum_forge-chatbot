@@ -1,0 +1,27 @@
+---
+author: Emerald Valley Scholars
+contains_fictional_terms: true
+doc_id: ENCY_009
+doc_type: encyclopedia
+generated_date: '2026-01-15'
+keywords:
+- Veridonia
+- fictional
+- geography
+publication_date: 47 AS (After Settlement)
+title: 'Encyclopedia: Structure of Oakhaven Settlement'
+universe: The Chronicles of Veridonia
+---
+
+# Structure of Oakhaven Settlement
+
+Oakhaven is structured around a central plaza with Chief Morac's longhouse at the highest elevation.
+Key structures include the Alchemist's tower, the stone circle quarry, and the fishery.
+Defensive strategy relies on natural valley topography and strategic use of the Sunstone Elixir.
+Social structure places the chief atop, followed by defenders, then artisans, with the minstrel Lugous enjoying ceremonial status but often being restrained during gatherings.
+Notable conflicts frequently occur between Carnoos and Morix over trade disputes.
+
+## Related Documents
+- ENCY_004
+- ENCY_003
+- ENCY_007

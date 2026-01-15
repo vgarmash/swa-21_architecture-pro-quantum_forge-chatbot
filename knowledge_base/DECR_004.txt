@@ -1,0 +1,23 @@
+---
+authority: Council of Elders
+contains_fictional_terms: true
+doc_id: DECR_004
+doc_type: decree
+effective_date: At dawn
+generated_date: '2026-01-15'
+jurisdiction: Imperial Territories
+seal: Iron Eagle Seal
+title: Proclamation of Authority
+universe: The Chronicles of Veridonia
+---
+
+# PROCLAMATION
+
+**Seal:** Iron Eagle Seal
+**Authority:** Council of Elders
+**Effective:** At dawn
+
+Imperial personnel are forbidden from entering Oakhaven without advance permission. Exception: delivery of olive oil and amphorae.
+
+**Attested by:** Guild representative
+**Date recorded:** 12 / 295 AS

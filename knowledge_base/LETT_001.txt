@@ -1,0 +1,23 @@
+---
+contains_fictional_terms: true
+delivery: Coded message
+doc_id: LETT_001
+doc_type: letter
+from: Taraos
+generated_date: '2026-01-15'
+title: Private Correspondence
+to: Friend in Silverport
+universe: The Chronicles of Veridonia
+urgency: Routine
+---
+
+To Friend in Silverport,
+
+Require additional oakwood for elixir preparation. The yield from the sunlit grove was meager this season.
+
+Recall our discussion regarding Imperial movements.
+
+In fellowship,
+Taraos
+
+P.S. Do not forget the Moon Orb for the gathering!

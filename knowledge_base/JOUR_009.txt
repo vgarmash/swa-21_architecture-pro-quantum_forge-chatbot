@@ -1,0 +1,22 @@
+---
+author: Taraos
+contains_fictional_terms: true
+date: Third Moon, 78 AS
+doc_id: JOUR_009
+doc_type: journal
+generated_date: '2026-01-15'
+location: Silverport
+title: Personal Journal of Taraos
+universe: The Chronicles of Veridonia
+weather: Clear night
+---
+
+## Entry #6
+
+*Date: Third Moon, 78 AS*
+*Location: Silverport*
+*Weather: Clear night*
+
+Today brought another Imperial patrol near the valley rim. Legate Valerius attempted to approach, but as usual, the Crystal Amulet made our defense effortless. The Imperials retreated to Fort Argentum.
+
+**Personal note:** Noticed Imperial scouts mapping the eastern pass.

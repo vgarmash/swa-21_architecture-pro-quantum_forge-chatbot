@@ -1,0 +1,23 @@
+---
+authority: Lorekeeper Assembly
+contains_fictional_terms: true
+doc_id: DECR_003
+doc_type: decree
+effective_date: At dawn
+generated_date: '2026-01-15'
+jurisdiction: Imperial Territories
+seal: Iron Eagle Seal
+title: Proclamation of Authority
+universe: The Chronicles of Veridonia
+---
+
+# PROCLAMATION
+
+**Seal:** Iron Eagle Seal
+**Authority:** Lorekeeper Assembly
+**Effective:** At dawn
+
+By the authority of Lorekeeper Assembly, consumption of the Sunstone Elixir is restricted to defensive actions only. Violators shall perform quarry-clearing duties.
+
+**Attested by:** Two elders of the valley
+**Date recorded:** 6 / 290 AS

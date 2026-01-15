@@ -1,0 +1,31 @@
+---
+author: Valley Scout
+classification: RESTRICTED
+contains_fictional_terms: true
+doc_id: REPO_008
+doc_type: report
+generated_date: '2026-01-15'
+report_id: RPT-5629
+subject: Analysis of Crystal Amulet
+title: Official Field Report
+universe: The Chronicles of Veridonia
+---
+
+# FIELD REPORT: Analysis of Crystal Amulet
+**Classification:** RESTRICTED
+**Author:** Valley Scout
+**Report ID:** RPT-5629
+**Date:** 30 of Harvest Moon, 292 AS
+
+## Executive Assessment
+Internal tensions observed between Carnoos and Morix. Potential leverage point.
+## Detailed Observations
+1 (see document: JOUR_002). Fish supply chain vulnerable to interception.
+2. Minstrel's singing causes measurable discomfort.
+3. Forest stag population stable and abundant.
+## Strategic Recommendations
+1. Exploit internal settlement conflicts.
+2. Intercept stone deliveries for intelligence.
+3. Propose cultural exchange including olive oil.
+
+**Cross-references:** ENCY_014, JOUR_003

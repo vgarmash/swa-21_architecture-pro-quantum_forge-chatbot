@@ -1,0 +1,31 @@
+---
+author: Imperial Legate
+classification: EYES ONLY
+contains_fictional_terms: true
+doc_id: REPO_007
+doc_type: report
+generated_date: '2026-01-15'
+report_id: RPT-8761
+subject: Oakhaven Defensive Capabilities
+title: Official Field Report
+universe: The Chronicles of Veridonia
+---
+
+# FIELD REPORT: Oakhaven Defensive Capabilities
+**Classification:** EYES ONLY
+**Author:** Imperial Legate
+**Report ID:** RPT-8761
+**Date:** 2 of Harvest Moon, 293 AS
+
+## Executive Assessment
+Production of standing stones continues at notable volume. Economic implications require further study.
+## Detailed Observations
+1. Fish supply chain vulnerable to interception.
+2 (detailed in: REPO_001). Minstrel's singing causes measurable discomfort.
+3. Forest stag population stable and abundant.
+## Strategic Recommendations
+1. Attempt diplomacy with offers of Imperial citizenship.
+2. Research counter-elixir with alchemists.
+3. Increase surveillance on moonleaf harvests.
+
+**Cross-references:** ENCY_001, ENCY_014

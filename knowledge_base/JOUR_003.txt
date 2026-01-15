@@ -1,0 +1,22 @@
+---
+author: Taraos
+contains_fictional_terms: true
+date: Third Moon, 162 AS
+doc_id: JOUR_003
+doc_type: journal
+generated_date: '2026-01-15'
+location: Oakhaven
+title: Personal Journal of Taraos
+universe: The Chronicles of Veridonia
+weather: Rainy
+---
+
+## Entry #12
+
+*Date: Third Moon, 162 AS*
+*Location: Oakhaven*
+*Weather: Rainy*
+
+Verus and I went to gather standing stones today. Found a remarkable monolith near the Whispering Woods. Must remember the locations of crystal-fox dens!
+
+**Personal note:** The forge-smoke from Carnoos's workshop carries a distinctive metallic scent lately.

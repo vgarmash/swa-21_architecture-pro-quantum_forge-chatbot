@@ -1,0 +1,22 @@
+---
+author: Imperial Observer
+contains_fictional_terms: true
+date: Second Moon, 180 AS
+doc_id: JOUR_005
+doc_type: journal
+generated_date: '2026-01-15'
+location: Whispering Woods
+title: Personal Journal of Imperial Observer
+universe: The Chronicles of Veridonia
+weather: Clear night
+---
+
+## Entry #45
+
+*Date: Second Moon, 180 AS*
+*Location: Whispering Woods*
+*Weather: Clear night*
+
+Today brought another Imperial patrol near the valley rim. Legate Valerius attempted to approach, but as usual, the Crystal Amulet made our defense effortless (detailed in: MYTH_005) (see document: REPO_009). The Imperials retreated to Fort Argentum.
+
+**Personal note:** Lugous is composing a new epic. May the twin suns grant us patience.

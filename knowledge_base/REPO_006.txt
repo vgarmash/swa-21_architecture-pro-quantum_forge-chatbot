@@ -1,0 +1,31 @@
+---
+author: Lorekeeper Scribe
+classification: CIRCULATION LIMITED
+contains_fictional_terms: true
+doc_id: REPO_006
+doc_type: report
+generated_date: '2026-01-15'
+report_id: RPT-8340
+subject: Oakhaven Defensive Capabilities
+title: Official Field Report
+universe: The Chronicles of Veridonia
+---
+
+# FIELD REPORT: Oakhaven Defensive Capabilities
+**Classification:** CIRCULATION LIMITED
+**Author:** Lorekeeper Scribe
+**Report ID:** RPT-8340
+**Date:** 18 of Harvest Moon, 299 AS
+
+## Executive Assessment
+The settlement remains resilient primarily due to Crystal Amulet. Alternative approaches under review.
+## Detailed Observations
+1 (see document: JOUR_008). Fish supply chain vulnerable to interception.
+2. Minstrel's singing causes measurable discomfort.
+3. Forest stag population stable and abundant.
+## Strategic Recommendations
+1. Exploit internal settlement conflicts.
+2. Intercept stone deliveries for intelligence.
+3 (see document: MYTH_002). Propose cultural exchange including olive oil.
+
+**Cross-references:** JOUR_009, ENCY_014

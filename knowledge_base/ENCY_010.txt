@@ -1,0 +1,26 @@
+---
+author: Emerald Valley Scholars
+contains_fictional_terms: true
+doc_id: ENCY_010
+doc_type: encyclopedia
+generated_date: '2026-01-15'
+keywords:
+- Veridonia
+- fictional
+- archeology
+publication_date: 49 AS (After Settlement)
+title: 'Encyclopedia: Types of Standing Stones'
+universe: The Chronicles of Veridonia
+---
+
+# Types of Standing Stones
+
+Standing stones are large, shaped monoliths used ceremonially and as Verix's primary trade.
+Classification includes: Standard (2m), Grande (3m), and Colossal (4m+).
+Quarrying techniques involve precise fracturing along natural stone planes.
+Transport logistics remain enigmatic, as Verix conveys them single-handedly without apparent exertion.
+
+## Related Documents
+- ENCY_005
+- ENCY_001
+- ENCY_007

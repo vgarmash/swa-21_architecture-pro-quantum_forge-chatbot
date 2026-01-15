@@ -1,0 +1,31 @@
+---
+author: Lorekeeper Scribe
+classification: EYES ONLY
+contains_fictional_terms: true
+doc_id: REPO_010
+doc_type: report
+generated_date: '2026-01-15'
+report_id: RPT-8016
+subject: Analysis of Crystal Amulet
+title: Official Field Report
+universe: The Chronicles of Veridonia
+---
+
+# FIELD REPORT: Analysis of Crystal Amulet
+**Classification:** EYES ONLY
+**Author:** Lorekeeper Scribe
+**Report ID:** RPT-8016
+**Date:** 4 of Harvest Moon, 294 AS
+
+## Executive Assessment
+Internal tensions observed between Carnoos and Morix. Potential leverage point.
+## Detailed Observations
+1. Megalix's strength appears permanent and non-diminishing.
+2. Alchemix obtains moonleaf from three secret locations.
+3. Settlement morale remains high despite Imperial pressure.
+## Strategic Recommendations
+1 (see document: ENCY_004). Wait for natural generational change in leadership.
+2. Study elixir's long-term effects on Megalix.
+3. Establish trade relations to build dependency.
+
+**Cross-references:** REPO_002, REPO_004
