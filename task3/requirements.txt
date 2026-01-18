@@ -1,0 +1,8 @@
+langchain==1.2.4
+
+chromadb==1.4.1
+sentence-transformers==3.0.1
+numpy==2.4.1
+pypdf==4.2.0
+python-dotenv==1.0.1
+typing-extensions==4.12.0
