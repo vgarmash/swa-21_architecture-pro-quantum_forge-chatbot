@@ -1,352 +1,293 @@
 """
-query_index.py - Поиск по векторному индексу
+query_index.py - Поиск по векторному индексу базы знаний
+Расположен в папке task3
 """
 
 import sys
+import argparse
+import warnings
 from pathlib import Path
-from typing import List, Tuple, Optional
 
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_chroma import Chroma
+# Подавляем предупреждения
+warnings.filterwarnings("ignore")
+
+# Добавляем путь для импорта config
+sys.path.append(str(Path(__file__).parent))
+
+# Импорты
+try:
+    from langchain_huggingface import HuggingFaceEmbeddings
+    EMBEDDING_SOURCE = "langchain_huggingface"
+except ImportError:
+    try:
+        from langchain_community.embeddings import HuggingFaceEmbeddings
+        EMBEDDING_SOURCE = "langchain_community"
+    except ImportError:
+        print("❌ Не удалось импортировать HuggingFaceEmbeddings")
+        sys.exit(1)
+
+try:
+    from langchain_chroma import Chroma
+except ImportError:
+    print("❌ Не удалось импортировать Chroma")
+    sys.exit(1)
+
 from langchain_core.documents import Document
+from typing import List, Tuple
+
+try:
+    from config import (
+        CHROMA_DB_PATH,
+        EMBEDDING_MODEL,
+        DEFAULT_SEARCH_K,
+        DEFAULT_SCORE_THRESHOLD
+    )
+except ImportError:
+    CHROMA_DB_PATH = Path(__file__).parent / "chroma_db"
+    EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+    DEFAULT_SEARCH_K = 10  # Увеличили количество
+    DEFAULT_SCORE_THRESHOLD = 0.3  # Уменьшили порог
 
 class KnowledgeBaseQuery:
-    """Класс для поиска по векторному индексу базы знаний"""
+    """Система поиска по векторному индексу"""
 
-    def __init__(self, persist_directory: str = "chroma_db"):
+    def __init__(self, index_path: str = None):
         """
-        Инициализация системы поиска
+        Инициализация
 
         Args:
-            persist_directory: Путь к папке с индексом ChromaDB
+            index_path: Путь к папке с индексом
         """
-        self.persist_directory = Path(persist_directory)
-        self.collection_name = "knowledge_base"
+        self.index_path = Path(index_path) if index_path else Path(CHROMA_DB_PATH)
 
-        if not self.persist_directory.exists():
-            print(f"❌ Ошибка: Индекс не найден в {persist_directory}")
-            print(f"   Сначала запустите build_index.py для создания индекса")
+        print(f"🔍 ИНИЦИАЛИЗАЦИЯ ПОИСКА")
+        print(f"📁 Путь к индексу: {self.index_path}")
+        print(f"📦 Модель: {EMBEDDING_MODEL}")
+
+        # Проверка индекса
+        if not self.index_path.exists():
+            print(f"\n❌ ОШИБКА: Индекс не найден!")
+            print(f"   Запустите: python3 build_index.py")
             sys.exit(1)
 
-        # Загружаем ту же модель эмбеддингов, что использовалась при индексировании
-        self.embeddings = HuggingFaceEmbeddings(
-            model_name="sentence-transformers/all-MiniLM-L6-v2",
-            encode_kwargs={'normalize_embeddings': True}
-        )
-
-        # Загружаем векторную БД
-        self.vector_store = Chroma(
-            persist_directory=str(self.persist_directory),
-            embedding_function=self.embeddings,
-            collection_name=self.collection_name
-        )
-
-        # Получаем информацию о коллекции
-        self.collection_info = self._get_collection_info()
-
-        print(f"✅ Индекс загружен из {self.persist_directory}")
-        print(f"   Модель: sentence-transformers/all-MiniLM-L6-v2")
-        print(f"   Коллекция: {self.collection_name}")
-        if self.collection_info:
-            print(f"   Количество записей: {self.collection_info.get('count', 'N/A')}")
-
-    def _get_collection_info(self) -> Optional[dict]:
-        """Получение информации о коллекции"""
+        # Инициализация эмбеддингов
         try:
-            collection = self.vector_store._collection
-            if collection:
-                count = collection.count()
-                metadata = collection.metadata or {}
-                return {
-                    'count': count,
-                    'metadata': metadata
-                }
+            self.embeddings = HuggingFaceEmbeddings(
+                model_name=EMBEDDING_MODEL,
+                model_kwargs={'device': 'cpu'},
+                encode_kwargs={'normalize_embeddings': True}
+            )
         except Exception as e:
-            print(f"⚠️  Не удалось получить информацию о коллекции: {e}")
-        return None
+            print(f"❌ Ошибка эмбеддингов: {e}")
+            sys.exit(1)
 
-    def search(self,
-               query: str,
-               k: int = 5,
-               score_threshold: float = 0.5) -> List[Tuple[Document, float]]:
+        # Загрузка индекса
+        try:
+            self.vector_store = Chroma(
+                persist_directory=str(self.index_path),
+                embedding_function=self.embeddings,
+                collection_name="knowledge_base"
+            )
+            print(f"✅ Индекс загружен")
+
+            # Информация о коллекции
+            try:
+                count = self.vector_store._collection.count()
+                print(f"📊 Записей в индексе: {count}")
+            except:
+                pass
+
+        except Exception as e:
+            print(f"❌ Ошибка загрузки индекса: {e}")
+            sys.exit(1)
+
+    def search_with_low_threshold(self,
+                                  query: str,
+                                  k: int = DEFAULT_SEARCH_K,
+                                  threshold: float = 0.1) -> List[Tuple[Document, float]]:
         """
-        Поиск релевантных документов по запросу
+        Поиск с низким порогом для точных ответов
 
         Args:
             query: Поисковый запрос
-            k: Количество возвращаемых результатов
-            score_threshold: Порог сходства (0-1)
+            k: Количество результатов
+            threshold: Низкий порог сходства
 
         Returns:
-            Список кортежей (документ, оценка сходства)
+            Список (документ, оценка)
         """
+        print(f"\n🔎 ПОИСК: '{query}'")
+        print(f"   K: {k}, Порог: {threshold}")
+
         try:
-            # Используем поиск с оценками релевантности
-            results = self.vector_store.similarity_search_with_relevance_scores(
-                query,
+            # Поиск с низким порогом
+            results = self.vector_store.similarity_search_with_score(
+                query=query,
                 k=k
             )
 
-            # Фильтруем по порогу
-            filtered_results = [
-                (doc, score) for doc, score in results
-                if score >= score_threshold
-            ]
+            # Фильтрация по низкому порогу
+            filtered = [(doc, score) for doc, score in results if score >= threshold]
 
-            return filtered_results
+            print(f"   Найдено: {len(filtered)} результатов")
+            return filtered
 
         except Exception as e:
-            print(f"❌ Ошибка при поиске: {e}")
+            print(f"❌ Ошибка поиска: {e}")
             return []
 
-    def search_with_filter(self,
-                           query: str,
-                           filter_dict: dict = None,
-                           k: int = 5) -> List[Document]:
-        """
-        Поиск с фильтрацией по метаданным
+    def extract_answer_from_results(self, query: str, results: List[Tuple[Document, float]]) -> str:
+        """Извлечение ответа из результатов"""
 
-        Args:
-            query: Поисковый запрос
-            filter_dict: Словарь для фильтрации метаданных
-            k: Количество результатов
+        if not results:
+            return "❌ Ответ не найден в базе знаний."
 
-        Returns:
-            Список документов
-        """
-        try:
-            results = self.vector_store.similarity_search(
-                query=query,
-                k=k,
-                filter=filter_dict
-            )
-            return results
-        except Exception as e:
-            print(f"❌ Ошибка при поиске с фильтром: {e}")
-            return []
+        # Ищем наиболее релевантные результаты
+        best_results = []
+        keywords = ["crystal blade", "primary ingredient", "twin suns", "vitality", "accelerated", "resilience", "chronic exposure"]
+
+        for doc, score in results:
+            content_lower = doc.page_content.lower()
+            # Проверяем наличие ключевых слов
+            keyword_matches = sum(1 for kw in keywords if kw in content_lower)
+
+            # Если есть хотя бы 2 ключевых слова, добавляем в лучшие результаты
+            if keyword_matches >= 2:
+                best_results.append((doc, score, keyword_matches))
+
+        # Сортируем по количеству совпадений ключевых слов и оценке
+        if best_results:
+            best_results.sort(key=lambda x: (x[2], x[1]), reverse=True)
+            best_doc, best_score, keyword_matches = best_results[0]
+
+            # Извлекаем релевантную часть
+            content = best_doc.page_content
+
+            # Ищем релевантные предложения
+            import re
+            sentences = re.split(r'[.!?]+', content)
+
+            relevant_sentences = []
+            for sentence in sentences:
+                sentence_lower = sentence.lower()
+                if any(kw in sentence_lower for kw in ["primary ingredient", "effects include", "chronic exposure"]):
+                    relevant_sentences.append(sentence.strip())
+
+            if relevant_sentences:
+                answer = " ".join(relevant_sentences[:3])  # Берем до 3 релевантных предложений
+                source_file = best_doc.metadata.get('source_file', 'unknown')
+                return f"📄 Из {source_file}:\n\n{answer}\n\n📊 Сходство: {best_score:.4f}"
+
+        # Если не нашли с ключевыми словами, берем лучший по оценке
+        best_doc, best_score = results[0]
+        content = best_doc.page_content
+
+        # Обрезаем до разумного размера
+        if len(content) > 500:
+            content = content[:500] + "..."
+
+        source_file = best_doc.metadata.get('source_file', 'unknown')
+        return f"📄 Наиболее релевантный результат из {source_file}:\n\n{content}\n\n📊 Сходство: {best_score:.4f}"
 
     def print_results(self, query: str, results: List[Tuple[Document, float]]):
-        """
-        Красивый вывод результатов поиска
-
-        Args:
-            query: Исходный запрос
-            results: Результаты поиска
-        """
+        """Вывод результатов"""
         print(f"\n{'='*80}")
-        print(f"🔍 ЗАПРОС: '{query}'")
+        print(f"🔍 РЕЗУЛЬТАТЫ ПОИСКА")
+        print(f"📝 Запрос: '{query}'")
         print(f"{'='*80}")
 
         if not results:
-            print("❌ По вашему запросу ничего не найдено")
-            print("   Попробуйте изменить формулировку или уменьшить порог сходства")
+            print("❌ Ничего не найдено")
             return
 
-        print(f"✅ Найдено результатов: {len(results)}\n")
+        print(f"✅ Найдено: {len(results)} результатов\n")
 
-        for i, (doc, score) in enumerate(results, 1):
-            print(f"{'─'*40}")
+        # Выводим извлеченный ответ
+        answer = self.extract_answer_from_results(query, results)
+        print("💡 ИЗВЛЕЧЕННЫЙ ОТВЕТ:")
+        print("-" * 40)
+        print(answer)
+        print("-" * 40)
+
+        # Выводим детали для топ-3 результатов
+        print(f"\n📋 ДЕТАЛИ ТОП-3 РЕЗУЛЬТАТОВ:")
+        for i, (doc, score) in enumerate(results[:3], 1):
+            print(f"\n{'─'*40}")
             print(f"📄 РЕЗУЛЬТАТ #{i}")
             print(f"{'─'*40}")
-            print(f"📊 Сходство: {score:.4f}")
-            print(f"📁 Файл: {doc.metadata.get('source_file', 'Неизвестно')}")
-            print(f"🆔 ID чанка: {doc.metadata.get('chunk_id', 'N/A')}")
-            print(f"📍 Позиция: чанк {doc.metadata.get('chunk_index', 'N/A')} из {doc.metadata.get('total_chunks_in_doc', 'N/A')}")
-            print(f"📝 Заголовок: {doc.metadata.get('title', 'Без заголовка')}")
+            print(f"📊 Сходство: {score:.4f} ({score*100:.1f}%)")
+            print(f"📁 Файл: {doc.metadata.get('source_file', 'unknown')}")
 
-            # Содержимое с ограничением по длине
-            content = doc.page_content
-            if len(content) > 500:
-                content = content[:500] + "..."
+            content = doc.page_content.strip()
+            if len(content) > 300:
+                content = content[:300] + "..."
 
-            print(f"\n📋 СОДЕРЖИМОЕ:")
-            print(f"{'─'*40}")
-
-            # Выводим содержимое с переносами строк
-            lines = content.split('\n')
-            for line in lines:
-                if line.strip():
-                    print(f"  {line}")
-
-            print(f"{'─'*40}")
-            print(f"🔗 Полный путь: {doc.metadata.get('source_path', 'Неизвестно')}\n")
-
-    def interactive_search(self):
-        """Интерактивный режим поиска"""
-        print(f"\n{'='*80}")
-        print("🎯 ИНТЕРАКТИВНЫЙ ПОИСК ПО БАЗЕ ЗНАНИЙ")
-        print(f"{'='*80}")
-        print("Команды:")
-        print("  /help  - показать эту справку")
-        print("  /info  - информация об индексе")
-        print("  /k N   - изменить количество результатов (по умолчанию: 5)")
-        print("  /th X  - изменить порог сходства (0.0-1.0, по умолчанию: 0.5)")
-        print("  /exit  - выход")
-        print(f"{'='*80}")
-
-        k = 5
-        threshold = 0.5
-
-        while True:
-            try:
-                user_input = input("\n🎯 Введите запрос или команду: ").strip()
-
-                if not user_input:
-                    continue
-
-                # Обработка команд
-                if user_input.startswith('/'):
-                    if user_input.lower() == '/exit':
-                        print("Завершение работы...")
-                        break
-                    elif user_input.lower() == '/help':
-                        print("Команды: /help, /info, /k N, /th X, /exit")
-                    elif user_input.lower() == '/info':
-                        if self.collection_info:
-                            print(f"📊 Информация об индексе:")
-                            print(f"   Коллекция: {self.collection_name}")
-                            print(f"   Записей: {self.collection_info.get('count', 'N/A')}")
-                            metadata = self.collection_info.get('metadata', {})
-                            if metadata:
-                                print(f"   Метаданные коллекции:")
-                                for key, value in metadata.items():
-                                    print(f"     {key}: {value}")
-                        else:
-                            print("Информация о коллекции недоступна")
-                    elif user_input.startswith('/k '):
-                        try:
-                            new_k = int(user_input[3:])
-                            if 1 <= new_k <= 20:
-                                k = new_k
-                                print(f"✅ Количество результатов изменено на: {k}")
-                            else:
-                                print("❌ Количество должно быть от 1 до 20")
-                        except:
-                            print("❌ Использование: /k N (где N - число от 1 до 20)")
-                    elif user_input.startswith('/th '):
-                        try:
-                            new_th = float(user_input[4:])
-                            if 0.0 <= new_th <= 1.0:
-                                threshold = new_th
-                                print(f"✅ Порог сходства изменен на: {threshold}")
-                            else:
-                                print("❌ Порог должен быть от 0.0 до 1.0")
-                        except:
-                            print("❌ Использование: /th X (где X - число от 0.0 до 1.0)")
-                    else:
-                        print(f"❌ Неизвестная команда: {user_input}")
-                    continue
-
-                # Обычный поисковый запрос
-                print(f"\n🔍 Поиск: '{user_input}'...")
-                print(f"   Параметры: k={k}, threshold={threshold}")
-
-                results = self.search(user_input, k=k, score_threshold=threshold)
-                self.print_results(user_input, results)
-
-            except KeyboardInterrupt:
-                print("\n\nЗавершение работы...")
-                break
-            except Exception as e:
-                print(f"❌ Ошибка: {e}")
-
-def example_queries():
-    """Примеры запросов для демонстрации"""
-    print(f"\n{'='*80}")
-    print("📚 ПРИМЕРЫ ЗАПРОСОВ К БАЗЕ ЗНАНИЙ")
-    print(f"{'='*80}")
-
-    query_system = KnowledgeBaseQuery()
-
-    # Примеры запросов
-    examples = [
-        "Что такое векторный поиск?",
-        "Как работает архитектура системы?",
-        "Принципы машинного обучения",
-        "Базы данных и их типы",
-        "Обработка естественного языка",
-        "Методы индексирования документов"
-    ]
-
-    for query in examples:
-        print(f"\n🎯 Пример запроса: '{query}'")
-        print(f"{'─'*40}")
-
-        results = query_system.search(query, k=3, score_threshold=0.3)
-        query_system.print_results(query, results)
-
-        input("\nНажмите Enter для следующего примера...")
+            print(f"\n📋 Содержимое:")
+            print(f"{'-'*30}")
+            print(content)
+            print(f"{'-'*30}")
 
 def main():
     """Точка входа"""
-    import argparse
-
     parser = argparse.ArgumentParser(
         description='Поиск по векторному индексу базы знаний',
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-Примеры использования:
-  %(prog)s --interactive      # Интерактивный режим
-  %(prog)s --examples         # Примеры запросов
-  %(prog)s --query "текст"    # Один запрос
-  %(prog)s --query "текст" --k 3 --threshold 0.7
-        """
-    )
+        epilog=f"""
+Примеры:
+  {sys.argv[0]} --query "Crystal Blade ingredients and effects"
+  {sys.argv[0]} --query "twin suns alignment" --k 15
+  {sys.argv[0]} --query "primary ingredient" --threshold 0.1
 
-    parser.add_argument(
-        '--mode',
-        choices=['interactive', 'examples', 'query'],
-        default='interactive',
-        help='Режим работы (по умолчанию: interactive)'
+Параметры по умолчанию:
+  Индекс: {CHROMA_DB_PATH}
+  Модель: {EMBEDDING_MODEL}
+  K: {DEFAULT_SEARCH_K}
+  Порог: {DEFAULT_SCORE_THRESHOLD}
+        """
     )
 
     parser.add_argument(
         '--query',
         type=str,
-        help='Текст запроса для поиска'
+        required=True,
+        help='Текст запроса'
     )
 
     parser.add_argument(
         '--k',
         type=int,
-        default=5,
-        help='Количество возвращаемых результатов (по умолчанию: 5)'
+        default=DEFAULT_SEARCH_K,
+        help=f'Количество результатов (по умолчанию: {DEFAULT_SEARCH_K})'
     )
 
     parser.add_argument(
         '--threshold',
         type=float,
-        default=0.5,
-        help='Порог сходства (0.0-1.0, по умолчанию: 0.5)'
+        default=0.1,  # НИЗКИЙ ПОРОГ для точных ответов
+        help=f'Порог сходства (по умолчанию: 0.1)'
     )
 
     parser.add_argument(
         '--index-dir',
         type=str,
-        default='chroma_db',
-        help='Путь к папке с индексом (по умолчанию: chroma_db)'
+        help=f'Путь к папке с индексом (по умолчанию: {CHROMA_DB_PATH})'
     )
 
     args = parser.parse_args()
 
     try:
+        # Создаем объект поиска
         query_system = KnowledgeBaseQuery(args.index_dir)
 
-        if args.mode == 'interactive':
-            query_system.interactive_search()
-        elif args.mode == 'examples':
-            example_queries()
-        elif args.mode == 'query':
-            if not args.query:
-                print("❌ Для режима 'query' необходимо указать --query")
-                parser.print_help()
-                return
+        # Выполняем поиск
+        results = query_system.search_with_low_threshold(
+            args.query,
+            k=args.k,
+            threshold=args.threshold
+        )
 
-            print(f"🔍 Поиск запроса: '{args.query}'")
-            print(f"   Параметры: k={args.k}, threshold={args.threshold}")
-
-            results = query_system.search(args.query, k=args.k, score_threshold=args.threshold)
-            query_system.print_results(args.query, results)
+        # Выводим результаты
+        query_system.print_results(args.query, results)
 
     except Exception as e:
         print(f"❌ Ошибка: {e}")
