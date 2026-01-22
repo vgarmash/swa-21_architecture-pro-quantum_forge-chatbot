@@ -7,7 +7,7 @@ from pathlib import Path
 # Базовые пути
 PROJECT_ROOT = Path(__file__).parent.parent
 KNOWLEDGE_BASE_PATH = PROJECT_ROOT / "knowledge_base"
-CHROMA_DB_PATH = Path(__file__).parent / "chroma_db"
+CHROMA_DB_PATH = PROJECT_ROOT / "chroma_db"
 
 # Параметры индексации
 CHUNK_SIZE = 500
