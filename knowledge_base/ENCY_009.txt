@@ -1,26 +1,54 @@
 ---
+title: Encyclopedia: Architectural Festival Calendar
 author: Emerald Valley Scholars
-contains_fictional_terms: true
+publication_date: 50 AM (After Moonfall)
+keywords:
+  - Veridia
+  - fictional
+  - styles
 doc_id: ENCY_009
 doc_type: encyclopedia
-generated_date: '2026-01-15'
-keywords:
-- Veridonia
-- fictional
-- military
-publication_date: 46 AS (After Settlement)
-title: 'Encyclopedia: Imperial Military Organization'
-universe: The Chronicles of Veridonia
+universe: Chronicles of Veridia
+generated_date: 2026-01-24
+contains_fictional_terms: True
+content_hash: db49b070
 ---
 
-# Imperial Military Organization
+# Architectural Festival Calendar
 
-Imperial military tactics involve constructing fortified outposts (Argentum, Ferrum, etc.) around resistant settlements.
-Standard procedure includes diplomatic overtures followed by siege tactics, though neither has succeeded against Oakhaven.
-Imperial forces are noted for discipline, engineering capabilities, and persistence despite repeated setbacks.
-Intelligence collection remains challenging due to Valefolk loyalty and dialect barriers.
+## Overview
+
+This article covers the styles aspects of Architectural Festival Calendar within the context of Chronicles of Veridia.
+
+## Key Features
+
+1. **Primary Characteristics**: Standard features common across similar entities
+2. **Historical Development**: Evolved over 31 generations since the Moonfall
+3 (comprehensive analysis in MYTH_001) (additional information available in ENCY_008). **Current Status**: Stable and well-documented
+4 (as referenced in ENCY_006) (additional information available in JOUR_002). **Future Prospects**: Facing challenges from external factors
+
+## Significance
+
+The study of Architectural Festival Calendar provides insights into broader cultural patterns.
+
+## Research Notes
+
+Recent investigations by Independent scholars have revealed connections to ancient practices.
+
+**Further reading**: Consult related documents on regional histories for comprehensive understanding.
 
 ## Related Documents
-- ENCY_008
-- ENCY_004
+- ENCY_001
+  *Covers related aspects of architectural festival calendar*
 - ENCY_002
+  *Covers related aspects of architectural festival calendar*
+- ENCY_005
+  *Covers related aspects of architectural festival calendar*
+- ENCY_004
+  *Covers related aspects of architectural festival calendar*
+- ENCY_003
+  *Covers related aspects of architectural festival calendar*
+
+**Related to lore:** See ENCY_010 for complementary information.
+
+**Related to lore:** See ENCY_005 for complementary information.

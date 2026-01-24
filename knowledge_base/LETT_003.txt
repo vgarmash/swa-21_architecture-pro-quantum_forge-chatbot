@@ -1,23 +1,32 @@
 ---
-contains_fictional_terms: true
-delivery: Carrier hawk
+title: Personal Correspondence
+correspondence_type: Diplomatic Message
+delivery_method: Hidden Compartment
+security_level: Self-destructing
 doc_id: LETT_003
 doc_type: letter
-from: Carnoix
-generated_date: '2026-01-15'
-title: Private Correspondence
-to: Lorekeeper Circle
-universe: The Chronicles of Veridonia
-urgency: Confidential
+universe: Chronicles of Veridia
+generated_date: 2026-01-24
+contains_fictional_terms: True
+content_hash: de40adc6
 ---
 
-To Lorekeeper Circle,
+To Trusted Friend,
 
-Critical intelligence: Imperials from Fort Ferrum are preparing an excursion. Observed drilling near the western woods.
+I hope this message finds you in good health and spirits. The seasons turn as always, though not without their peculiarities.
 
-Recall our discussion regarding the elixir formula.
+Since we last corresponded, much has changed in our corner of the world.
 
-In fellowship,
-Carnoix
+Specifically, relations with the mountain clans remain cordial.
 
-P.S. Burn this after reading—Imperials intercept messages.
+I must share that unanswered questions continue to occupy my thoughts. This relates to relationships that shape our collective future.
+
+On a more personal note, each day reaffirms the value of community.
+
+I would value your perspective on these matters when opportunity permits (see document: MYTH_005 for details). Please convey my regards to your family.
+
+With sincerity and anticipation of your reply,
+
+Taraix
+
+P.S (additional information available in ENCY_003) (contrasting viewpoint in MYTH_004) (practical applications documented in MYTH_002). The next caravan should reach your area within two moon cycles.

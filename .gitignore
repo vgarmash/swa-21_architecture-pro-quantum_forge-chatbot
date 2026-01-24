@@ -1,3 +1,4 @@
 /.idea/
 /.venv/
-/task3/venv/
+/logs/
+/models_cache/

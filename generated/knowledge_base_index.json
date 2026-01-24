@@ -1,0 +1,352 @@
+[
+  {
+    "id": "ENCY_001",
+    "type": "encyclopedia",
+    "title": "Encyclopedia: Ecological Stone Classifications",
+    "author": "Lorekeeper Archives",
+    "word_count": 175
+  },
+  {
+    "id": "ENCY_002",
+    "type": "encyclopedia",
+    "title": "Encyclopedia: History of Herbal Practices",
+    "author": "Emerald Valley Scholars",
+    "word_count": 142
+  },
+  {
+    "id": "ENCY_003",
+    "type": "encyclopedia",
+    "title": "Encyclopedia: History of Festival Calendar",
+    "author": "Lorekeeper Archives",
+    "word_count": 151
+  },
+  {
+    "id": "ENCY_004",
+    "type": "encyclopedia",
+    "title": "Encyclopedia: Cultural Military Organization",
+    "author": "Lorekeeper Archives",
+    "word_count": 174
+  },
+  {
+    "id": "ENCY_005",
+    "type": "encyclopedia",
+    "title": "Encyclopedia: Structure of Crystalbrook Settlement",
+    "author": "Imperial Geographers",
+    "word_count": 285
+  },
+  {
+    "id": "ENCY_006",
+    "type": "encyclopedia",
+    "title": "Encyclopedia: Properties of Starlight Tonic",
+    "author": "Imperial Geographers",
+    "word_count": 214
+  },
+  {
+    "id": "ENCY_007",
+    "type": "encyclopedia",
+    "title": "Encyclopedia: Ecological Military Organization",
+    "author": "Imperial Geographers",
+    "word_count": 215
+  },
+  {
+    "id": "ENCY_008",
+    "type": "encyclopedia",
+    "title": "Encyclopedia: Cultural Herbal Practices",
+    "author": "Imperial Geographers",
+    "word_count": 189
+  },
+  {
+    "id": "ENCY_009",
+    "type": "encyclopedia",
+    "title": "Encyclopedia: Architectural Festival Calendar",
+    "author": "Emerald Valley Scholars",
+    "word_count": 180
+  },
+  {
+    "id": "ENCY_010",
+    "type": "encyclopedia",
+    "title": "Encyclopedia: Properties of Starlight Tonic",
+    "author": "Lorekeeper Archives",
+    "word_count": 254
+  },
+  {
+    "id": "ENCY_011",
+    "type": "encyclopedia",
+    "title": "Encyclopedia: History of Stone Classifications",
+    "author": "Lorekeeper Archives",
+    "word_count": 232
+  },
+  {
+    "id": "ENCY_012",
+    "type": "encyclopedia",
+    "title": "Encyclopedia: History of Defensive Strategies",
+    "author": "Emerald Valley Scholars",
+    "word_count": 194
+  },
+  {
+    "id": "ENCY_013",
+    "type": "encyclopedia",
+    "title": "Encyclopedia: Architectural Trade Routes",
+    "author": "Lorekeeper Archives",
+    "word_count": 216
+  },
+  {
+    "id": "ENCY_014",
+    "type": "encyclopedia",
+    "title": "Encyclopedia: Lorekeeper Herbal Practices",
+    "author": "Traveler's Compendium",
+    "word_count": 183
+  },
+  {
+    "id": "ENCY_015",
+    "type": "encyclopedia",
+    "title": "Encyclopedia: Properties of Sunstone Elixir",
+    "author": "Imperial Geographers",
+    "word_count": 273
+  },
+  {
+    "id": "JOUR_001",
+    "type": "journal",
+    "title": "Personal Journal of Lugous",
+    "author": "Lugous",
+    "word_count": 97
+  },
+  {
+    "id": "JOUR_002",
+    "type": "journal",
+    "title": "Personal Journal of Lugous",
+    "author": "Lugous",
+    "word_count": 73
+  },
+  {
+    "id": "JOUR_003",
+    "type": "journal",
+    "title": "Personal Journal of Taraix",
+    "author": "Taraix",
+    "word_count": 69
+  },
+  {
+    "id": "JOUR_004",
+    "type": "journal",
+    "title": "Personal Journal of Lugous",
+    "author": "Lugous",
+    "word_count": 74
+  },
+  {
+    "id": "JOUR_005",
+    "type": "journal",
+    "title": "Personal Journal of Lugous",
+    "author": "Lugous",
+    "word_count": 69
+  },
+  {
+    "id": "JOUR_006",
+    "type": "journal",
+    "title": "Personal Journal of Taraix",
+    "author": "Taraix",
+    "word_count": 70
+  },
+  {
+    "id": "JOUR_007",
+    "type": "journal",
+    "title": "Personal Journal of Taraix",
+    "author": "Taraix",
+    "word_count": 90
+  },
+  {
+    "id": "JOUR_008",
+    "type": "journal",
+    "title": "Personal Journal of Syloos",
+    "author": "Syloos",
+    "word_count": 75
+  },
+  {
+    "id": "JOUR_009",
+    "type": "journal",
+    "title": "Personal Journal of Taraix",
+    "author": "Taraix",
+    "word_count": 71
+  },
+  {
+    "id": "JOUR_010",
+    "type": "journal",
+    "title": "Personal Journal of Quenix",
+    "author": "Quenix",
+    "word_count": 72
+  },
+  {
+    "id": "JOUR_011",
+    "type": "journal",
+    "title": "Personal Journal of Quenix",
+    "author": "Quenix",
+    "word_count": 72
+  },
+  {
+    "id": "JOUR_012",
+    "type": "journal",
+    "title": "Personal Journal of Taraix",
+    "author": "Taraix",
+    "word_count": 78
+  },
+  {
+    "id": "REPO_001",
+    "type": "report",
+    "title": "Field Report",
+    "author": "Lorekeeper Observer",
+    "word_count": 173
+  },
+  {
+    "id": "REPO_002",
+    "type": "report",
+    "title": "Field Report",
+    "author": "Imperial Scout",
+    "word_count": 191
+  },
+  {
+    "id": "REPO_003",
+    "type": "report",
+    "title": "Field Report",
+    "author": "Trade Guild Agent",
+    "word_count": 192
+  },
+  {
+    "id": "REPO_004",
+    "type": "report",
+    "title": "Field Report",
+    "author": "Independent Researcher",
+    "word_count": 188
+  },
+  {
+    "id": "REPO_005",
+    "type": "report",
+    "title": "Field Report",
+    "author": "Independent Researcher",
+    "word_count": 177
+  },
+  {
+    "id": "REPO_006",
+    "type": "report",
+    "title": "Field Report",
+    "author": "Lorekeeper Observer",
+    "word_count": 191
+  },
+  {
+    "id": "REPO_007",
+    "type": "report",
+    "title": "Field Report",
+    "author": "Imperial Scout",
+    "word_count": 171
+  },
+  {
+    "id": "REPO_008",
+    "type": "report",
+    "title": "Field Report",
+    "author": "Imperial Scout",
+    "word_count": 172
+  },
+  {
+    "id": "REPO_009",
+    "type": "report",
+    "title": "Field Report",
+    "author": "Independent Researcher",
+    "word_count": 173
+  },
+  {
+    "id": "REPO_010",
+    "type": "report",
+    "title": "Field Report",
+    "author": "Imperial Scout",
+    "word_count": 175
+  },
+  {
+    "id": "DECR_001",
+    "type": "decree",
+    "title": "Official Decree",
+    "author": "Unknown",
+    "word_count": 177
+  },
+  {
+    "id": "DECR_002",
+    "type": "decree",
+    "title": "Official Decree",
+    "author": "Unknown",
+    "word_count": 151
+  },
+  {
+    "id": "DECR_003",
+    "type": "decree",
+    "title": "Official Decree",
+    "author": "Unknown",
+    "word_count": 185
+  },
+  {
+    "id": "DECR_004",
+    "type": "decree",
+    "title": "Official Decree",
+    "author": "Unknown",
+    "word_count": 166
+  },
+  {
+    "id": "DECR_005",
+    "type": "decree",
+    "title": "Official Decree",
+    "author": "Unknown",
+    "word_count": 180
+  },
+  {
+    "id": "MYTH_001",
+    "type": "myth",
+    "title": "Ancient Legend",
+    "author": "Unknown",
+    "word_count": 172
+  },
+  {
+    "id": "MYTH_002",
+    "type": "myth",
+    "title": "Ancient Legend",
+    "author": "Unknown",
+    "word_count": 151
+  },
+  {
+    "id": "MYTH_003",
+    "type": "myth",
+    "title": "Ancient Legend",
+    "author": "Unknown",
+    "word_count": 158
+  },
+  {
+    "id": "MYTH_004",
+    "type": "myth",
+    "title": "Ancient Legend",
+    "author": "Unknown",
+    "word_count": 162
+  },
+  {
+    "id": "MYTH_005",
+    "type": "myth",
+    "title": "Ancient Legend",
+    "author": "Unknown",
+    "word_count": 146
+  },
+  {
+    "id": "LETT_001",
+    "type": "letter",
+    "title": "Personal Correspondence",
+    "author": "Unknown",
+    "word_count": 134
+  },
+  {
+    "id": "LETT_002",
+    "type": "letter",
+    "title": "Personal Correspondence",
+    "author": "Unknown",
+    "word_count": 136
+  },
+  {
+    "id": "LETT_003",
+    "type": "letter",
+    "title": "Personal Correspondence",
+    "author": "Unknown",
+    "word_count": 134
+  }
+]

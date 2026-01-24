@@ -1,22 +1,29 @@
 ---
-author: Valley Elder
-contains_fictional_terms: true
-date: Second Moon, 300 AS
+title: Personal Journal of Taraix
+author: Taraix
+journal_type: Observational Record
+period: Seasonal Record
 doc_id: JOUR_003
 doc_type: journal
-generated_date: '2026-01-15'
-location: Whispering Woods
-title: Personal Journal of Valley Elder
-universe: The Chronicles of Veridonia
-weather: Sunny
+universe: Chronicles of Veridia
+generated_date: 2026-01-24
+contains_fictional_terms: True
+content_hash: e73cfae4
 ---
 
-## Entry #48
+## Journal Entry #7
 
-*Date: Second Moon, 300 AS*
-*Location: Whispering Woods*
-*Weather: Sunny*
+*Date: First Moon of Starfrost*
+*Location: in the Crystalwood Grove*
+*Weather: Clear*
+*Mood: excited*
 
-Taraax and I went to gather standing stones today. Found a remarkable monolith near the Whispering Woods. Must remember the locations of crystal-fox dens!
+Today was eventful. Syloos showed me a new herbal preparation.
 
-**Personal note:** The Golden Orb roast was exceptionally flavorful tonight.
+**Observation:** The seasons are changing earlier than expected.
+
+**Personal note:** The new batch of moonleaf seems particularly potent.
+
+**Related entries:** ENCY_004, ENCY_009, ENCY_013
+- See ENCY_004 for additional context on today's events
+- See ENCY_009 for additional context on today's events

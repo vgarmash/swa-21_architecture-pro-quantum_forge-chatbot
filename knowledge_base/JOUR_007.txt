@@ -1,22 +1,33 @@
 ---
-author: Morac
-contains_fictional_terms: true
-date: Third Moon, 59 AS
+title: Personal Journal of Taraix
+author: Taraix
+journal_type: Observational Record
+period: Ongoing Documentation
 doc_id: JOUR_007
 doc_type: journal
-generated_date: '2026-01-15'
-location: Oakhaven
-title: Personal Journal of Morac
-universe: The Chronicles of Veridonia
-weather: Misty
+universe: Chronicles of Veridia
+generated_date: 2026-01-24
+contains_fictional_terms: True
+content_hash: 17f028c0
 ---
 
-## Entry #44
+## Journal Entry #69
 
-*Date: Third Moon, 59 AS*
-*Location: Oakhaven*
-*Weather: Misty*
+*Date: Second Moon of Rain*
+*Location: within the Sunken Ruins*
+*Weather: Rainy*
+*Mood: contemplative*
 
-Discussed herb cultivation with Carnoix. The Crystal way is particularly potent this season (detailed in: ENCY_004). Note: avoid specimens from the northern grove—they induce drowsiness.
+Today was eventful. We had a skirmish with Imperial scouts near the border.
 
-**Personal note:** Beloix is composing a new epic. May the twin suns grant us patience.
+**Observation:** Our food stores are adequate for the coming winter.
+
+**Personal note:** Must remember to check the northern watchtower tomorrow.
+
+**Related entries:** JOUR_001, ENCY_001, ENCY_015
+- See JOUR_001 for additional context on today's events
+- See ENCY_001 for additional context on today's events
+
+**Related to military:** See ENCY_004 for complementary information.
+
+**Related to military:** See JOUR_001 for complementary information.

@@ -1,26 +1,50 @@
 ---
-author: Emerald Valley Scholars
-contains_fictional_terms: true
+title: Encyclopedia: Properties of Starlight Tonic
+author: Imperial Geographers
+publication_date: 45 AM (After Moonfall)
+keywords:
+  - Veridia
+  - fictional
+  - elixir
 doc_id: ENCY_006
 doc_type: encyclopedia
-generated_date: '2026-01-15'
-keywords:
-- Veridonia
-- fictional
-- military
-publication_date: 49 AS (After Settlement)
-title: 'Encyclopedia: Imperial Military Organization'
-universe: The Chronicles of Veridonia
+universe: Chronicles of Veridia
+generated_date: 2026-01-24
+contains_fictional_terms: True
+content_hash: 4828b2a6
 ---
 
-# Imperial Military Organization
+# Properties of Elderwood Extract
 
-Imperial military tactics involve constructing fortified outposts (Argentum, Ferrum, etc.) around resistant settlements.
-Standard procedure includes diplomatic overtures followed by siege tactics, though neither has succeeded against Oakhaven.
-Imperial forces are noted for discipline, engineering capabilities, and persistence despite repeated setbacks.
-Intelligence collection remains challenging due to Valefolk loyalty and dialect barriers.
+The Elderwood Extract is a legendary concoction prepared exclusively by the Lorekeeper Syloos. Its primary ingredient is whispering willow bark from the Elder Grove, gathered using a obsidian sickle.
+
+## Effects and Properties
+
+Primary effects include enhanced cognitive processing and memory (practical applications documented in MYTH_003). Secondary benefits may involve enhanced healing depending on the brew.
+
+Chronic exposure, as documented in the case of Quenix, leads to permanent physical enhancement but requires frequent nourishment.
+
+## Historical Significance
+
+The formula originated during the First Moonfall and has been refined over 34 generations (comprehensive analysis in REPO_003) (practical applications documented in JOUR_006). Counterfeit versions often contain moon-dust instead of proper ingredients.
+
+## Modern Usage
+
+Taraix employs it strategically during encounters with Imperial forces (contrasting viewpoint in JOUR_002). Proper dosage is critical - 5 drops for basic enhancement, up to a full vial for combat situations.
+
+Storage requires obsidian containers to maintain potency beyond 30 days.
 
 ## Related Documents
-- ENCY_004
-- ENCY_002
-- ENCY_005
+- No related documents yet
+
+**Related to military:** See ENCY_001 for complementary information.
+
+**Related to military:** See REPO_006 for complementary information.
+
+**Related to lore:** See ENCY_010 for complementary information.
+
+**Related to lore:** See ENCY_015 for complementary information.
+
+**Related to magic:** See ENCY_015 for complementary information.
+
+**Related to magic:** See ENCY_010 for complementary information.

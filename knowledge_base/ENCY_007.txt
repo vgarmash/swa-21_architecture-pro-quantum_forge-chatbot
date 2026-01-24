@@ -1,27 +1,58 @@
 ---
-author: Emerald Valley Scholars
-contains_fictional_terms: true
+title: Encyclopedia: Ecological Military Organization
+author: Imperial Geographers
+publication_date: 46 AM (After Moonfall)
+keywords:
+  - Veridia
+  - fictional
+  - features
 doc_id: ENCY_007
 doc_type: encyclopedia
-generated_date: '2026-01-15'
-keywords:
-- Veridonia
-- fictional
-- geography
-publication_date: 50 AS (After Settlement)
-title: 'Encyclopedia: Structure of Oakhaven Settlement'
-universe: The Chronicles of Veridonia
+universe: Chronicles of Veridia
+generated_date: 2026-01-24
+contains_fictional_terms: True
+content_hash: 3100d9c9
 ---
 
-# Structure of Oakhaven Settlement
+# Ecological Military Organization
 
-Oakhaven is structured around a central plaza with Chief Beloos's longhouse at the highest elevation.
-Key structures include the Alchemist's tower, the stone circle quarry, and the fishery.
-Defensive strategy relies on natural valley topography and strategic use of the Sunstone Elixir.
-Social structure places the chief atop, followed by defenders, then artisans, with the minstrel Beloix enjoying ceremonial status but often being restrained during gatherings.
-Notable conflicts frequently occur between Veros and Carnoix over trade disputes.
+## Overview
+
+This article covers the features aspects of Ecological Military Organization within the context of Chronicles of Veridia.
+
+## Key Features
+
+1. **Primary Characteristics**: Standard features common across similar entities
+2 This relates to grove.. **Historical Development**: Evolved over 36 generations since the Great Accord
+3 This relates to glaive. (see document: DECR_003 for details) (historical context in REPO_005). **Current Status**: Stable and well-documented
+4 This relates to star-dust. (see document: JOUR_007 for details). **Future Prospects**: Facing challenges from external factors
+
+## Significance
+
+The study of Ecological Military Organization provides insights into broader cultural patterns.
+
+## Research Notes
+
+Recent investigations by Independent scholars have revealed potential risks requiring mitigation.
+
+**Further reading**: Consult related documents on regional histories for comprehensive understanding (see document: ENCY_013 for details). In the context of Valewardens,
 
 ## Related Documents
-- ENCY_004
-- ENCY_006
+- ENCY_001
+  *Covers related aspects of ecological military organization*
+- ENCY_005
+  *Covers related aspects of ecological military organization*
+- ENCY_002
+  *Covers related aspects of ecological military organization*
 - ENCY_003
+  *Covers related aspects of ecological military organization*
+- ENCY_004
+  *Covers related aspects of ecological military organization*
+
+**Related to military:** See JOUR_001 for complementary information.
+
+**Related to military:** See ENCY_001 for complementary information.
+
+**Related to lore:** See ENCY_001 for complementary information.
+
+**Related to lore:** See REPO_001 for complementary information.

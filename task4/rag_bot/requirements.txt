@@ -1,0 +1,14 @@
+langchain==1.2.4
+langchain-chroma==1.1.0
+langchain-huggingface==1.2.0
+chromadb==1.4.1
+sentence-transformers
+numpy==2.4.1
+transformers>=4.41.0
+torch>=2.0.0
+accelerate>=0.24.0
+bitsandbytes>=0.41.0
+python-telegram-bot==22.5
+hf_xet>=1.0.0
+tqdm>=4.65.0
+torch-directml

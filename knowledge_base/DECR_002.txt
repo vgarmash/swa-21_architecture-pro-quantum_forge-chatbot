@@ -1,23 +1,47 @@
 ---
-authority: Beloos
-contains_fictional_terms: true
+title: Official Decree
+authority: Chief's Council
+jurisdiction: Emerald Valley Region
+effective_date: Next Moon Cycle
 doc_id: DECR_002
 doc_type: decree
-effective_date: At dawn
-generated_date: '2026-01-15'
-jurisdiction: Emerald Valley
-seal: Iron Eagle Seal
-title: Proclamation of Authority
-universe: The Chronicles of Veridonia
+universe: Chronicles of Veridia
+generated_date: 2026-01-24
+contains_fictional_terms: True
+content_hash: 8304ae47
 ---
 
-# PROCLAMATION
+# Decree of Council of Elders
 
-**Seal:** Iron Eagle Seal
-**Authority:** Beloos
-**Effective:** At dawn
+## Preamble
 
-Imperial personnel are forbidden from entering Oakhaven without advance permission. Exception: delivery of olive oil and amphorae.
+In accordance with traditional authority and for the welfare of the community, this decree is issued regarding matters of cultural preservation.
 
-**Attested by:** Imperial quartermaster
-**Date recorded:** 7 / 295 AS
+## Articles
+
+### Article 1: General Provisions
+
+All members of the community shall adhere to the following regulations effective immediately.
+
+### Article 2: Specific Regulations
+
+1. The harvesting of moonleaf shall be limited to designated areas during specific lunar phases.
+
+2. Resolution of disputes shall follow established mediation procedures.
+
+3. Community service obligations apply to all resident families.
+
+### Article 3: Enforcement
+
+Violations shall be subject to corrective labor assignments as determined by appropriate authorities.
+
+### Article 4: Duration
+
+This decree remains in effect until the next seasonal council convenes.
+
+## Authorization
+
+Issued under the seal and authority of Council of Elders on this 18th day of Rainmonth.
+
+**Related decrees and laws:** ENCY_001, ENCY_002, ENCY_003
+**See also:** Legal precedents and historical regulations

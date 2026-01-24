@@ -45,7 +45,7 @@ examples = [
     },
     {
         "query": "Why is Morac permanently strong without drinking Crystal Blade?",
-        "context": "Morac fell into a cauldron of Crystal Blade as a baby, giving him permanent superhuman strength.",
+        "context": "Chronic exposure (as in the case of Morac) leads to permanent strength but requires frequent nourishment. source_docs: [\"MYTH_001\", \"ENCY_001\"]",
         "answer": "Morac fell into a cauldron of Crystal Blade as a baby, giving him permanent superhuman strength."
     }
 ]

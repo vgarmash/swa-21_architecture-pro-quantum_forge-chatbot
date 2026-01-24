@@ -1,22 +1,33 @@
 ---
-author: Morac
-contains_fictional_terms: true
-date: Second Moon, 121 AS
+title: Personal Journal of Lugous
+author: Lugous
+journal_type: Observational Record
+period: Current Cycle
 doc_id: JOUR_001
 doc_type: journal
-generated_date: '2026-01-15'
-location: Fort Argentum
-title: Personal Journal of Morac
-universe: The Chronicles of Veridonia
-weather: Clear night
+universe: Chronicles of Veridia
+generated_date: 2026-01-24
+contains_fictional_terms: True
+content_hash: 07a35b18
 ---
 
-## Entry #2
+## Journal Entry #29
 
-*Date: Second Moon, 121 AS*
-*Location: Fort Argentum*
-*Weather: Clear night*
+*Date: Midday on the 5th of Crystalmonth*
+*Location: at the base of Elder Mountain*
+*Weather: Clear*
+*Mood: hopeful*
 
-Taraax and I went to gather standing stones today. Found a remarkable monolith near the Whispering Woods. Must remember the locations of crystal-fox dens!
+Today was eventful. We had a skirmish with Imperial scouts near the border.
 
-**Personal note:** Beloix is composing a new epic (cf. LETT_005). May the twin suns grant us patience.
+**Observation:** Our food stores are adequate for the coming winter.
+
+**Personal note:** The dreams have been more vivid since visiting the crystal cave.
+
+**Related entries:** ENCY_002, ENCY_003, ENCY_005
+- See ENCY_002 for additional context on today's events
+- See ENCY_003 for additional context on today's events
+
+**Related to military:** See REPO_006 for complementary information.
+
+**Related to military:** See JOUR_007 for complementary information.

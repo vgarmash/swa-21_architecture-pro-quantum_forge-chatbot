@@ -1,22 +1,29 @@
 ---
-author: Taraax
-contains_fictional_terms: true
-date: Second Moon, 139 AS
+title: Personal Journal of Lugous
+author: Lugous
+journal_type: Field Notes
+period: Ongoing Documentation
 doc_id: JOUR_002
 doc_type: journal
-generated_date: '2026-01-15'
-location: Silverport
-title: Personal Journal of Taraax
-universe: The Chronicles of Veridonia
-weather: Rainy
+universe: Chronicles of Veridia
+generated_date: 2026-01-24
+contains_fictional_terms: True
+content_hash: 9ee5d89d
 ---
 
-## Entry #12
+## Journal Entry #88
 
-*Date: Second Moon, 139 AS*
-*Location: Silverport*
-*Weather: Rainy*
+*Date: Day 25 of the Planting Season*
+*Location: at the base of Elder Mountain*
+*Weather: Misty*
+*Mood: hopeful*
 
-Discussed herb cultivation with Carnoix. The Crystal way is particularly potent this season. Note: avoid specimens from the northern grove—they induce drowsiness.
+Today was eventful. Syloos showed me a new herbal preparation.
 
-**Personal note:** The Golden Orb roast was exceptionally flavorful tonight.
+**Observation:** The crystal formations hum differently at night.
+
+**Personal note:** The new batch of moonleaf seems particularly potent.
+
+**Related entries:** ENCY_002, ENCY_001, ENCY_014
+- See ENCY_002 for additional context on today's events
+- See ENCY_001 for additional context on today's events

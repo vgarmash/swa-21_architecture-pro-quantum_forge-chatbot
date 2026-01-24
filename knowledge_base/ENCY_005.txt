@@ -1,27 +1,69 @@
 ---
-author: Emerald Valley Scholars
-contains_fictional_terms: true
+title: Encyclopedia: Structure of Crystalbrook Settlement
+author: Imperial Geographers
+publication_date: 50 AM (After Moonfall)
+keywords:
+  - Veridia
+  - fictional
+  - settlement
 doc_id: ENCY_005
 doc_type: encyclopedia
-generated_date: '2026-01-15'
-keywords:
-- Veridonia
-- fictional
-- alchemy
-publication_date: 49 AS (After Settlement)
-title: 'Encyclopedia: Properties of Sunstone Elixir'
-universe: The Chronicles of Veridonia
+universe: Chronicles of Veridia
+generated_date: 2026-01-24
+contains_fictional_terms: True
+content_hash: eca49427
 ---
 
-# Properties of Sunstone Elixir
+# Settlement Structure: Crystalbrook
 
-The Crystal Blade is a legendary concoction prepared exclusively by the Lorekeeper Carnoix. 
-Its primary ingredient is Crystal way harvested with a silver crescent during the twin suns' alignment.
-Effects include temporary enhanced vitality, accelerated movement, and temporary resilience.
-Chronic exposure (as in the case of Morac) leads to permanent strength but requires frequent nourishment.
-The formula is a closely guarded secret of the Lorekeeper Circle. Taraax uses it strategically during Imperial encounters.
+## Overview
+
+Crystalbrook is a coastal settlement located in the Ironreach, known for its humid climate and remarkable resistance to Imperial occupation.
+
+## Physical Layout
+
+The settlement is structured around a artisan district with workshops at the highest elevation. Key infrastructure includes:
+
+1 (practical applications documented in ENCY_002) (historical context in ENCY_015). **Central District**: Housing for 187 families, centered around the plaza
+2 (supporting evidence in JOUR_010). **Defensive Perimeter**: Stone wall, enhanced with hidden escape tunnels and safe houses
+3 (contrasting viewpoint in ENCY_014). **Production Areas**: Workshop districts for essential goods
+4. **Cultural Sites**: Memory stones for community events
+
+## Social Structure
+
+The social hierarchy places Chief Lugous at the apex, followed by:
+- **Defenders**: 21 trained combatants led by Taraix
+- **Artisans**: Specialists including Taraix (metalwork) and Sylorix (aquatic resources)
+- **Scholars**: Lorekeepers and healers maintaining traditional knowledge
+- **Entertainers**: Including Beloix, whose performances are tolerated during gatherings
+
+## Economy and Trade
+
+Primary economic activities include herbal remedies and alchemical supplies. The settlement trades with Starfall Market for essential imports like fabrics.
+
+## Notable Features
+
+What makes Crystalbrook unique is its ancient protective enchantments. Recent developments include expansion of the northern quarry.
 
 ## Related Documents
-- ENCY_002
-- ENCY_004
-- ENCY_001
+- No related documents yet
+
+**Related to military:** See JOUR_007 for complementary information.
+
+**Related to military:** See JOUR_001 for complementary information.
+
+**Related to lore:** See ENCY_011 for complementary information.
+
+**Related to lore:** See DECR_001 for complementary information.
+
+**Related to stones:** See ENCY_011 for complementary information.
+
+**Related to stones:** See DECR_003 for complementary information.
+
+**Related to settlement:** See MYTH_004 for complementary information.
+
+**Related to settlement:** See MYTH_003 for complementary information.
+
+**Related to economy:** See REPO_005 for complementary information.
+
+**Related to economy:** See REPO_004 for complementary information.

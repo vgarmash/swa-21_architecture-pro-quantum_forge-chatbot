@@ -1,0 +1,29 @@
+---
+title: Personal Journal of Quenix
+author: Quenix
+journal_type: Observational Record
+period: Recent Months
+doc_id: JOUR_011
+doc_type: journal
+universe: Chronicles of Veridia
+generated_date: 2026-01-24
+contains_fictional_terms: True
+content_hash: 2634057b
+---
+
+## Journal Entry #95
+
+*Date: Day 15 of the Harvest Season*
+*Location: near the Whispering Falls*
+*Weather: Clear*
+*Mood: contemplative*
+
+Today was eventful. I discovered ancient runes while exploring.
+
+**Observation:** Our food stores are adequate for the coming winter.
+
+**Personal note:** Must remember to check the northern watchtower tomorrow.
+
+**Related entries:** JOUR_004, JOUR_007, ENCY_007
+- See JOUR_004 for additional context on today's events
+- See JOUR_007 for additional context on today's events

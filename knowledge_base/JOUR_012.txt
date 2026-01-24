@@ -1,0 +1,29 @@
+---
+title: Personal Journal of Taraix
+author: Taraix
+journal_type: Daily Log
+period: Current Cycle
+doc_id: JOUR_012
+doc_type: journal
+universe: Chronicles of Veridia
+generated_date: 2026-01-24
+contains_fictional_terms: True
+content_hash: 808bf9a4
+---
+
+## Journal Entry #71
+
+*Date: Midday on the 4th of Ironmonth*
+*Location: at the base of Elder Mountain*
+*Weather: Clear*
+*Mood: hopeful*
+
+Today was eventful. The community gathered for the monthly festival.
+
+**Observation:** Our food stores are adequate for the coming winter.
+
+**Personal note:** Quenix broke another tool today - need to speak with Taraix.
+
+**Related entries:** JOUR_004, ENCY_009, ENCY_012
+- See JOUR_004 for additional context on today's events
+- See ENCY_009 for additional context on today's events

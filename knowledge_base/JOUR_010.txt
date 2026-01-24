@@ -1,22 +1,29 @@
 ---
-author: Imperial Observer
-contains_fictional_terms: true
-date: Third Moon, 195 AS
+title: Personal Journal of Quenix
+author: Quenix
+journal_type: Observational Record
+period: Recent Months
 doc_id: JOUR_010
 doc_type: journal
-generated_date: '2026-01-15'
-location: Silverport
-title: Personal Journal of Imperial Observer
-universe: The Chronicles of Veridonia
-weather: Misty
+universe: Chronicles of Veridia
+generated_date: 2026-01-24
+contains_fictional_terms: True
+content_hash: 5489685f
 ---
 
-## Entry #43
+## Journal Entry #15
 
-*Date: Third Moon, 195 AS*
-*Location: Silverport*
-*Weather: Misty*
+*Date: First Moon of Sunfire*
+*Location: in the Crystalwood Grove*
+*Weather: Rainy*
+*Mood: contemplative*
 
-Taraax and I went to gather standing stones today. Found a remarkable monolith near the Whispering Woods. Must remember the locations of crystal-fox dens!
+Today was eventful. Syloos showed me a new herbal preparation.
 
-**Personal note:** The Golden Orb roast was exceptionally flavorful tonight.
+**Observation:** The seasons are changing earlier than expected.
+
+**Personal note:** Quenix broke another tool today - need to speak with Taraix.
+
+**Related entries:** ENCY_009, ENCY_010, ENCY_008
+- See ENCY_009 for additional context on today's events
+- See ENCY_010 for additional context on today's events

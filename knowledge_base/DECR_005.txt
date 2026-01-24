@@ -1,23 +1,55 @@
 ---
-authority: Imperial Proconsul
-contains_fictional_terms: true
+title: Official Decree
+authority: Lorekeeper Assembly
+jurisdiction: Emerald Valley Region
+effective_date: Next Moon Cycle
 doc_id: DECR_005
 doc_type: decree
-effective_date: Immediately
-generated_date: '2026-01-15'
-jurisdiction: Emerald Valley
-seal: Iron Eagle Seal
-title: Proclamation of Authority
-universe: The Chronicles of Veridonia
+universe: Chronicles of Veridia
+generated_date: 2026-01-24
+contains_fictional_terms: True
+content_hash: 2cee3813
 ---
 
-# PROCLAMATION
+# Decree of Council of Elders
 
-**Seal:** Iron Eagle Seal
-**Authority:** Imperial Proconsul
-**Effective:** Immediately
+## Preamble
 
-All standing stones must bear quarry-marks and delivery records. Unmarked stones revert to ownership of Chief Beloos.
+In accordance with traditional authority and for the welfare of the community, this decree is issued regarding matters of social conduct.
 
-**Attested by:** Two elders of the valley
-**Date recorded:** 4 / 300 AS
+## Articles
+
+### Article 1: General Provisions
+
+All members of the community shall adhere to the following regulations effective immediately.
+
+### Article 2: Specific Regulations
+
+1. Trade with external parties requires approval from designated authorities.
+
+2. Preservation of historical sites takes precedence over development.
+
+3. Waste disposal shall conform to environmental protection standards.
+
+### Article 3: Enforcement
+
+Violations shall be subject to temporary restrictions on privileges as determined by appropriate authorities.
+
+### Article 4: Duration
+
+This decree remains in effect until amended or revoked by subsequent decree.
+
+## Authorization
+
+Issued under the seal and authority of Council of Elders on this 11th day of Bloommonth.
+
+**Related decrees and laws:** ENCY_001, ENCY_002, ENCY_003
+**See also:** Legal precedents and historical regulations
+
+**Related to lore:** See ENCY_001 for complementary information.
+
+**Related to lore:** See ENCY_010 for complementary information.
+
+**Related to economy:** See REPO_005 for complementary information.
+
+**Related to economy:** See REPO_004 for complementary information.

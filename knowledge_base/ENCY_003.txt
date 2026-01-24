@@ -1,26 +1,45 @@
 ---
-author: Emerald Valley Scholars
-contains_fictional_terms: true
+title: Encyclopedia: History of Festival Calendar
+author: Lorekeeper Archives
+publication_date: 45 AM (After Moonfall)
+keywords:
+  - Veridia
+  - fictional
+  - region
 doc_id: ENCY_003
 doc_type: encyclopedia
-generated_date: '2026-01-15'
-keywords:
-- Veridonia
-- fictional
-- geography
-publication_date: 45 AS (After Settlement)
-title: 'Encyclopedia: Structure of Oakhaven Settlement'
-universe: The Chronicles of Veridonia
+universe: Chronicles of Veridia
+generated_date: 2026-01-24
+contains_fictional_terms: True
+content_hash: 18b9351a
 ---
 
-# Structure of Oakhaven Settlement
+# History of Festival Calendar
 
-Oakhaven is structured around a central plaza with Chief Beloos's longhouse at the highest elevation.
-Key structures include the Alchemist's tower, the stone circle quarry, and the fishery.
-Defensive strategy relies on natural valley topography and strategic use of the Sunstone Elixir.
-Social structure places the chief atop, followed by defenders, then artisans, with the minstrel Beloix enjoying ceremonial status but often being restrained during gatherings.
-Notable conflicts frequently occur between Veros and Carnoix over trade disputes.
+## Overview
+
+This article covers the region aspects of History of Festival Calendar within the context of Chronicles of Veridia.
+
+## Key Features
+
+1. **Primary Characteristics**: Standard features common across similar entities
+2 Similar to skald, this shows (additional information available in REPO_007). **Historical Development**: Evolved over 32 generations since the Crystal War
+3 (practical applications documented in DECR_001). **Current Status**: Stable and well-documented
+4 (see document: REPO_003 for details). **Future Prospects**: Expected to remain consistent
+
+## Significance
+
+The study of History of Festival Calendar provides insights into broader cultural patterns.
+
+## Research Notes
+
+Recent investigations by Independent scholars have revealed practical applications for daily life.
+
+**Further reading**: Consult related documents on regional histories for comprehensive understanding. This relates to Sun Blade.
 
 ## Related Documents
-- ENCY_001
-- ENCY_002
+- No related documents yet
+
+**Related to lore:** See ENCY_013 for complementary information.
+
+**Related to lore:** See DECR_005 for complementary information.

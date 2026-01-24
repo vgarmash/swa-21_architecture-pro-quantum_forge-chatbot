@@ -1,22 +1,29 @@
 ---
-author: Morac
-contains_fictional_terms: true
-date: First Moon, 1 AS
+title: Personal Journal of Taraix
+author: Taraix
+journal_type: Field Notes
+period: Ongoing Documentation
 doc_id: JOUR_009
 doc_type: journal
-generated_date: '2026-01-15'
-location: Silverport
-title: Personal Journal of Morac
-universe: The Chronicles of Veridonia
-weather: Sunny
+universe: Chronicles of Veridia
+generated_date: 2026-01-24
+contains_fictional_terms: True
+content_hash: 07d4a880
 ---
 
-## Entry #24
+## Journal Entry #4
 
-*Date: First Moon, 1 AS*
-*Location: Silverport*
-*Weather: Sunny*
+*Date: Second Moon of Sunfire*
+*Location: in the Crystalwood Grove*
+*Weather: Rainy*
+*Mood: weary*
 
-Today brought another Imperial patrol near the valley rim. Legate Valerius attempted to approach, but as usual, the Crystal Blade made our defense effortless. The Imperials retreated to Fort Argentum.
+Today was eventful. The community gathered for the monthly festival.
 
-**Personal note:** Noticed Imperial scouts mapping the eastern pass.
+**Observation:** Our food stores are adequate for the coming winter.
+
+**Personal note:** The new batch of moonleaf seems particularly potent.
+
+**Related entries:** ENCY_006, ENCY_014, JOUR_006
+- See ENCY_006 for additional context on today's events
+- See ENCY_014 for additional context on today's events

@@ -1,0 +1,69 @@
+{
+  "characters": {
+    "Hero": "Taraix",
+    "Strong Hero": "Quenix",
+    "Alchemist": "Syloos",
+    "Chief": "Lugous",
+    "Bard": "Beloix",
+    "Emperor": "Taraor",
+    "Blacksmith": "Taraix",
+    "Fisher": "Sylorix",
+    "Scout": "Belorix",
+    "Healer": "Syloos"
+  },
+  "items": {
+    "Magic Potion": "Obsidian Stone",
+    "Golden Sickle": "Amber Crown",
+    "Menhir": "Golden Chalice",
+    "Roman Standard": "Obsidian Blade",
+    "Wild Boar": "Iron Talisman",
+    "Druid's Staff": "Sun Blade",
+    "Invisibility Potion": "Jade Seal"
+  },
+  "events": {
+    "Historical Event 1": "The Emerald Rebellion",
+    "Historical Event 2": "The Forgotten Alliance",
+    "Historical Event 3": "The Emerald Rebellion",
+    "Historical Event 4": "The Ancient Convergence",
+    "Historical Event 5": "The Crystal Pact",
+    "Historical Event 6": "The Iron Accord"
+  },
+  "terms": {
+    "Gaul": "Mythoria",
+    "Rome": "The Imperium",
+    "mistletoe": "sun-lichen",
+    "boar": "crystal-tusk",
+    "feast": "sun celebration",
+    "centurion": "legionnaire",
+    "legion": "crystal legion",
+    "druid": "star-seer",
+    "bard": "skald",
+    "village": "hamlet",
+    "camp": "encampment",
+    "forest": "grove",
+    "potion": "draught",
+    "sword": "glaive",
+    "shield": "buckler",
+    "armor": "plate",
+    "gold": "sun-metal",
+    "silver": "star-dust",
+    "emperor": "high ruler",
+    "chief": "headman",
+    "warrior": "champion",
+    "magic": "thaumaturgy",
+    "stone": "monolith",
+    "tree": "elm"
+  },
+  "regions": {
+    "region_0": "Stardale",
+    "region_1": "Riverwatch",
+    "region_2": "Crystalwatch",
+    "region_3": "Ironreach"
+  },
+  "factions": {
+    "faction_0": "Valewardens",
+    "faction_1": "Valewardens",
+    "faction_2": "Crystal Order",
+    "faction_3": "Valewardens"
+  }
+}

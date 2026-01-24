@@ -1,23 +1,51 @@
 ---
-authority: Imperial Proconsul
-contains_fictional_terms: true
+title: Official Decree
+authority: Defense Command
+jurisdiction: Allied Territories
+effective_date: Next Moon Cycle
 doc_id: DECR_004
 doc_type: decree
-effective_date: Next moon cycle
-generated_date: '2026-01-15'
-jurisdiction: Allied Settlements
-seal: Iron Eagle Seal
-title: Proclamation of Authority
-universe: The Chronicles of Veridonia
+universe: Chronicles of Veridia
+generated_date: 2026-01-24
+contains_fictional_terms: True
+content_hash: 3cf86207
 ---
 
-# PROCLAMATION
+# Decree of Council of Elders
 
-**Seal:** Iron Eagle Seal
-**Authority:** Imperial Proconsul
-**Effective:** Next moon cycle
+## Preamble
 
-All standing stones must bear quarry-marks and delivery records. Unmarked stones revert to ownership of Chief Beloos.
+In accordance with traditional authority and for the welfare of the community, this decree is issued regarding matters of economic regulation.
 
-**Attested by:** Imperial quartermaster
-**Date recorded:** 17 / 296 AS
+## Articles
+
+### Article 1: General Provisions
+
+All members of the community shall adhere to the following regulations effective immediately.
+
+### Article 2: Specific Regulations
+
+1. Traditional festivals shall be observed according to ancestral calendars.
+
+2. Preservation of historical sites takes precedence over development.
+
+3. Training in basic self-defense is required for all adults.
+
+### Article 3: Enforcement
+
+Violations shall be subject to temporary restrictions on privileges as determined by appropriate authorities.
+
+### Article 4: Duration
+
+This decree remains in effect until one full cycle of seasons has passed.
+
+## Authorization
+
+Issued under the seal and authority of Council of Elders on this 27th day of Starfrostmonth.
+
+**Related decrees and laws:** ENCY_001, ENCY_002, ENCY_003
+**See also:** Legal precedents and historical regulations
+
+**Related to military:** See ENCY_015 for complementary information.
+
+**Related to military:** See ENCY_011 for complementary information.
