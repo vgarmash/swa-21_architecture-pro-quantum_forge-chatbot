@@ -13,6 +13,7 @@ logging.basicConfig(
 # --- Импорты LangChain и библиотек ---
 try:
     from langchain_core.prompts import PromptTemplate, FewShotPromptTemplate
+    from langchain_core.prompts.example_selector import LengthBasedExampleSelector
     from langchain_core.runnables import RunnablePassthrough
     from langchain_core.output_parsers import StrOutputParser
     from langchain_huggingface import HuggingFacePipeline, HuggingFaceEmbeddings
@@ -26,12 +27,12 @@ except ImportError as e:
 
 # --- КОНФИГУРАЦИЯ ---
 
-PROJECT_ROOT = Path(__file__).parent.parent.resolve()
+PROJECT_ROOT = Path(__file__).parent.parent.parent.resolve()
 CHROMA_DB_PATH = PROJECT_ROOT / "chroma_db"
 
 # Модели
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
-LLM_MODEL_NAME = "Qwen/Qwen1.5-1.8B-Chat" # Или Qwen/Qwen2.5-1.5B-Instruct
+LLM_MODEL_NAME = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
 
 # --- ПРИМЕРЫ ДЛЯ FEW-SHOT ---
 # Обратите внимание: формат ответа должен соответствовать тому, чего вы хотите от модели.
@@ -39,23 +40,108 @@ LLM_MODEL_NAME = "Qwen/Qwen1.5-1.8B-Chat" # Или Qwen/Qwen2.5-1.5B-Instruct
 
 examples = [
     {
-        "query": "What are main ingredients and effects of Crystal Blade?",
-        "context": "The primary ingredient is Crystal way harvested during the twin suns' alignment. Effects include temporary enhanced vitality, accelerated movement, and temporary resilience.",
-        "answer": "The primary ingredient is Crystal way harvested during the twin suns' alignment. Effects include temporary enhanced vitality, accelerated movement, and temporary resilience."
+        "question": "What is Crystalbrook's main economic activity?",
+        "answer": "Herbal remedies and alchemical supplies."
     },
     {
-        "query": "Why is Morac permanently strong without drinking Crystal Blade?",
-        "context": "Chronic exposure (as in the case of Morac) leads to permanent strength but requires frequent nourishment. source_docs: [\"MYTH_001\", \"ENCY_001\"]",
-        "answer": "Morac fell into a cauldron of Crystal Blade as a baby, giving him permanent superhuman strength."
+        "question": "Who leads the defenders of Crystalbrook?",
+        "answer": "Taraix."
+    },
+    {
+        "question": "What limits moonleaf harvesting in DECR_002?",
+        "answer": "Only in designated areas during specific lunar phases."
+    },
+    {
+        "question": "What happens if you violate DECR_001?",
+        "answer": "Subject to community service requirements."
+    },
+    {
+        "question": "What does the Crystal Essence primarily do?",
+        "answer": "Accelerates reflexes and perception."
+    },
+    {
+        "question": "Who prepares the Crystal Essence exclusively?",
+        "answer": "Lorekeeper Syloos."
+    },
+    {
+        "question": "What happened to Lugous near the border?",
+        "answer": "A skirmish with Imperial scouts."
+    },
+    {
+        "question": "Why are Lugous's dreams more vivid?",
+        "answer": "Since visiting the crystal cave."
+    },
+    {
+        "question": "What is the Legend of the Twin Moons about?",
+        "answer": "The gift of the twin moons."
+    },
+    {
+        "question": "Who is the hero in the MYTH_001 legend?",
+        "answer": "The Stone Speaker."
+    },
+    {
+        "question": "What does Sunstone Elixir enhance?",
+        "answer": "Temporary vitality and endurance."
+    },
+    {
+        "question": "What requires quarrymaster approval in DECR_003?",
+        "answer": "Using standing stones for construction."
+    },
+    {
+        "question": "Who does Taraix write to in LETT_003?",
+        "answer": "A trusted friend."
+    },
+    {
+        "question": "What is REPO_002's security classification?",
+        "answer": "RESTRICTED ACCESS."
+    },
+    {
+        "question": "What is the primary trend in REPO_006?",
+        "answer": "Imperial forces are consolidating positions."
+    },
+    {
+        "question": "What does the Elderwood Extract enhance?",
+        "answer": "Cognitive processing and memory."
+    },
+    {
+        "question": "What does Lugous discover while exploring?",
+        "answer": "A hidden cave."
+    },
+    {
+        "question": "What does Syloos show in journal entries?",
+        "answer": "A new herbal preparation."
+    },
+    {
+        "question": "What is the moral of MYTH_002?",
+        "answer": "The greatest treasures are often overlooked."
+    },
+    {
+        "question": "What must be preserved per DECR_004?",
+        "answer": "Historical sites over development."
     }
 ]
 
 # ИСПРАВЛЕНИЕ: Убрали плейсхолдеры {context} и {question} отсюда.
 # system_instruction должен быть просто текстом инструкции.
 system_instruction = """
-You are a helpful assistant. Use the following pieces of retrieved context to answer the question. 
-If you don't know the answer, just say that you don't know. 
-Keep the answer concise.
+### Role
+You are a large English‑language LLM assistant.  
+Your task is to carefully answer the user’s question using **ONLY** the information from the provided list of documents.  
+If the documents do not contain the necessary information, honestly state “No confirmations found”.  
+Avoid speculation and hallucinations.
+
+### Workflow steps
+1. Read all documents from the `<Documents>` block carefully.  
+2. Identify which of them are truly relevant to the question.  
+3. Summarize the key facts (you may take notes for yourself, but do not show them to the user).  
+4. Formulate the final answer in English, relying only on verified facts.  
+5. At the end of the answer, add citation markers in the form `[1]`, `[2]` — these are the document numbers from the `<Documents>` block that confirm a specific statement.
+
+### Output format
+The answer must consist of two parts:  
+**A. Brief answer** (1–3 sentences).  
+**B. Detailed explanation** (in bullet points), where each statement is accompanied by a source citation in square brackets.
+
 """
 
 def get_rag_chain():
@@ -74,7 +160,7 @@ def get_rag_chain():
         model_name=EMBEDDING_MODEL_NAME
     )
 
-    # 3. LLM (Phi-3 / CausalLM)
+    # 3. LLM
     logging.info(f"Loading Generative Model: {LLM_MODEL_NAME}")
     tokenizer = AutoTokenizer.from_pretrained(LLM_MODEL_NAME)
     model = AutoModelForCausalLM.from_pretrained(LLM_MODEL_NAME)
@@ -142,12 +228,17 @@ def get_rag_chain():
     full_prompt = PromptTemplate(
         template="""{instruction}
 
-Examples:
-{examples}
+### `<Documents>`
+`[1]` {{doc1_title}} — {{doc1_excerpt}}  
+`[2]` {{doc2_title}} — {{doc2_excerpt}}  
+`[3]` {{doc3_title}} — {{doc3_excerpt}}  
+… (up to N documents possible)
 
-Context: {context}
-Question: {query}
-Answer:""",
+### `<User question>`
+{{user_question}}
+
+### `<Your answer>`
+(Follow the A. and B. format as described above)""",
         input_variables=["instruction", "examples", "context", "query"]
     )
 
