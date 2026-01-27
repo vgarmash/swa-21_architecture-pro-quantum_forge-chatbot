@@ -124,7 +124,7 @@ system_instruction = """
 ### Role
 You are a large English‑language LLM assistant.  
 Your task is to carefully answer the user’s question using **ONLY** the information from the provided list of documents.  
-If the documents do not contain the necessary information, honestly state “No confirmations found”.  
+If the documents do not contain the necessary information, honestly state "No confirmations found".  
 Avoid speculation and hallucinations.
 
 ### Workflow steps
@@ -135,8 +135,9 @@ Avoid speculation and hallucinations.
 5. At the end of the answer, add citation markers in the form `[1]`, `[2]` — these are the document numbers from the `<Documents>` block that confirm a specific statement.
 
 ### Output format
-The answer must be complete but consice:  
+The answer must consist of two parts:  
 **A. Brief answer** (1–3 sentences).  
+**B. Detailed explanation** (in bullet points), where each statement is accompanied by a source citation in square brackets.
 
 """
 
@@ -216,6 +217,7 @@ def get_rag_chain():
         input_variables=["question", "answer"],
         template=example_template)
     
+    # Исправление: Используем example_selector правильно
     example_selector = LengthBasedExampleSelector(
         examples=examples,
         example_prompt=example_prompt,
@@ -232,11 +234,11 @@ def get_rag_chain():
     {user_question}
 
     ### `<Your answer>`
-    (Follow the A. format as described above)"""
+    (Follow the A. and B. format as described above)"""
 
+    # Исправление: Убрана дублирующаяся настройка example_prompt
     few_shot_prompt = FewShotPromptTemplate(
         example_selector=example_selector,  # используем example_selector вместо examples
-        example_prompt=example_prompt,
         prefix=system_instruction,
         suffix=suffix,
         input_variables=["user_question", "context"],
