@@ -170,7 +170,7 @@ class QwenLLMClient:
 
             # Настройки загрузки модели
             model_kwargs = {
-                "dtype": dtype,
+                "torch_dtype": dtype,
                 "trust_remote_code": self.config.trust_remote_code if "phi-3" not in self.config.model_name.lower() else False,
                 "cache_dir": str(self.config.model_cache_dir),
                 "low_cpu_mem_usage": True,
@@ -181,7 +181,7 @@ class QwenLLMClient:
             if quantization_config:
                 model_kwargs["quantization_config"] = quantization_config
                 if self.config.load_in_4bit:
-                    model_kwargs["dtype"] = torch.float16
+                    model_kwargs["torch_dtype"] = torch.float16
 
             # Настройка device_map
             if self._device == "cuda":
@@ -277,8 +277,8 @@ class QwenLLMClient:
             self.load_model()
 
         # Параметры генерации
-        max_tokens = max_new_tokens or self.config.max_tokens
-        temp = temperature or self.config.temperature
+        max_tokens = self.config.max_tokens if max_new_tokens is None else max_new_tokens
+        temp = self.config.temperature if temperature is None else temperature
 
         # Оптимизации для разных устройств
         if self._device == "cpu":
@@ -294,11 +294,12 @@ class QwenLLMClient:
                 prompt = prompt[:max_prompt_chars]
 
             # Токенизация промпта с БОЛЬШИМ лимитом для контекста Phi-3
+            max_length = min(getattr(self._tokenizer, "model_max_length", 32768), 32768)
             inputs = self._tokenizer(
                 prompt,
                 return_tensors="pt",
                 truncation=True,
-                max_length=32768,  # Используем 32k токенов из доступных 128k
+                max_length=max_length,  # Используем не больше model_max_length
                 padding=True
             )
 
@@ -410,7 +411,9 @@ class QwenLLMClient:
                 logger.debug(f"Тип/форма input_ids: {inputs['input_ids'].dtype}/{inputs['input_ids'].shape}")
                 logger.debug(f"Устройство input_ids: {inputs['input_ids'].device}")
                 # Проверка на NaN/Inf (редкая, но возможная проблема)
-                if torch.isnan(inputs['input_ids']).any() or torch.isinf(inputs['input_ids']).any():
+                if inputs['input_ids'].is_floating_point() and (
+                        torch.isnan(inputs['input_ids']).any() or torch.isinf(inputs['input_ids']).any()
+                ):
                     logger.error("Обнаружены NaN или Inf в input_ids!")
                     return "Ошибка: поврежденные входные данные"
 
@@ -453,9 +456,9 @@ class QwenLLMClient:
             logger.debug(f"Dtype outputs: {outputs.dtype}")
 
             # Проверка на "странные" значения
-            if torch.isnan(outputs).any():
+            if outputs.is_floating_point() and torch.isnan(outputs).any():
                 logger.error("Выход модели содержит NaN!")
-            if torch.isinf(outputs).any():
+            if outputs.is_floating_point() and torch.isinf(outputs).any():
                 logger.error("Выход модели содержит Inf!")
 
             # Проверка диапазона значений (добавим для диагностики)
@@ -469,6 +472,7 @@ class QwenLLMClient:
                 logger.debug(f"Первые 10 сгенерированных token_id: {generated_token_ids.tolist()}")
 
             # Декодирование с ЗАЩИТОЙ ОТ БИТЫХ ДАННЫХ
+            generated_text = ""
             try:
                 generated_text = self._tokenizer.decode(
                     outputs[0][inputs['input_ids'].shape[1]:],
@@ -478,6 +482,7 @@ class QwenLLMClient:
 
             except (UnicodeDecodeError, ValueError, RuntimeError) as decode_error:
                 logger.error(f"Ошибка декодирования выхода модели: {decode_error}")
+                return "Ошибка декодирования ответа"
 
             # Очистка ответа
             cleaned_response = self._clean_response(generated_text)
