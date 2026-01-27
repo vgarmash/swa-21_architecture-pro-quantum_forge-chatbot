@@ -174,7 +174,7 @@ class RagEngine:
         )
         self._llm = HuggingFacePipeline(pipeline=self._generator)
 
-    def search(self, query: str, k: int = 4) -> dict:
+    def search(self, query: str, k: int = 2) -> dict:
         if not query:
             raise ValueError("Question cannot be empty.")
 
@@ -187,7 +187,7 @@ class RagEngine:
                 "query": query,
                 "results": [],
                 "context": "",
-                "answer": "Information is unavailable. Ask another question.",
+                "answer": "Nothing found. Ask another question.",
             }
 
         def format_docs(docs):
@@ -224,7 +224,7 @@ class RagEngine:
         # Дополнительная проверка: если ответ содержит признаки вымышленной информации
         # (например, слишком общие фразы или отсутствие конкретики)
         if self._is_fabricated_answer(answer, query, results):
-            answer = "Information is unavailable. Ask another question."
+            answer = "Can't answer properly. Ask another question."
 
         return {
             "query": query,
