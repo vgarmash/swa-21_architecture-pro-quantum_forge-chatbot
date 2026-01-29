@@ -1,10 +1,11 @@
 import logging
-from langchain_huggingface import HuggingFacePipeline
-from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
+from langchain_openai import ChatOpenAI
+from langchain_core.messages import HumanMessage
 
-LLM_MODEL = "Qwen/Qwen1.5-1.8B-Chat"
-MAX_NEW_TOKENS = 256
-TEMPERATURE = 0.0
+# Настройки OpenAI API
+OPENAI_BASE_URL = "http://localhost:8000/api/v1"
+OPENAI_API_KEY = "lemonade"
+OPENAI_MODEL = "Mistral-7B-v0.3-Instruct-Hybrid"
 
 logging.basicConfig(
     level=logging.INFO,
@@ -12,17 +13,12 @@ logging.basicConfig(
 )
 
 def create_llm_pipeline():
-    logging.info("Загрузка LLM: %s", LLM_MODEL)
-    """Create and return a HuggingFacePipeline for text generation."""
-    tokenizer = AutoTokenizer.from_pretrained(LLM_MODEL)
-    model = AutoModelForCausalLM.from_pretrained(LLM_MODEL)
-    generator = pipeline(
-        "text-generation",
-        model=model,
-        tokenizer=tokenizer,
-        max_new_tokens=MAX_NEW_TOKENS,
-        temperature=TEMPERATURE,
-        do_sample=False,
-        return_full_text=False,
+    logging.info("Инициализация OpenAI LLM: %s", OPENAI_MODEL)
+    """Create and return a ChatOpenAI instance for text generation."""
+    llm = ChatOpenAI(
+        api_key=OPENAI_API_KEY,
+        base_url=OPENAI_BASE_URL,
+        model=OPENAI_MODEL,
+        temperature=0.0,
     )
-    return HuggingFacePipeline(pipeline=generator)
+    return llm
