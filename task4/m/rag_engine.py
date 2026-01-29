@@ -6,16 +6,14 @@ from langchain_chroma import Chroma
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import FewShotPromptTemplate, PromptTemplate
 from langchain_core.runnables import RunnablePassthrough
-from langchain_huggingface import HuggingFaceEmbeddings, HuggingFacePipeline
-from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
+from langchain_huggingface import HuggingFaceEmbeddings
+from llm_client import create_llm_pipeline
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent.resolve()
 CHROMA_DB_PATH = PROJECT_ROOT / "chroma_db"
 CHROMA_DIR = Path(CHROMA_DB_PATH)
 COLLECTION_NAME = "knowledge_base"
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
-# LLM_MODEL = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
-LLM_MODEL = "Qwen/Qwen1.5-1.8B-Chat"
 
 PROMPT_INSTRUCTIONS = (
     "You are a helpful assistant. Answer in English using only the context below. "
@@ -160,19 +158,8 @@ class RagEngine:
             collection_metadata={"hnsw:space": "cosine"}
         )
 
-        logging.info("Загрузка LLM: %s", LLM_MODEL)
-        tokenizer = AutoTokenizer.from_pretrained(LLM_MODEL)
-        model = AutoModelForCausalLM.from_pretrained(LLM_MODEL)
-        self._generator = pipeline(
-            "text-generation",
-            model=model,
-            tokenizer=tokenizer,
-            max_new_tokens=MAX_NEW_TOKENS,
-            temperature=TEMPERATURE,
-            do_sample=False,
-            return_full_text=False,
-        )
-        self._llm = HuggingFacePipeline(pipeline=self._generator)
+        
+        self._llm = create_llm_pipeline()
 
     def search(self, query: str, k: int = 2) -> dict:
         if not query:
