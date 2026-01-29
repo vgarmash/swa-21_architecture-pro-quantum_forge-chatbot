@@ -37,6 +37,7 @@ class QwenLLMClient:
         self.config = config or CONFIG.llm
         self._tokenizer: Optional[AutoTokenizer] = None
         self._model: Optional[AutoModelForCausalLM] = None
+        self._cpu_model: Optional[AutoModelForCausalLM] = None
         self._device = None
         self._directml_device = None
 
@@ -170,7 +171,7 @@ class QwenLLMClient:
 
             # Настройки загрузки модели
             model_kwargs = {
-                "torch_dtype": dtype,
+                "dtype": dtype,
                 "trust_remote_code": self.config.trust_remote_code if "phi-3" not in self.config.model_name.lower() else False,
                 "cache_dir": str(self.config.model_cache_dir),
                 "low_cpu_mem_usage": True,
@@ -181,7 +182,7 @@ class QwenLLMClient:
             if quantization_config:
                 model_kwargs["quantization_config"] = quantization_config
                 if self.config.load_in_4bit:
-                    model_kwargs["torch_dtype"] = torch.float16
+                    model_kwargs["dtype"] = torch.float16
 
             # Настройка device_map
             if self._device == "cuda":
@@ -332,31 +333,12 @@ class QwenLLMClient:
 
             logger.debug(f"=== КОНЕЦ ПРОВЕРКИ ТОКЕНИЗАЦИИ ===")
 
-            # ▼▼▼ ДОБАВИТЬ ЗДЕСЬ - ПРОВЕРКА УСТРОЙСТВ ПЕРЕД ГЕНЕРАЦИЕЙ ▼▼▼
-            # КРИТИЧЕСКАЯ ПРОВЕРКА: устройство модели и входных данных
+            # ▼▼▼ ПРОВЕРКА УСТРОЙСТВ ПЕРЕД ГЕНЕРАЦИЕЙ (БЕЗ ПЕРЕНОСА МОДЕЛИ) ▼▼▼
+            # Важно: модель переносится только при загрузке; здесь выравниваем только входы
             model_device = next(self._model.parameters()).device
             inputs_device = inputs['input_ids'].device
             logger.debug(f"Проверка устройств: модель на {model_device}, входы на {inputs_device}")
-
-            if model_device != inputs_device:
-                logger.error(f"РАСХОЖДЕНИЕ УСТРОЙСТВ! Модель на {model_device}, а входы на {inputs_device}")
-                # Пробуем переместить модель на устройство входных данных
-                try:
-                    self._model = self._model.to(inputs_device)
-                    logger.warning(f"Модель перемещена на {inputs_device}")
-                except Exception as move_error:
-                    logger.error(f"Не удалось переместить модель: {move_error}")
-
-            # ВРЕМЕННОЕ ИСПРАВЛЕНИЕ: принудительно используем CPU для генерации
-            if self._device == "directml":
-                logger.warning("ВРЕМЕННО ИСПОЛЬЗУЕМ CPU ВМЕСТО DIRECTML ДЛЯ ДИАГНОСТИКИ")
-                # Перемещаем всё на CPU
-                inputs = {k: v.cpu() for k, v in inputs.items()}
-                self._model = self._model.cpu()
-                # Обновляем устройство
-                self._device = "cpu"
-                logger.debug(f"Устройство изменено на {self._device}")
-                # ▲▲▲ КОНЕЦ ДОБАВЛЕНИЯ ПРОВЕРКИ УСТРОЙСТВ ▲▲▲
+            # ▲▲▲ КОНЕЦ ПРОВЕРКИ УСТРОЙСТВ ▲▲▲
 
             # Контрольная точка: логируем длину в токенах
             num_tokens = inputs['input_ids'].shape[1]
@@ -364,6 +346,17 @@ class QwenLLMClient:
 
             # Перемещаем на нужное устройство
             inputs = self._move_to_device(inputs)
+
+            # Гарантируем, что входы на том же устройстве, что и модель
+            inputs_device = inputs['input_ids'].device
+            if inputs_device != model_device:
+                logger.warning(
+                    f"Входы на {inputs_device}, модель на {model_device}. Перемещаем входы на устройство модели."
+                )
+                inputs = {
+                    k: v.to(model_device) if isinstance(v, torch.Tensor) else v
+                    for k, v in inputs.items()
+                }
 
             # Настройки генерации в зависимости от устройства
             generation_kwargs = {
@@ -425,18 +418,37 @@ class QwenLLMClient:
                     outputs = self._model.generate(**generation_kwargs)
                 generation_time = time.time() - start_time
 
-            except RuntimeError as gen_error:
-                logger.error(f"СБОЙ В model.generate(): {gen_error}")
-                # Пробуем на CPU как последнее средство
+            except Exception as gen_error:
+                logger.error(f"СБОЙ В model.generate(): {type(gen_error).__name__}: {gen_error}")
+                # Пробуем на CPU как последнее средство (без переноса модели с DirectML)
                 logger.info("Пробуем выполнить генерацию на CPU...")
                 try:
                     # Создаем копии на CPU
                     inputs_cpu = {k: v.cpu() for k, v in inputs.items() if isinstance(v, torch.Tensor)}
-                    model_cpu = self._model.cpu()
+
+                    if self._cpu_model is None:
+                        logger.info("Загружаем CPU-модель для фолбэка (это может занять время)...")
+                        cpu_kwargs = {
+                            "dtype": torch.float32,
+                            "trust_remote_code": self.config.trust_remote_code if "phi-3" not in self.config.model_name.lower() else False,
+                            "cache_dir": str(self.config.model_cache_dir),
+                            "low_cpu_mem_usage": True,
+                            "device_map": None,
+                        }
+                        self._cpu_model = AutoModelForCausalLM.from_pretrained(
+                            self.config.model_name,
+                            **cpu_kwargs
+                        )
+                        self._cpu_model = self._cpu_model.to("cpu")
+                        self._cpu_model = self._cpu_model.float()
+                        self._cpu_model.eval()
+
+                    model_cpu = self._cpu_model
 
                     # Обновляем generation_kwargs для CPU
                     cpu_generation_kwargs = {**generation_kwargs}
                     cpu_generation_kwargs.update(inputs_cpu)
+                    cpu_generation_kwargs["max_new_tokens"] = min(cpu_generation_kwargs["max_new_tokens"], 128)
 
                     with torch.no_grad():
                         outputs = model_cpu.generate(**cpu_generation_kwargs)
@@ -450,32 +462,40 @@ class QwenLLMClient:
             # ▲▲▲ КОНЕЦ ДОБАВЛЕНИЯ ОБРАБОТКИ ОШИБОК ▲▲▲
 
             # ОТЛАДОЧНЫЙ БЛОК после генерации
+            outputs_device = outputs.device
+            outputs_cpu = outputs.detach().cpu()
             logger.debug(f"=== РЕЗУЛЬТАТЫ ГЕНЕРАЦИИ ===")
             logger.debug(f"Генерация заняла: {generation_time:.2f} секунд")
-            logger.debug(f"Тип outputs: {type(outputs)}, Форма: {outputs.shape}, Устройство: {outputs.device}")
-            logger.debug(f"Dtype outputs: {outputs.dtype}")
+            logger.debug(
+                f"Тип outputs: {type(outputs_cpu)}, Форма: {outputs_cpu.shape}, Устройство: {outputs_device}"
+            )
+            logger.debug(f"Dtype outputs: {outputs_cpu.dtype}")
 
             # Проверка на "странные" значения
-            if outputs.is_floating_point() and torch.isnan(outputs).any():
+            if outputs_cpu.is_floating_point() and torch.isnan(outputs_cpu).any():
                 logger.error("Выход модели содержит NaN!")
-            if outputs.is_floating_point() and torch.isinf(outputs).any():
+            if outputs_cpu.is_floating_point() and torch.isinf(outputs_cpu).any():
                 logger.error("Выход модели содержит Inf!")
 
             # Проверка диапазона значений (добавим для диагностики)
-            min_val = outputs.min().item()
-            max_val = outputs.max().item()
+            min_val = outputs_cpu.min().item()
+            max_val = outputs_cpu.max().item()
             logger.debug(f"Диапазон значений в outputs: min={min_val}, max={max_val}")
 
             # Дополнительно: проверим первые 10 сгенерированных токенов
-            if outputs.shape[1] > inputs['input_ids'].shape[1]:
-                generated_token_ids = outputs[0][inputs['input_ids'].shape[1]:inputs['input_ids'].shape[1] + 10]
+            if outputs_cpu.shape[1] > inputs['input_ids'].shape[1]:
+                generated_token_ids = outputs_cpu[0][
+                    inputs['input_ids'].shape[1]:inputs['input_ids'].shape[1] + 10
+                ]
                 logger.debug(f"Первые 10 сгенерированных token_id: {generated_token_ids.tolist()}")
 
             # Декодирование с ЗАЩИТОЙ ОТ БИТЫХ ДАННЫХ
             generated_text = ""
             try:
+                # Для стабильности декодируем с CPU (особенно для DirectML/MPS)
+                decoded_ids = outputs_cpu[0][inputs['input_ids'].shape[1]:]
                 generated_text = self._tokenizer.decode(
-                    outputs[0][inputs['input_ids'].shape[1]:],
+                    decoded_ids,
                     skip_special_tokens=True
                 )
                 logger.debug(f"Успешное декодирование, длина текста: {len(generated_text)} символов")

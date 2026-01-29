@@ -34,7 +34,7 @@ EMBEDDING_DIMENSIONS = 384  # Размерность эмбеддингов дл
 # Настройки поиска - УЛУЧШЕННЫЕ
 DEFAULT_SEARCH_K = 15  # Больше результатов для лучшего контекста
 DEFAULT_SCORE_THRESHOLD = 0.2  # Ниже порог для включения большего контекста
-MAX_CONTEXT_LENGTH = 3000  # Максимальная длина контекста в токенах
+MAX_CONTEXT_LENGTH = 1500  # Максимальная длина контекста в токенах
 MIN_RELEVANT_DOCS = 1  # Минимальное количество релевантных документов
 
 # Few-shot файлы
@@ -259,7 +259,7 @@ class LLMConfig:
     model_name: str = "microsoft/Phi-3-mini-128k-instruct"
     model_cache_dir: Path = MODELS_CACHE_PATH
     temperature: float = 0.1
-    max_tokens: int = 512
+    max_tokens: int = 128
     top_p: float = 0.9
     top_k: int = 50
     repetition_penalty: float = 1.1

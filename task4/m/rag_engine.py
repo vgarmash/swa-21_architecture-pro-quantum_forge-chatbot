@@ -187,8 +187,22 @@ class RagEngine:
                 "query": query,
                 "results": [],
                 "context": "",
-                "answer": "Nothing found. Ask another question.",
+                "answer": "Information is unavailable. Ask another question.",
             }
+
+        # Проверка релевантности результатов - если минимальная схожесть слишком низкая
+        # (например, меньше 0.7), считаем, что результаты не релевантны
+        if results:
+            # Проверяем, что хотя бы один результат имеет достаточную релевантность
+            min_relevance_threshold = 0.7
+            if hasattr(results[0], 'metadata') and 'relevance_score' in results[0].metadata:
+                if results[0].metadata['relevance_score'] < min_relevance_threshold:
+                    return {
+                        "query": query,
+                        "results": [],
+                        "context": "",
+                        "answer": "Information is unavailable. Ask another question.",
+                    }
 
         def format_docs(docs):
             return "\n\n".join(
@@ -224,7 +238,7 @@ class RagEngine:
         # Дополнительная проверка: если ответ содержит признаки вымышленной информации
         # (например, слишком общие фразы или отсутствие конкретики)
         if self._is_fabricated_answer(answer, query, results):
-            answer = "Can't answer properly. Ask another question."
+            answer = "Information is unavailable. Ask another question."
 
         return {
             "query": query,
@@ -242,34 +256,43 @@ class RagEngine:
         if "information is unavailable" in answer_lower or "ask another question" in answer_lower:
             return False
 
+        # Проверяем, содержит ли ответ хотя бы одну цитату, соответствующую найденным документам
         cited_indices = self._extract_citations(answer)
         if not cited_indices:
-            return True
+            # Если нет цитат, проверяем, действительно ли ответ содержит информацию из контекста
+            # Если ответ слишком общий или не содержит конкретики, считаем его вымышленным
+            if len(answer.strip()) < 30:  # Очень короткий ответ
+                return True
+            # Проверяем, есть ли в ответе ключевые слова из запроса
+            query_words = set(word.lower() for word in query.split() if len(word) > 3)
+            answer_words = set(word.lower() for word in answer.split() if len(word) > 3)
+            # Если в ответе нет ключевых слов из запроса, это может быть вымышленный ответ
+            if not (answer_words & query_words) and len(query_words) > 0:
+                return True
+            return False
 
         max_index = len(results)
         if any(idx < 1 or idx > max_index for idx in cited_indices):
             return True
 
-        # Ослабляем проверку пересечения токенов: достаточно валидных цитат.
+        # Проверяем, что цитаты действительно ссылаются на существующие документы
+        # Если цитаты корректны, но ответ не содержит конкретной информации из контекста, это может быть проблемой
         return False
 
     def _extract_citations(self, text: str) -> set:
-        matches = []
-        current = ""
-        inside = False
-        for ch in text:
-            if ch == "[":
-                inside = True
-                current = ""
-                continue
-            if ch == "]" and inside:
-                inside = False
-                if current.isdigit():
-                    matches.append(int(current))
-                continue
-            if inside:
-                current += ch
-        return set(matches)
+        # Используем регулярное выражение для извлечения цитат в формате [1], [2], [1,2] и т.д.
+        import re
+        # Находит все цитаты в формате [1], [1,2], [1][2], [1][3][2] и т.д.
+        pattern = r'\[(\d+(?:,\s*\d+)*)\]'
+        citations = set()
+        for match in re.finditer(pattern, text):
+            # Разбиваем по запятым и добавляем все числа
+            nums = match.group(1).split(',')
+            for num in nums:
+                num = num.strip()
+                if num.isdigit():
+                    citations.add(int(num))
+        return citations
 
     def _extract_keywords(self, text: str) -> set:
         stopwords = {
