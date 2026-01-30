@@ -5,8 +5,6 @@ check_index.py - Проверка содержимого векторного и
 import sys
 from pathlib import Path
 
-sys.path.append(str(Path(__file__).parent))
-
 try:
     from langchain_huggingface import HuggingFaceEmbeddings
 except ImportError:

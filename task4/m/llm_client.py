@@ -3,7 +3,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage
 
 # Настройки OpenAI API
-OPENAI_BASE_URL = "http://localhost:8000/api/v1"
+OPENAI_BASE_URL = "http://localhost:8040/api/v1"
 OPENAI_API_KEY = "lemonade"
 OPENAI_MODEL = "Mistral-7B-v0.3-Instruct-Hybrid"
 

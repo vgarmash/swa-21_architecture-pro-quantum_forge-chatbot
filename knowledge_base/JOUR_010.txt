@@ -1,16 +1,3 @@
----
-title: Personal Journal of Quenix
-author: Quenix
-journal_type: Observational Record
-period: Recent Months
-doc_id: JOUR_010
-doc_type: journal
-universe: Chronicles of Veridia
-generated_date: 2026-01-24
-contains_fictional_terms: True
-content_hash: 5489685f
----
-
 ## Journal Entry #15
 
 *Date: First Moon of Sunfire*
@@ -23,7 +10,3 @@ Today was eventful. Syloos showed me a new herbal preparation.
 **Observation:** The seasons are changing earlier than expected.
 
 **Personal note:** Quenix broke another tool today - need to speak with Taraix.
-
-**Related entries:** ENCY_009, ENCY_010, ENCY_008
-- See ENCY_009 for additional context on today's events
-- See ENCY_010 for additional context on today's events

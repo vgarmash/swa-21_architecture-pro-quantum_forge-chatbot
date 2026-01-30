@@ -1,16 +1,3 @@
----
-title: Personal Journal of Taraix
-author: Taraix
-journal_type: Field Notes
-period: Ongoing Documentation
-doc_id: JOUR_009
-doc_type: journal
-universe: Chronicles of Veridia
-generated_date: 2026-01-24
-contains_fictional_terms: True
-content_hash: 07d4a880
----
-
 ## Journal Entry #4
 
 *Date: Second Moon of Sunfire*
@@ -23,7 +10,3 @@ Today was eventful. The community gathered for the monthly festival.
 **Observation:** Our food stores are adequate for the coming winter.
 
 **Personal note:** The new batch of moonleaf seems particularly potent.
-
-**Related entries:** ENCY_006, ENCY_014, JOUR_006
-- See ENCY_006 for additional context on today's events
-- See ENCY_014 for additional context on today's events

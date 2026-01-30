@@ -1,19 +1,3 @@
----
-title: Encyclopedia: Cultural Military Organization
-author: Lorekeeper Archives
-publication_date: 45 AM (After Moonfall)
-keywords:
-  - Veridia
-  - fictional
-  - traditions
-doc_id: ENCY_004
-doc_type: encyclopedia
-universe: Chronicles of Veridia
-generated_date: 2026-01-24
-contains_fictional_terms: True
-content_hash: 83ef46ab
----
-
 # Cultural Military Organization
 
 ## Overview
@@ -36,14 +20,3 @@ The study of Cultural Military Organization provides insights into environmental
 Recent investigations by Lorekeeper expeditions have revealed practical applications for daily life.
 
 **Further reading**: Consult related documents on regional histories for comprehensive understanding. As demonstrated by Beloix,
-
-## Related Documents
-- No related documents yet
-
-**Related to military:** See JOUR_001 for complementary information.
-
-**Related to military:** See REPO_009 for complementary information.
-
-**Related to lore:** See ENCY_012 for complementary information.
-
-**Related to lore:** See ENCY_002 for complementary information.

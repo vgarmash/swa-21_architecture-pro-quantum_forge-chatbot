@@ -1,16 +1,3 @@
----
-title: Personal Journal of Lugous
-author: Lugous
-journal_type: Daily Log
-period: Recent Months
-doc_id: JOUR_004
-doc_type: journal
-universe: Chronicles of Veridia
-generated_date: 2026-01-24
-contains_fictional_terms: True
-content_hash: abae592a
----
-
 ## Journal Entry #81
 
 *Date: Midday on the 3th of Silvermonth*
@@ -23,7 +10,3 @@ Today was eventful. I discovered a hidden cave while exploring.
 **Observation:** The seasons are changing earlier than expected.
 
 **Personal note:** The dreams have been more vivid since visiting the crystal cave.
-
-**Related entries:** ENCY_014, ENCY_001, ENCY_011
-- See ENCY_014 for additional context on today's events
-- See ENCY_001 for additional context on today's events

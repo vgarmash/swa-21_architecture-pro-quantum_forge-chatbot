@@ -1,16 +1,3 @@
----
-title: Ancient Legend
-storyteller: Elder Chronicler
-origin_culture: River People
-estimated_age: 241 years
-doc_id: MYTH_001
-doc_type: myth
-universe: Chronicles of Veridia
-generated_date: 2026-01-24
-contains_fictional_terms: True
-content_hash: d8a8f338
----
-
 # The Legend of The Gift of the Twin Moons
 
 ## As told by the Elders
@@ -38,10 +25,3 @@ This story teaches us that the simplest truths are the most enduring.
 ## Transmission
 
 Remember this tale when the seasons change and the world renews itself.
-
-**Related legends and lore:** ENCY_001, ENCY_002, ENCY_003
-**Cultural context:** Additional myths provide complementary perspectives
-
-**Related to stones:** See DECR_003 for complementary information.
-
-**Related to stones:** See ENCY_011 for complementary information.

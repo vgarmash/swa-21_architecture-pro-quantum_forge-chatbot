@@ -1,16 +1,3 @@
----
-title: Personal Journal of Taraix
-author: Taraix
-journal_type: Observational Record
-period: Ongoing Documentation
-doc_id: JOUR_007
-doc_type: journal
-universe: Chronicles of Veridia
-generated_date: 2026-01-24
-contains_fictional_terms: True
-content_hash: 17f028c0
----
-
 ## Journal Entry #69
 
 *Date: Second Moon of Rain*
@@ -23,11 +10,3 @@ Today was eventful. We had a skirmish with Imperial scouts near the border.
 **Observation:** Our food stores are adequate for the coming winter.
 
 **Personal note:** Must remember to check the northern watchtower tomorrow.
-
-**Related entries:** JOUR_001, ENCY_001, ENCY_015
-- See JOUR_001 for additional context on today's events
-- See ENCY_001 for additional context on today's events
-
-**Related to military:** See ENCY_004 for complementary information.
-
-**Related to military:** See JOUR_001 for complementary information.

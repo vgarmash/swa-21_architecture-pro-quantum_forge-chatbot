@@ -1,16 +1,3 @@
----
-title: Personal Journal of Lugous
-author: Lugous
-journal_type: Observational Record
-period: Current Cycle
-doc_id: JOUR_001
-doc_type: journal
-universe: Chronicles of Veridia
-generated_date: 2026-01-24
-contains_fictional_terms: True
-content_hash: 07a35b18
----
-
 ## Journal Entry #29
 
 *Date: Midday on the 5th of Crystalmonth*
@@ -23,11 +10,3 @@ Today was eventful. We had a skirmish with Imperial scouts near the border.
 **Observation:** Our food stores are adequate for the coming winter.
 
 **Personal note:** The dreams have been more vivid since visiting the crystal cave.
-
-**Related entries:** ENCY_002, ENCY_003, ENCY_005
-- See ENCY_002 for additional context on today's events
-- See ENCY_003 for additional context on today's events
-
-**Related to military:** See REPO_006 for complementary information.
-
-**Related to military:** See JOUR_007 for complementary information.

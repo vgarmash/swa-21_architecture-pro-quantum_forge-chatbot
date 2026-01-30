@@ -1,16 +1,3 @@
----
-title: Ancient Legend
-storyteller: Elder Chronicler
-origin_culture: Forest Dwellers
-estimated_age: 823 years
-doc_id: MYTH_004
-doc_type: myth
-universe: Chronicles of Veridia
-generated_date: 2026-01-24
-contains_fictional_terms: True
-content_hash: b9e3d8c9
----
-
 # The Legend of How Laughter Saved the World
 
 ## As told by the Elders
@@ -38,10 +25,3 @@ This story teaches us that the greatest treasures are often overlooked.
 ## Transmission
 
 Remember this tale when the seasons change and the world renews itself.
-
-**Related legends and lore:** ENCY_001, ENCY_002, ENCY_003
-**Cultural context:** Additional myths provide complementary perspectives
-
-**Related to settlement:** See MYTH_003 for complementary information.
-
-**Related to settlement:** See ENCY_005 for complementary information.

@@ -11,8 +11,6 @@ from pathlib import Path
 # Подавляем предупреждения
 warnings.filterwarnings("ignore")
 
-# Добавляем путь для импорта config
-sys.path.append(str(Path(__file__).parent))
 
 # Импорты
 try:
@@ -43,10 +41,10 @@ try:
         DEFAULT_SCORE_THRESHOLD
     )
 except ImportError:
-    CHROMA_DB_PATH = Path(__file__).parent / "chroma_db"
+    CHROMA_DB_PATH = Path(__file__).parent.parent / "chroma_db"
     EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
     DEFAULT_SEARCH_K = 10  # Увеличили количество
-    DEFAULT_SCORE_THRESHOLD = 0.3  # Уменьшили порог
+    DEFAULT_SCORE_THRESHOLD = 0.2  # Уменьшили порог
 
 class KnowledgeBaseQuery:
     """Система поиска по векторному индексу"""

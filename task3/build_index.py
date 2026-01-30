@@ -12,8 +12,6 @@ from pathlib import Path
 from typing import List, Optional
 from datetime import datetime
 
-# Добавляем путь для импорта config
-sys.path.append(str(Path(__file__).parent))
 
 print("=" * 60)
 print("ПРОВЕРКА ИМПОРТОВ...")

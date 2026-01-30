@@ -1,16 +1,3 @@
----
-title: Field Report
-author: Independent Researcher
-classification: INTERNAL USE
-subject_area: Economics
-doc_id: REPO_005
-doc_type: report
-universe: Chronicles of Veridia
-generated_date: 2026-01-24
-contains_fictional_terms: True
-content_hash: 2b32c845
----
-
 # Economic Assessment Report
 
 ## Executive Summary
@@ -39,14 +26,3 @@ Based on these findings, we recommend:
 ## Conclusion
 
 The situation requires diplomatic engagement. Further developments will be reported as they occur.
-
-**Reference documents:** ENCY_003, REPO_003, ENCY_002
-
-**Cross-references:**
-- ENCY_003: Provides supporting data for findings
-- REPO_003: Provides supporting data for findings
-- ENCY_002: Provides supporting data for findings
-
-**Related to economy:** See REPO_003 for complementary information.
-
-**Related to economy:** See REPO_004 for complementary information.

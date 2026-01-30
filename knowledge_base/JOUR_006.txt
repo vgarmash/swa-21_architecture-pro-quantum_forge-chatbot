@@ -1,16 +1,3 @@
----
-title: Personal Journal of Taraix
-author: Taraix
-journal_type: Daily Log
-period: Current Cycle
-doc_id: JOUR_006
-doc_type: journal
-universe: Chronicles of Veridia
-generated_date: 2026-01-24
-contains_fictional_terms: True
-content_hash: 6d637693
----
-
 ## Journal Entry #13
 
 *Date: Day 18 of the Planting Season*
@@ -23,7 +10,3 @@ Today was eventful. I discovered unusual crystals while exploring.
 **Observation:** The seasons are changing earlier than expected.
 
 **Personal note:** The new batch of moonleaf seems particularly potent.
-
-**Related entries:** ENCY_013, JOUR_004, ENCY_011
-- See ENCY_013 for additional context on today's events
-- See JOUR_004 for additional context on today's events

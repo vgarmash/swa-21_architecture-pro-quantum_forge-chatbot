@@ -1,19 +1,3 @@
----
-title: Encyclopedia: Properties of Starlight Tonic
-author: Imperial Geographers
-publication_date: 45 AM (After Moonfall)
-keywords:
-  - Veridia
-  - fictional
-  - elixir
-doc_id: ENCY_006
-doc_type: encyclopedia
-universe: Chronicles of Veridia
-generated_date: 2026-01-24
-contains_fictional_terms: True
-content_hash: 4828b2a6
----
-
 # Properties of Elderwood Extract
 
 The Elderwood Extract is a legendary concoction prepared exclusively by the Lorekeeper Syloos. Its primary ingredient is whispering willow bark from the Elder Grove, gathered using a obsidian sickle.
@@ -33,18 +17,3 @@ The formula originated during the First Moonfall and has been refined over 34 ge
 Taraix employs it strategically during encounters with Imperial forces (contrasting viewpoint in JOUR_002). Proper dosage is critical - 5 drops for basic enhancement, up to a full vial for combat situations.
 
 Storage requires obsidian containers to maintain potency beyond 30 days.
-
-## Related Documents
-- No related documents yet
-
-**Related to military:** See ENCY_001 for complementary information.
-
-**Related to military:** See REPO_006 for complementary information.
-
-**Related to lore:** See ENCY_010 for complementary information.
-
-**Related to lore:** See ENCY_015 for complementary information.
-
-**Related to magic:** See ENCY_015 for complementary information.
-
-**Related to magic:** See ENCY_010 for complementary information.

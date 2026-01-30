@@ -1,16 +1,3 @@
----
-title: Personal Correspondence
-correspondence_type: Diplomatic Message
-delivery_method: Carrier Bird
-security_level: Coded
-doc_id: LETT_002
-doc_type: letter
-universe: Chronicles of Veridia
-generated_date: 2026-01-24
-contains_fictional_terms: True
-content_hash: 8788f828
----
-
 To Business Associate,
 
 I hope this message finds you in good health and spirits. The seasons turn as always, though not without their peculiarities.

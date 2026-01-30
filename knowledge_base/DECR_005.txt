@@ -1,16 +1,3 @@
----
-title: Official Decree
-authority: Lorekeeper Assembly
-jurisdiction: Emerald Valley Region
-effective_date: Next Moon Cycle
-doc_id: DECR_005
-doc_type: decree
-universe: Chronicles of Veridia
-generated_date: 2026-01-24
-contains_fictional_terms: True
-content_hash: 2cee3813
----
-
 # Decree of Council of Elders
 
 ## Preamble
@@ -42,14 +29,3 @@ This decree remains in effect until amended or revoked by subsequent decree.
 ## Authorization
 
 Issued under the seal and authority of Council of Elders on this 11th day of Bloommonth.
-
-**Related decrees and laws:** ENCY_001, ENCY_002, ENCY_003
-**See also:** Legal precedents and historical regulations
-
-**Related to lore:** See ENCY_001 for complementary information.
-
-**Related to lore:** See ENCY_010 for complementary information.
-
-**Related to economy:** See REPO_005 for complementary information.
-
-**Related to economy:** See REPO_004 for complementary information.

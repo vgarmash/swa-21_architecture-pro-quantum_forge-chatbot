@@ -1,16 +1,3 @@
----
-title: Personal Journal of Taraix
-author: Taraix
-journal_type: Observational Record
-period: Seasonal Record
-doc_id: JOUR_003
-doc_type: journal
-universe: Chronicles of Veridia
-generated_date: 2026-01-24
-contains_fictional_terms: True
-content_hash: e73cfae4
----
-
 ## Journal Entry #7
 
 *Date: First Moon of Starfrost*
@@ -23,7 +10,3 @@ Today was eventful. Syloos showed me a new herbal preparation.
 **Observation:** The seasons are changing earlier than expected.
 
 **Personal note:** The new batch of moonleaf seems particularly potent.
-
-**Related entries:** ENCY_004, ENCY_009, ENCY_013
-- See ENCY_004 for additional context on today's events
-- See ENCY_009 for additional context on today's events
