@@ -7,3 +7,4 @@ langchain-openai
 chromadb
 sentence-transformers
 chonkie[hub]
+python-telegram-bot==22.5

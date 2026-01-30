@@ -1,3 +1,4 @@
+import json
 import logging
 import re
 from pathlib import Path
@@ -14,116 +15,100 @@ CHROMA_DB_PATH = PROJECT_ROOT / "chroma_db"
 CHROMA_DIR = Path(CHROMA_DB_PATH)
 COLLECTION_NAME = "knowledge_base"
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+QUESTIONS_PATH = PROJECT_ROOT / "task3" / "questions.jsonl"
 
 PROMPT_INSTRUCTIONS = (
-    "You are a helpful assistant. Answer in English using only the context below. "
-    "Do not quote or copy the context verbatim; paraphrase and synthesize it. "
-    "Do not include the context, metadata, file paths, hashes, or headings in the answer. "
-    "If the answer is not in the context, say that the information is insufficient and do not make up an answer. "
-    "If you are uncertain or don't know the answer, respond with: 'Information is unavailable. Ask another question.'\n\n"
-    "Output format: 1-3 sentences followed by citations like [1], [2] referring to the context document numbers. (see format examples below) "
-    "Every factual statement must have at least one citation. Return only the answer, nothing else.\n\n"
-    "Here are few examples (style only; do not copy sources or filenames):\n"
+    "### Role\n"
+    "You are a large English-language assistant that answers strictly using the provided documents.\n"
+    "Never fabricate information and do not rely on external knowledge.\n\n"
+    "### Workflow (Chain of Thought)\n"
+    "Follow and show the following steps for every answer:\n"
+    "Step 1: Analyze the user question and determine what information is required.\n"
+    "Step 2: Inspect the <Documents> block and identify the relevant evidence only.\n"
+    "Step 3: Synthesize the verified facts into a short explanation.\n"
+    "Step 4: If the documents are insufficient, state \"Information is unavailable. Ask another question.\" otherwise prepare the conclusion with citations.\n\n"
+    "### Quality checks\n"
+    "- Base every statement on the supplied documents only.\n"
+    "- If the retrieved context is irrelevant or incomplete, respond \"Information is unavailable. Ask another question.\"\n"
+    "- Never cite documents that are not listed in <Documents>.\n\n"
+    "### Output format\n"
+    "Return the reasoning steps exactly as shown below, followed by the conclusion:\n"
+    "Step 1: ...\n"
+    "Step 2: ...\n"
+    "Step 3: ...\n"
+    "Step 4: ...\n"
+    "A. <concise answer in 1-3 sentences> [citations]\n"
 )
 
-FEW_SHOT_EXAMPLES_RAW = [
-    {
-        "question": "What is Crystalbrook known for?",
-        "answer": "Its humid climate and remarkable resistance to Imperial occupation.\n\n[1] ENCY_005.txt",
-    },
-    {
-        "question": "Who leads the defenders of Crystalbrook?",
-        "answer": "Taraix leads the 21 trained combatants.\n\n[1] ENCY_005.txt",
-    },
-    {
-        "question": "What are the primary effects of Starlight Tonic?",
-        "answer": "Accelerated reflexes and perception.\n\n[1] ENCY_010.txt",
-    },
-    {
-        "question": "What is the main ingredient of Starlight Tonic?",
-        "answer": "Crystalized dew from dream-fed plants.\n\n[1] ENCY_010.txt",
-    },
-    {
-        "question": "What did Lugous and Imperial scouts have?",
-        "answer": "A skirmish near the border.\n\n[1] JOUR_001.txt",
-    },
-    {
-        "question": "How have Lugous's dreams changed?",
-        "answer": "They became more vivid after visiting a crystal cave.\n\n[1] JOUR_001.txt",
-    },
-    {
-        "question": "What does the Council of Elders limit the harvesting of?",
-        "answer": "Moonleaf to designated areas during specific lunar phases.\n\n[1] DECR_002.txt",
-    },
-    {
-        "question": "What is the primary ingredient of Elderwood Extract?",
-        "answer": "Whispering willow bark from the Elder Grove.\n\n[1] ENCY_006.txt",
-    },
-    {
-        "question": "What effects does Elderwood Extract provide?",
-        "answer": "Enhanced cognitive processing and memory.\n\n[1] ENCY_006.txt",
-    },
-    {
-        "question": "Who broke a tool according to Quenix's journal?",
-        "answer": "Quenix himself broke another tool.\n\n[1] JOUR_010.txt",
-    },
-    {
-        "question": "What did Taraix discover according to myth?",
-        "answer": "A cave that whispered secrets (in MYTH_003).\n\n[1] MYTH_003.txt",
-    },
-    {
-        "question": "What legend explains why mountains hold memory?",
-        "answer": "The legend of The Dream Weaver seeking answers.\n\n[1] MYTH_002.txt",
-    },
-    {
-        "question": "Who requires approval to use standing stones for construction?",
-        "answer": "Quarrymaster approval is required.\n\n[1] DECR_003.txt",
-    },
-    {
-        "question": "What does Taraix employ strategically against Imperial forces?",
-        "answer": "He employs Crystal Essence (Sunstone Elixir).\n\n[1] ENCY_015.txt",
-    },
-    {
-        "question": "What does Lugous ask to be burned in his letter?",
-        "answer": "He asks the recipient to burn the letter after reading.\n\n[1] LETT_001.txt",
-    },
-    {
-        "question": "What is the main trend in the Cultural Analysis Report?",
-        "answer": "Resource extraction exceeds sustainable levels.\n\n[1] REPO_001.txt",
-    },
-    {
-        "question": "What is the key observation in the Economic Assessment Report?",
-        "answer": "Increased Imperial activity along northern borders.\n\n[1] REPO_003.txt",
-    },
-    {
-        "question": "What does the Strategic Evaluation Report indicate?",
-        "answer": "Depletion of certain natural resources.\n\n[1] REPO_008.txt",
-    },
-    {
-        "question": "What must public gatherings exceeding twenty individuals do?",
-        "answer": "They require advance notification.\n\n[1] DECR_001.txt",
-    },
-    {
-        "question": "Who is the legendary figure in The Gift of the Twin Moons?",
-        "answer": "The Stone Speaker (in MYTH_001) or Syloos (in MYTH_005).\n\n[1] MYTH_001.txt\n[2] MYTH_005.txt",
-    },
-]
+FILENAME_PATTERN = re.compile(r"\[(\d+)\]\s+[A-Za-z0-9_\-]+\.txt")
+CITATION_PATTERN = re.compile(r"\[(\d+(?:,\s*\d+)*)\]")
 
 
-def _sanitize_few_shot_examples(examples: list[dict]) -> list[dict]:
-    pattern = re.compile(r"\[(\d+)\]\s+[A-Za-z0-9_\-]+\.txt")
-    sanitized = []
-    for example in examples:
-        answer = pattern.sub(r"[\1]", example["answer"])
-        sanitized.append({"question": example["question"], "answer": answer})
-    return sanitized
+def _strip_source_filenames(text: str) -> str:
+    return FILENAME_PATTERN.sub(r"[\1]", text)
 
 
-FEW_SHOT_EXAMPLES = _sanitize_few_shot_examples(FEW_SHOT_EXAMPLES_RAW)
+def _normalize_answer_text(answer: str) -> str:
+    sanitized = _strip_source_filenames(answer).strip()
+    # Склеиваем ответ в одну строку, чтобы упростить дальнейшее форматирование
+    return re.sub(r"\s+", " ", sanitized)
+
+
+def _build_chain_of_thought_answer(question: str, answer: str) -> str:
+    normalized_answer = _normalize_answer_text(answer)
+    answer_without_citations = CITATION_PATTERN.sub("", normalized_answer).strip()
+    return (
+        f"Step 1: Analyze the question — identify the information requested in \"{question}\".\n"
+        f"Step 2: Review the documents — locate evidence showing that {answer_without_citations}.\n"
+        "Step 3: Synthesize the facts — combine the relevant statements into a concise conclusion.\n"
+        "Step 4: Provide the supported answer with citations.\n\n"
+        f"A. {normalized_answer}"
+    )
+
+
+def _load_few_shot_examples(path: Path) -> list[dict]:
+    if not path.exists():
+        raise FileNotFoundError(
+            f"File {path} with few-shot questions was not found. Make sure task3 is prepared."
+        )
+
+    examples: list[dict] = []
+    with path.open("r", encoding="utf-8") as file:
+        for line_number, line in enumerate(file, start=1):
+            stripped = line.strip()
+            if not stripped:
+                continue
+            try:
+                payload = json.loads(stripped)
+            except json.JSONDecodeError as exc:
+                raise ValueError(
+                    f"Invalid JSON on line {line_number} in {path}: {exc}"
+                ) from exc
+
+            question = payload.get("question")
+            answer = payload.get("answer")
+            if not isinstance(question, str) or not isinstance(answer, str):
+                raise ValueError(
+                    f"Line {line_number} in {path} must contain string 'question' and 'answer'."
+                )
+
+            cot_answer = _build_chain_of_thought_answer(question, answer)
+            examples.append({"question": question, "answer": cot_answer})
+
+    if not examples:
+        raise ValueError(f"No few-shot examples were loaded from {path}.")
+
+    return examples
+
+
+FEW_SHOT_EXAMPLES = _load_few_shot_examples(QUESTIONS_PATH)
 
 EXAMPLE_PROMPT = PromptTemplate(
     input_variables=["question", "answer"],
-    template="Question: {question}\nAnswer: {answer}\n",
+    template=(
+        "User question: {question}\n"
+        "Answer: {answer}\n"
+    ),
 )
 MAX_NEW_TOKENS = 256
 TEMPERATURE = 0.0
@@ -204,9 +189,9 @@ class RagEngine:
             example_separator="\n",
             prefix=PROMPT_INSTRUCTIONS,
             suffix=(
-                "\nQuestion: {question}\n\n"
-                "Context:\n{context}\n\n"
-                "Answer:"
+                "\n<User question>: {question}\n"
+                "<Documents>\n{context}\n"
+                "<Your answer>\n"
             ),
             input_variables=["question", "context"],
         )

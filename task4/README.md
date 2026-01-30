@@ -7,7 +7,6 @@
 2. Установите необходимые зависимости:
    ```bash
    pip install -r requirements.txt
-   pip install -r requirements_litellm.txt
    ```
 3. Запустите REPL:
    ```bash
