@@ -4,7 +4,7 @@ import shutil
 import time
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable, Optional
+from typing import Any, Iterable, Optional
 
 from langchain_chroma import Chroma
 from langchain_community.document_loaders import TextLoader
@@ -12,8 +12,9 @@ from langchain_core.documents import Document
 from langchain_huggingface import HuggingFaceEmbeddings
 
 try:
-    from chonkie import RecursiveChunker  # type: ignore
+    from chonkie import OverlapRefinery, RecursiveChunker  # type: ignore
 except ImportError:  # pragma: no cover - optional dependency
+    OverlapRefinery = None  # type: ignore
     RecursiveChunker = None  # type: ignore
 
 from config import (
@@ -29,6 +30,7 @@ from config import (
 )
 
 CHUNK_OVERLAP_TOKENS = int(TARGET_CHUNK_TOKENS * CHUNK_OVERLAP_RATIO)
+CHONKIE_TOKENIZER_ID = "cl100k_base"
 
 HEADING_REGEX = re.compile(r"^(?P<hashes>#{1,6})\s+(?P<title>.+?)\s*$")
 ALT_HEADING_REGEX = re.compile(
@@ -41,6 +43,11 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)s | %(message)s",
 )
+
+try:  # pragma: no cover - optional dependency
+    from tiktoken import get_encoding as _get_tiktoken_encoding
+except ImportError:  # pragma: no cover - optional dependency
+    _get_tiktoken_encoding = None  # type: ignore[assignment]
 
 
 @dataclass
@@ -150,43 +157,122 @@ def analyze_document(document: Document, sections: Iterable[Section]) -> None:
     )
 
 
-def create_recursive_chunker() -> Optional[object]:
+def _resolve_chonkie_tokenizer() -> tuple[Any, str]:
+    """Return a tokenizer reference and human-readable label for logging."""
+
+    if _get_tiktoken_encoding is not None:
+        try:
+            encoding = _get_tiktoken_encoding(CHONKIE_TOKENIZER_ID)
+            label = f"{CHONKIE_TOKENIZER_ID} (tiktoken)"
+            logging.info("Resolved tiktoken encoding for %s.", CHONKIE_TOKENIZER_ID)
+            return encoding, label
+        except Exception as exc:  # pragma: no cover - defensive
+            logging.warning(
+                "tiktoken.get_encoding failed for %s (%s). Falling back to identifier string.",
+                CHONKIE_TOKENIZER_ID,
+                exc,
+            )
+    else:
+        logging.debug("tiktoken library not available. Using tokenizer identifier string.")
+
+    return CHONKIE_TOKENIZER_ID, CHONKIE_TOKENIZER_ID
+
+
+def _tokenizer_label(tokenizer_reference: Any) -> str:
+    if isinstance(tokenizer_reference, str):
+        return tokenizer_reference
+    name_attr = getattr(tokenizer_reference, "name", None)
+    if isinstance(name_attr, str) and name_attr:
+        return name_attr
+    return f"{CHONKIE_TOKENIZER_ID} ({type(tokenizer_reference).__name__})"
+
+
+def create_recursive_chunker(tokenizer_reference: Any) -> Optional[object]:
     if RecursiveChunker is None:
         logging.info("chonkie RecursiveChunker not available. Using fallback sentence-aware chunker.")
         return None
 
-    chunk_overlap = int(TARGET_CHUNK_TOKENS * CHUNK_OVERLAP_RATIO)
+    chunker: Optional[object] = None
+    label = _tokenizer_label(tokenizer_reference)
 
     if hasattr(RecursiveChunker, "from_recipe"):
         try:
             chunker = RecursiveChunker.from_recipe(
-                "markdown",
+                name="markdown",
                 lang="en",
                 chunk_size=TARGET_CHUNK_TOKENS,
-                overlap=chunk_overlap,
-                tokenizer="tiktoken",
+                tokenizer=tokenizer_reference,
             )
-            logging.info("Using chonkie RecursiveChunker markdown recipe.")
-            return chunker
+            logging.info(
+                "Using chonkie RecursiveChunker markdown recipe | tokenizer=%s.",
+                label,
+            )
         except Exception as exc:  # pragma: no cover - defensive
             logging.warning(
                 "RecursiveChunker.from_recipe failed (%s). Attempting direct initialization.",
                 exc,
             )
 
+    if chunker is None:
+        try:
+            chunker = RecursiveChunker(
+                tokenizer=tokenizer_reference,
+                chunk_size=TARGET_CHUNK_TOKENS,
+            )
+            logging.info(
+                "Using chonkie RecursiveChunker with direct configuration | tokenizer=%s.",
+                label,
+            )
+        except Exception as exc:  # pragma: no cover - defensive
+            logging.warning("Failed to initialize RecursiveChunker (%s). Falling back to internal chunker.", exc)
+            return None
+
+    return chunker
+
+
+def create_overlap_refinery(chunker: Optional[object], tokenizer_reference: Any) -> Optional[object]:
+    if OverlapRefinery is None:
+        logging.info("OverlapRefinery unavailable. Chunks will rely on fallback overlap implementation.")
+        return None
+
+    context_size = max(CHUNK_OVERLAP_TOKENS, 1)
+    rules: Optional[Any] = getattr(chunker, "rules", None) if chunker is not None else None
+    label = _tokenizer_label(tokenizer_reference)
+
     try:
-        chunker = RecursiveChunker(
-            chunk_size=TARGET_CHUNK_TOKENS,
-            chunk_overlap=chunk_overlap,
+        refinery_kwargs: dict[str, Any] = {
+            "tokenizer": tokenizer_reference,
+            "context_size": context_size,
+            "mode": "recursive",
+            "method": "prefix",
+            "merge": True,
+        }
+        if rules is not None:
+            refinery_kwargs["rules"] = rules
+        overlap_refinery = OverlapRefinery(**refinery_kwargs)
+        logging.info(
+            "Using chonkie OverlapRefinery | tokenizer=%s | context_size=%d | mode=recursive | method=prefix",
+            label,
+            context_size,
         )
-        logging.info("Using chonkie RecursiveChunker with direct configuration.")
-        return chunker
+        return overlap_refinery
     except Exception as exc:  # pragma: no cover - defensive
-        logging.warning("Failed to initialize RecursiveChunker (%s). Falling back to internal chunker.", exc)
+        logging.warning("Failed to initialize OverlapRefinery (%s). Proceeding without refinery.", exc)
         return None
 
 
-def chunk_with_recursive_chunker(chunker: Optional[object], text: str) -> Optional[list[str]]:
+def create_chunking_components() -> tuple[Optional[object], Optional[object]]:
+    tokenizer_reference, _ = _resolve_chonkie_tokenizer()
+    chunker = create_recursive_chunker(tokenizer_reference)
+    overlap_refinery = create_overlap_refinery(chunker, tokenizer_reference)
+    return chunker, overlap_refinery
+
+
+def chunk_with_recursive_chunker(
+    chunker: Optional[object],
+    overlap_refinery: Optional[object],
+    text: str,
+) -> Optional[list[tuple[str, int]]]:
     if chunker is None:
         return None
     try:
@@ -205,18 +291,37 @@ def chunk_with_recursive_chunker(chunker: Optional[object], text: str) -> Option
         return []
 
     if isinstance(raw_chunks, dict):
-        raw_chunks = [raw_chunks.get("text", "")]
-    if isinstance(raw_chunks, str):
         raw_chunks = [raw_chunks]
+    else:
+        raw_chunks = list(raw_chunks)
 
-    processed: list[str] = []
+    if overlap_refinery is not None and raw_chunks and all(hasattr(chunk, "text") for chunk in raw_chunks):
+        try:
+            refined_chunks = overlap_refinery(raw_chunks)
+            if refined_chunks:
+                raw_chunks = list(refined_chunks)
+        except Exception as exc:  # pragma: no cover - defensive
+            logging.warning("OverlapRefinery processing failed (%s). Continuing without refinery.", exc)
+
+    processed: list[tuple[str, int]] = []
     for chunk in raw_chunks:
-        if isinstance(chunk, dict):
+        if hasattr(chunk, "text"):
+            chunk_text = str(getattr(chunk, "text", "")).strip()
+            token_count_value = getattr(chunk, "token_count", None)
+        elif isinstance(chunk, dict):
             chunk_text = str(chunk.get("text", "")).strip()
+            token_count_value = chunk.get("token_count")
         else:
             chunk_text = str(chunk).strip()
-        if chunk_text:
-            processed.append(chunk_text)
+            token_count_value = None
+
+        if not chunk_text:
+            continue
+
+        if not isinstance(token_count_value, int) or token_count_value <= 0:
+            token_count_value = estimate_token_count(chunk_text)
+
+        processed.append((chunk_text, token_count_value))
     return processed
 
 
@@ -288,24 +393,34 @@ def merge_small_chunks(chunks: list[str], token_counts: list[int]) -> tuple[list
     return merged_chunks, merged_counts
 
 
-def chunk_section_text(text: str, chunker: Optional[object]) -> tuple[list[str], list[int]]:
+def chunk_section_text(
+    text: str,
+    chunker: Optional[object],
+    overlap_refinery: Optional[object],
+) -> tuple[list[str], list[int]]:
     section_text = text.strip()
     if not section_text:
         return [], []
 
-    chunk_texts = chunk_with_recursive_chunker(chunker, section_text)
-    if chunk_texts:
-        token_counts = [estimate_token_count(chunk) for chunk in chunk_texts]
+    recursive_chunks = chunk_with_recursive_chunker(chunker, overlap_refinery, section_text)
+    if recursive_chunks:
+        chunk_texts = [chunk_text for chunk_text, _ in recursive_chunks]
+        token_counts = [token_count for _, token_count in recursive_chunks]
         return merge_small_chunks(chunk_texts, token_counts)
 
     fallback_chunks = fallback_chunk_section(section_text)
-    chunk_texts = [chunk for chunk, _ in fallback_chunks if chunk]
-    token_counts = [tokens for _, tokens in fallback_chunks if tokens > 0]
+    normalized_fallback = [
+        (chunk_text, tokens if tokens > 0 else estimate_token_count(chunk_text))
+        for chunk_text, tokens in fallback_chunks
+        if chunk_text
+    ]
+    chunk_texts = [chunk for chunk, _ in normalized_fallback]
+    token_counts = [tokens for _, tokens in normalized_fallback]
     return merge_small_chunks(chunk_texts, token_counts)
 
 
 def prepare_documents_for_index(documents: list[Document]) -> tuple[list[Document], dict[str, float]]:
-    chunker = create_recursive_chunker()
+    chunker, overlap_refinery = create_chunking_components()
     chunk_documents: list[Document] = []
     token_counts: list[int] = []
     total_sections = 0
@@ -316,7 +431,11 @@ def prepare_documents_for_index(documents: list[Document]) -> tuple[list[Documen
         total_sections += len(sections)
 
         for section in sections:
-            section_chunks, section_token_counts = chunk_section_text(section.content, chunker)
+            section_chunks, section_token_counts = chunk_section_text(
+                section.content,
+                chunker,
+                overlap_refinery,
+            )
             for chunk_index, (chunk_text, token_count) in enumerate(zip(section_chunks, section_token_counts)):
                 if not chunk_text:
                     continue
