@@ -6,3 +6,4 @@ langchain-chroma
 langchain-openai
 chromadb
 sentence-transformers
+chonkie[hub]
