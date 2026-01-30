@@ -12,7 +12,7 @@ logging.basicConfig(
 try:
     from langchain_core.prompts import PromptTemplate, FewShotPromptTemplate
     from langchain_core.example_selectors import LengthBasedExampleSelector
-    from langchain_core.runnables import RunnablePassthrough
+    from langchain_core.runnables import RunnableParallel, RunnablePassthrough
     from langchain_core.output_parsers import StrOutputParser
     from langchain_huggingface import HuggingFacePipeline, HuggingFaceEmbeddings
     from langchain_chroma import Chroma
@@ -281,10 +281,12 @@ def get_rag_chain():
         return few_shot_prompt.invoke(input_dict)
     
     rag_chain = (
-            {
-                "context": retriever | format_docs,
-                "user_question": RunnablePassthrough()
-            }
+            RunnableParallel(
+                {
+                    "context": retriever | format_docs,
+                    "user_question": RunnablePassthrough()
+                }
+            )
             | check_relevance_and_generate
             | llm
             | StrOutputParser()
