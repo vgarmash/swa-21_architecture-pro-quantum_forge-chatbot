@@ -1,376 +1,419 @@
-"""
-build_index.py - Создание векторного индекса базы знаний
-Версия для LangChain 1.x с актуальными версиями
-"""
-
-import os
-import sys
+import logging
+import re
+import shutil
 import time
-import json
-import hashlib
+from dataclasses import dataclass
 from pathlib import Path
-from typing import List, Optional
-from datetime import datetime
+from typing import Iterable, Optional
 
-
-print("=" * 60)
-print("ПРОВЕРКА ИМПОРТОВ...")
-print("=" * 60)
-
-# Импорты LangChain 1.x с проверкой
-try:
-    from langchain_text_splitters import RecursiveCharacterTextSplitter
-    print("✓ langchain_text_splitters импортирован")
-except ImportError as e:
-    print(f"❌ langchain_text_splitters: {e}")
-    print("Установите: pip install langchain-text-splitters==1.1.0")
-    sys.exit(1)
+from langchain_chroma import Chroma
+from langchain_community.document_loaders import TextLoader
+from langchain_core.documents import Document
+from langchain_huggingface import HuggingFaceEmbeddings
 
 try:
-    from langchain_community.document_loaders import (
-        DirectoryLoader,
-        TextLoader,
-        UnstructuredMarkdownLoader,
-        PyPDFLoader
-    )
-    print("✓ langchain_community.document_loaders импортирован")
-except ImportError as e:
-    print(f"❌ langchain_community.document_loaders: {e}")
-    print("Установите: pip install langchain-community==0.4.1")
-    sys.exit(1)
+    from chonkie import RecursiveChunker  # type: ignore
+except ImportError:  # pragma: no cover - optional dependency
+    RecursiveChunker = None  # type: ignore
 
-try:
-    from langchain_huggingface import HuggingFaceEmbeddings
-    print("✓ langchain_huggingface импортирован")
-    EMBEDDING_SOURCE = "langchain_huggingface"
-except ImportError as e:
-    print(f"⚠️  langchain_huggingface: {e}")
-    print("Используем langchain_community.embeddings...")
-    try:
-        from langchain_community.embeddings import HuggingFaceEmbeddings
-        print("✓ langchain_community.embeddings импортирован")
-        EMBEDDING_SOURCE = "langchain_community"
-    except ImportError as e2:
-        print(f"❌ langchain_community.embeddings: {e2}")
-        print("Установите: pip install langchain-huggingface==1.2.0 или langchain-community==0.4.1")
-        sys.exit(1)
+from config import (
+    CHROMA_DB_PATH,
+    COLLECTION_NAME,
+    EMBEDDING_DIMENSIONS,
+    EMBEDDING_MODEL,
+    KNOWLEDGE_BASE_PATH,
+    MAX_CHUNK_TOKENS,
+    MIN_CHUNK_TOKENS,
+    TARGET_CHUNK_TOKENS,
+    CHUNK_OVERLAP_RATIO,
+)
 
-try:
-    from langchain_chroma import Chroma
-    print("✓ langchain_chroma импортирован")
-except ImportError as e:
-    print(f"❌ langchain_chroma: {e}")
-    print("Установите: pip install langchain-chroma==1.1.0")
-    sys.exit(1)
+CHUNK_OVERLAP_TOKENS = int(TARGET_CHUNK_TOKENS * CHUNK_OVERLAP_RATIO)
 
-try:
-    from langchain_core.documents import Document
-    print("✓ langchain_core.documents импортирован")
-except ImportError as e:
-    print(f"❌ langchain_core.documents: {e}")
-    sys.exit(1)
+HEADING_REGEX = re.compile(r"^(?P<hashes>#{1,6})\s+(?P<title>.+?)\s*$")
+ALT_HEADING_REGEX = re.compile(
+    r"^(?P<title>(?:Chapter|Section|Глава|Раздел)\b[^\n]*)$", re.IGNORECASE
+)
+SENTENCE_BOUNDARY_REGEX = re.compile(r"(?<=[.!?])\s+(?=[A-ZА-Я0-9\"'\[])")
+BULLET_REGEX = re.compile(r"^\s*[-*+]\s+", re.MULTILINE)
 
-print("=" * 60)
-print("ВСЕ ИМПОРТЫ УСПЕШНЫ")
-print("=" * 60)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(message)s",
+)
 
-# Импорт конфигурации
-try:
-    from config import (
-        KNOWLEDGE_BASE_PATH,
-        CHROMA_DB_PATH,
-        CHUNK_SIZE,
-        CHUNK_OVERLAP,
-        EMBEDDING_MODEL,
-        EMBEDDING_DIMENSIONS,
-        SUPPORTED_EXTENSIONS
-    )
-    print("✓ Конфигурация загружена из config.py")
-except ImportError as e:
-    print(f"⚠️  config.py не найден, используются значения по умолчанию: {e}")
-    # Значения по умолчанию
-    PROJECT_ROOT = Path(__file__).parent.parent
-    KNOWLEDGE_BASE_PATH = PROJECT_ROOT / "knowledge_base"
-    CHROMA_DB_PATH = Path(__file__).parent / "chroma_db"
-    CHUNK_SIZE = 800
-    CHUNK_OVERLAP = 150
-    EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
-    EMBEDDING_DIMENSIONS = 384
-    SUPPORTED_EXTENSIONS = {'.txt': 'text', '.md': 'markdown', '.pdf': 'pdf'}
 
-class KnowledgeBaseIndexer:
-    """
-    Класс для создания векторного индекса базы знаний
-    """
+@dataclass
+class Section:
+    title: str
+    level: int
+    content: str
+    index: int
 
-    def __init__(self):
-        """Инициализация индексатора"""
 
-        # Пути
-        self.knowledge_base_path = Path(KNOWLEDGE_BASE_PATH).resolve()
-        self.chroma_db_path = Path(CHROMA_DB_PATH).resolve()
-
-        print(f"\n📁 Конфигурация путей:")
-        print(f"   База знаний: {self.knowledge_base_path}")
-        print(f"   Индекс: {self.chroma_db_path}")
-
-        # Статистика
-        self.stats = {
-            'start_time': None,
-            'end_time': None,
-            'total_documents': 0,
-            'total_chunks': 0,
-            'model_info': {
-                'name': EMBEDDING_MODEL,
-                'embedding_dimensions': EMBEDDING_DIMENSIONS,
-                'url': f'https://huggingface.co/{EMBEDDING_MODEL}'
-            },
-            'chunking': {
-                'chunk_size': CHUNK_SIZE,
-                'chunk_overlap': CHUNK_OVERLAP
+def load_documents(directory: Path) -> list[Document]:
+    documents: list[Document] = []
+    for file_path in sorted(directory.glob("*.txt")):
+        loader = TextLoader(str(file_path), encoding="utf-8")
+        file_docs = loader.load()
+        if not file_docs:
+            continue
+        doc = file_docs[0]
+        doc.page_content = doc.page_content.strip()
+        doc.metadata.update(
+            {
+                "source": str(file_path),
+                "filename": file_path.name,
             }
-        }
-
-        # Инициализация компонентов
-        self._initialize_components()
-
-    def _initialize_components(self):
-        """Инициализация компонентов LangChain"""
-        print(f"\n🔧 Инициализация компонентов...")
-
-        # Модель эмбеддингов с разными параметрами для разных источников
-        if EMBEDDING_SOURCE == "langchain_huggingface":
-            # Для langchain-huggingface 1.2.0
-            self.embeddings = HuggingFaceEmbeddings(
-                model_name=EMBEDDING_MODEL,
-                model_kwargs={'device': 'cpu'},
-                encode_kwargs={
-                    'normalize_embeddings': True,
-                    # В новой версии параметр может называться по-другому или отсутствовать
-                }
-            )
-        else:
-            # Для langchain_community
-            self.embeddings = HuggingFaceEmbeddings(
-                model_name=EMBEDDING_MODEL,
-                model_kwargs={'device': 'cpu'},
-                encode_kwargs={
-                    'normalize_embeddings': True,
-                    'show_progress_bar': False
-                }
-            )
-
-        print(f"   Модель эмбеддингов: {EMBEDDING_MODEL}")
-        print(f"   Источник: {EMBEDDING_SOURCE}")
-
-        # Текстовый сплиттер
-        self.text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=CHUNK_SIZE,
-            chunk_overlap=CHUNK_OVERLAP,
-            length_function=len,
-            separators=["\n\n", "\n", ". ", "! ", "? ", "; ", ", ", " ", ""],
-            keep_separator=False,
-            add_start_index=True
         )
-        print(f"   Размер чанка: {CHUNK_SIZE} символов")
-        print(f"   Перекрытие: {CHUNK_OVERLAP} символов")
+        documents.append(doc)
+    return documents
 
-    def validate_environment(self) -> bool:
-        """Проверка окружения"""
-        print(f"\n🔍 Проверка окружения...")
 
-        if not self.knowledge_base_path.exists():
-            print(f"❌ Папка '{self.knowledge_base_path}' не найдена!")
-            return False
+def estimate_token_count(text: str) -> int:
+    return len(re.findall(r"\w+|[^\s\w]", text))
 
-        # Создаем папку для индекса
-        self.chroma_db_path.mkdir(parents=True, exist_ok=True)
 
-        print(f"✓ База знаний: {self.knowledge_base_path}")
-        print(f"✓ Папка для индекса: {self.chroma_db_path}")
-        return True
+def split_into_sentences(text: str) -> list[str]:
+    cleaned = text.strip()
+    if not cleaned:
+        return []
+    sentences = [segment.strip() for segment in SENTENCE_BOUNDARY_REGEX.split(cleaned) if segment.strip()]
+    if not sentences:
+        return [cleaned]
+    return sentences
 
-    def load_documents(self) -> List[Document]:
-        """Загрузка документов"""
-        print(f"\n📂 Загрузка документов...")
 
-        documents = []
+def extract_sections(content: str) -> list[Section]:
+    sections: list[Section] = []
+    current_lines: list[str] = []
+    current_title = "Document"
+    current_level = 1
+    section_index = 0
 
-        # Маппинг форматов на загрузчики
-        loaders = {
-            '.txt': TextLoader,
-            '.md': UnstructuredMarkdownLoader,
-            '.pdf': PyPDFLoader,
-        }
+    lines = content.splitlines()
+    for line in lines:
+        heading_match = HEADING_REGEX.match(line.strip())
+        alt_match = ALT_HEADING_REGEX.match(line.strip()) if not heading_match else None
 
-        for ext, loader_class in loaders.items():
-            try:
-                pattern = f"**/*{ext}"
-                loader = DirectoryLoader(
-                    str(self.knowledge_base_path),
-                    glob=pattern,
-                    loader_cls=loader_class,
-                    show_progress=False,
-                    use_multithreading=True,
-                    silent_errors=True
+        if heading_match or alt_match:
+            if current_lines:
+                sections.append(
+                    Section(
+                        title=current_title,
+                        level=current_level,
+                        content="\n".join(current_lines).strip(),
+                        index=section_index,
+                    )
                 )
+                section_index += 1
+                current_lines = []
 
-                loaded = loader.load()
-                if loaded:
-                    documents.extend(loaded)
-                    print(f"  ✓ {ext}: {len(loaded)} файлов")
-            except Exception as e:
-                print(f"  ⚠️  {ext}: {str(e)[:100]}...")
+            if heading_match:
+                current_title = heading_match.group("title").strip()
+                current_level = len(heading_match.group("hashes"))
+            else:
+                current_title = alt_match.group("title").strip() if alt_match else current_title
+                current_level = 2
+            continue
 
-        self.stats['total_documents'] = len(documents)
+        current_lines.append(line)
 
-        if not documents:
-            print("⚠️  Документы не найдены!")
+    if current_lines:
+        sections.append(
+            Section(
+                title=current_title,
+                level=current_level,
+                content="\n".join(current_lines).strip(),
+                index=section_index,
+            )
+        )
 
-        print(f"  Всего: {len(documents)} документов")
-        return documents
+    if not sections:
+        sections.append(Section(title="Document", level=1, content=content.strip(), index=0))
 
-    def split_documents(self, documents: List[Document]) -> List[Document]:
-        """Разделение на чанки"""
-        print(f"\n✂️  Разделение на чанки...")
+    return sections
 
-        all_chunks = []
 
-        for doc_idx, doc in enumerate(documents):
-            try:
-                doc_chunks = self.text_splitter.split_documents([doc])
+def analyze_document(document: Document, sections: Iterable[Section]) -> None:
+    token_count = estimate_token_count(document.page_content)
+    bullet_count = len(BULLET_REGEX.findall(document.page_content))
+    section_list = list(sections)
+    sample_titles = ", ".join(section.title for section in section_list[:5]) or "n/a"
+    logging.info(
+        "Document analysis | file=%s | approx_tokens=%d | sections=%d | bullet_lists=%d | sample_sections=%s",
+        document.metadata.get("filename"),
+        token_count,
+        len(section_list),
+        bullet_count,
+        sample_titles,
+    )
 
-                for chunk_idx, chunk in enumerate(doc_chunks):
-                    # Метаданные
-                    source_path = chunk.metadata.get('source', 'unknown')
 
-                    chunk.metadata.update({
-                        'chunk_id': hashlib.md5(
-                            f"{source_path}_{doc_idx}_{chunk_idx}".encode()
-                        ).hexdigest()[:12],
-                        'chunk_index': chunk_idx,
-                        'total_chunks_in_doc': len(doc_chunks),
-                        'document_index': doc_idx,
-                        'source_file': Path(source_path).name,
-                        'source_path': str(Path(source_path)),
-                        'file_type': Path(source_path).suffix,
-                        'chunk_size_chars': len(chunk.page_content),
-                        'chunk_size_words': len(chunk.page_content.split()),
-                        'timestamp': datetime.now().isoformat()
-                    })
+def create_recursive_chunker() -> Optional[object]:
+    if RecursiveChunker is None:
+        logging.info("chonkie RecursiveChunker not available. Using fallback sentence-aware chunker.")
+        return None
 
-                all_chunks.extend(doc_chunks)
+    chunk_overlap = int(TARGET_CHUNK_TOKENS * CHUNK_OVERLAP_RATIO)
 
-                if (doc_idx + 1) % 5 == 0 or (doc_idx + 1) == len(documents):
-                    print(f"  Обработано: {doc_idx + 1}/{len(documents)}")
-
-            except Exception as e:
-                print(f"  ⚠️  Ошибка в документе {doc_idx}: {str(e)[:100]}...")
-
-        self.stats['total_chunks'] = len(all_chunks)
-
-        if all_chunks:
-            avg_size = sum(len(c.page_content) for c in all_chunks) / len(all_chunks)
-            print(f"✓ Чанков: {len(all_chunks)}")
-            print(f"✓ Средний размер: {avg_size:.0f} символов")
-
-        return all_chunks
-
-    def create_vector_index(self, chunks: List[Document]) -> Chroma:
-        """Создание векторного индекса"""
-        print(f"\n🏗️  Создание векторного индекса...")
-
+    if hasattr(RecursiveChunker, "from_recipe"):
         try:
-            # Создаем индекс
-            vector_store = Chroma.from_documents(
-                documents=chunks,
-                embedding=self.embeddings,
-                persist_directory=str(self.chroma_db_path),
-                collection_name="knowledge_base",
-                collection_metadata={
-                    "hnsw:space": "cosine",
-                    "model": EMBEDDING_MODEL,
-                    "embedding_dim": str(EMBEDDING_DIMENSIONS),
-                    "created_at": datetime.now().isoformat(),
-                    "source": EMBEDDING_SOURCE
-                }
+            chunker = RecursiveChunker.from_recipe(
+                "markdown",
+                lang="en",
+                chunk_size=TARGET_CHUNK_TOKENS,
+                overlap=chunk_overlap,
+                tokenizer="tiktoken",
+            )
+            logging.info("Using chonkie RecursiveChunker markdown recipe.")
+            return chunker
+        except Exception as exc:  # pragma: no cover - defensive
+            logging.warning(
+                "RecursiveChunker.from_recipe failed (%s). Attempting direct initialization.",
+                exc,
             )
 
-            print(f"✓ Индекс создан")
-            print(f"   Путь: {self.chroma_db_path}")
-            print(f"   Чанков: {len(chunks)}")
-            return vector_store
+    try:
+        chunker = RecursiveChunker(
+            chunk_size=TARGET_CHUNK_TOKENS,
+            chunk_overlap=chunk_overlap,
+        )
+        logging.info("Using chonkie RecursiveChunker with direct configuration.")
+        return chunker
+    except Exception as exc:  # pragma: no cover - defensive
+        logging.warning("Failed to initialize RecursiveChunker (%s). Falling back to internal chunker.", exc)
+        return None
 
-        except Exception as e:
-            print(f"❌ Ошибка создания индекса: {e}")
-            raise
 
-    def run(self) -> Optional[Chroma]:
-        """Запуск индексации"""
-        print("\n" + "="*70)
-        print("ЗАПУСК ИНДЕКСИРОВАНИЯ")
-        print("="*70)
-
-        self.stats['start_time'] = time.time()
-
-        # Проверка
-        if not self.validate_environment():
-            return None
-
-        # Загрузка
-        documents = self.load_documents()
-        if not documents:
-            print("\n❌ Нет документов для обработки")
-            return None
-
-        # Разделение
-        chunks = self.split_documents(documents)
-        if not chunks:
-            print("\n❌ Не удалось создать чанки")
-            return None
-
-        # Создание индекса
+def chunk_with_recursive_chunker(chunker: Optional[object], text: str) -> Optional[list[str]]:
+    if chunker is None:
+        return None
+    try:
+        raw_chunks = chunker.chunk(text)
+    except AttributeError:
         try:
-            vector_store = self.create_vector_index(chunks)
-        except Exception as e:
-            print(f"\n❌ Ошибка создания индекса: {e}")
+            raw_chunks = chunker.split_text(text)
+        except Exception as exc:  # pragma: no cover - defensive
+            logging.warning("RecursiveChunker split_text failed (%s). Fallback activated.", exc)
             return None
+    except Exception as exc:  # pragma: no cover - defensive
+        logging.warning("RecursiveChunker chunk failed (%s). Fallback activated.", exc)
+        return None
 
-        # Завершение
-        self.stats['end_time'] = time.time()
+    if not raw_chunks:
+        return []
 
-        # Статистика
-        elapsed = self.stats['end_time'] - self.stats['start_time']
+    if isinstance(raw_chunks, dict):
+        raw_chunks = [raw_chunks.get("text", "")]
+    if isinstance(raw_chunks, str):
+        raw_chunks = [raw_chunks]
 
-        print(f"\n" + "="*70)
-        print("📊 ИТОГОВАЯ СТАТИСТИКА")
-        print("="*70)
-        print(f"   Время: {elapsed:.2f} секунд")
-        print(f"   Документы: {self.stats['total_documents']}")
-        print(f"   Чанки: {self.stats['total_chunks']}")
-        if elapsed > 0:
-            print(f"   Скорость: {self.stats['total_chunks']/elapsed:.1f} чанков/сек")
-        print(f"   Модель: {self.stats['model_info']['name']}")
-        print(f"   Размерность: {self.stats['model_info']['embedding_dimensions']}")
-        print("="*70)
+    processed: list[str] = []
+    for chunk in raw_chunks:
+        if isinstance(chunk, dict):
+            chunk_text = str(chunk.get("text", "")).strip()
+        else:
+            chunk_text = str(chunk).strip()
+        if chunk_text:
+            processed.append(chunk_text)
+    return processed
 
-        return vector_store
 
-def main():
-    """Точка входа"""
-    print("Задание 3: Создание векторного индекса базы знаний")
-    print(f"Версии: LangChain 1.2.4, ChromaDB 1.4.1, LangChain-HuggingFace 1.2.0")
+def fallback_chunk_section(text: str) -> list[tuple[str, int]]:
+    sentences = split_into_sentences(text)
+    if not sentences:
+        return []
 
-    indexer = KnowledgeBaseIndexer()
-    result = indexer.run()
+    chunks: list[tuple[str, int]] = []
+    i = 0
+    while i < len(sentences):
+        chunk_sentences: list[str] = []
+        chunk_tokens = 0
+        start_i = i
 
-    if result:
-        print("\n✅ Задание выполнено успешно!")
-        print(f"   Индекс: {CHROMA_DB_PATH}")
-        print(f"\n📊 Для поиска запустите:")
-        print(f"   python3 query_index.py --mode interactive")
-    else:
-        print("\n❌ Задание не выполнено")
+        while i < len(sentences):
+            sentence = sentences[i]
+            sentence_tokens = estimate_token_count(sentence)
+            if chunk_tokens and chunk_tokens + sentence_tokens > MAX_CHUNK_TOKENS and chunk_tokens >= MIN_CHUNK_TOKENS:
+                break
+
+            if not chunk_tokens and sentence_tokens > MAX_CHUNK_TOKENS:
+                chunk_sentences.append(sentence)
+                chunk_tokens = sentence_tokens
+                i += 1
+                break
+
+            chunk_sentences.append(sentence)
+            chunk_tokens += sentence_tokens
+            i += 1
+
+            if chunk_tokens >= TARGET_CHUNK_TOKENS:
+                break
+
+        chunk_text = " ".join(chunk_sentences).strip()
+        chunk_tokens = estimate_token_count(chunk_text)
+        chunks.append((chunk_text, chunk_tokens))
+
+        if i >= len(sentences):
+            break
+
+        overlap_tokens = 0
+        overlap_sentences = 0
+        for sentence in reversed(chunk_sentences):
+            overlap_tokens += estimate_token_count(sentence)
+            overlap_sentences += 1
+            if overlap_tokens >= CHUNK_OVERLAP_TOKENS:
+                break
+        i = max(start_i + len(chunk_sentences) - overlap_sentences, start_i + 1)
+
+    return chunks
+
+
+def merge_small_chunks(chunks: list[str], token_counts: list[int]) -> tuple[list[str], list[int]]:
+    if not chunks:
+        return chunks, token_counts
+
+    merged_chunks: list[str] = []
+    merged_counts: list[int] = []
+
+    for text, count in zip(chunks, token_counts):
+        if merged_chunks and count < MIN_CHUNK_TOKENS:
+            merged_chunks[-1] = f"{merged_chunks[-1].strip()}\n\n{text.strip()}".strip()
+            merged_counts[-1] = estimate_token_count(merged_chunks[-1])
+        else:
+            merged_chunks.append(text)
+            merged_counts.append(count)
+
+    return merged_chunks, merged_counts
+
+
+def chunk_section_text(text: str, chunker: Optional[object]) -> tuple[list[str], list[int]]:
+    section_text = text.strip()
+    if not section_text:
+        return [], []
+
+    chunk_texts = chunk_with_recursive_chunker(chunker, section_text)
+    if chunk_texts:
+        token_counts = [estimate_token_count(chunk) for chunk in chunk_texts]
+        return merge_small_chunks(chunk_texts, token_counts)
+
+    fallback_chunks = fallback_chunk_section(section_text)
+    chunk_texts = [chunk for chunk, _ in fallback_chunks if chunk]
+    token_counts = [tokens for _, tokens in fallback_chunks if tokens > 0]
+    return merge_small_chunks(chunk_texts, token_counts)
+
+
+def prepare_documents_for_index(documents: list[Document]) -> tuple[list[Document], dict[str, float]]:
+    chunker = create_recursive_chunker()
+    chunk_documents: list[Document] = []
+    token_counts: list[int] = []
+    total_sections = 0
+
+    for doc in documents:
+        sections = extract_sections(doc.page_content)
+        analyze_document(doc, sections)
+        total_sections += len(sections)
+
+        for section in sections:
+            section_chunks, section_token_counts = chunk_section_text(section.content, chunker)
+            for chunk_index, (chunk_text, token_count) in enumerate(zip(section_chunks, section_token_counts)):
+                if not chunk_text:
+                    continue
+                token_counts.append(token_count)
+                metadata = dict(doc.metadata)
+                metadata.update(
+                    {
+                        "section_title": section.title,
+                        "section_level": section.level,
+                        "section_index": section.index,
+                        "chunk_index": chunk_index,
+                        "approx_token_count": token_count,
+                    }
+                )
+                chunk_documents.append(Document(page_content=chunk_text, metadata=metadata))
+
+    stats: dict[str, float] = {
+        "documents": len(documents),
+        "sections": total_sections,
+        "chunks": len(chunk_documents),
+        "min_tokens": min(token_counts) if token_counts else 0,
+        "max_tokens": max(token_counts) if token_counts else 0,
+        "avg_tokens": (sum(token_counts) / len(token_counts)) if token_counts else 0.0,
+    }
+
+    return chunk_documents, stats
+
+
+def reset_vector_store(path: Path) -> None:
+    if path.exists():
+        logging.info("Resetting Chroma directory at %s", path)
+        shutil.rmtree(path)
+    path.mkdir(parents=True, exist_ok=True)
+
+
+def build_index() -> None:
+    if not KNOWLEDGE_BASE_PATH.exists():
+        raise FileNotFoundError(
+            f"Папка {KNOWLEDGE_BASE_PATH} не найдена. Создайте ее и добавьте чанки."
+        )
+
+    start_time = time.perf_counter()
+    logging.info("Index build started | knowledge base directory=%s", KNOWLEDGE_BASE_PATH)
+
+    documents = load_documents(KNOWLEDGE_BASE_PATH)
+    if not documents:
+        raise ValueError("В папке knowledge_base не найдено .txt файлов.")
+
+    total_chars = sum(len(doc.page_content) for doc in documents)
+    logging.info(
+        "Documents loaded | total=%d | total_characters=%d",
+        len(documents),
+        total_chars,
+    )
+
+    chunk_documents, stats = prepare_documents_for_index(documents)
+    if not chunk_documents:
+        raise ValueError("No chunks were generated from the knowledge base documents.")
+
+    logging.info(
+        "Chunking summary | sections=%d | chunks=%d | avg_tokens=%.1f | min_tokens=%d | max_tokens=%d",
+        stats["sections"],
+        stats["chunks"],
+        stats["avg_tokens"],
+        stats["min_tokens"],
+        stats["max_tokens"],
+    )
+
+    logging.info("Resetting vector store at %s", CHROMA_DB_PATH)
+    reset_vector_store(CHROMA_DB_PATH)
+
+    logging.info("Initializing embeddings: %s", EMBEDDING_MODEL)
+    embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
+
+    logging.info(
+        "Creating Chroma index | collection=%s",
+        COLLECTION_NAME,
+    )
+    Chroma.from_documents(
+        documents=chunk_documents,
+        embedding=embeddings,
+        collection_name=COLLECTION_NAME,
+        persist_directory=str(Path(CHROMA_DB_PATH).resolve()),
+        collection_metadata={
+            "hnsw:space": "cosine",
+            "model": EMBEDDING_MODEL,
+            "embedding_dim": str(EMBEDDING_DIMENSIONS),
+        },
+    )
+
+    elapsed = time.perf_counter() - start_time
+    logging.info(
+        "Index build completed | chunks=%d | elapsed=%.2fs",
+        stats["chunks"],
+        elapsed,
+    )
+
 
 if __name__ == "__main__":
-    main()
+    build_index()
