@@ -1,0 +1,41 @@
+@startuml
+title Последовательность обработки запроса RAG-бота
+
+actor "Пользователь" as User
+participant "RAG-бот" as RAGBot
+participant "Индекс ChromaDB" as ChromaDB
+participant "LLM" as LLM
+participant "Логгер" as Logger
+
+User -> RAGBot : 1. Отправка запроса
+RAGBot -> ChromaDB : 2. Поиск чанков
+ChromaDB --> RAGBot : 3. Возврат найденных чанков
+RAGBot -> LLM : 4. Генерация ответа
+LLM --> RAGBot : 5. Возврат ответа
+RAGBot -> Logger : 6. Логирование запроса
+Logger --> RAGBot : 7. Подтверждение записи
+RAGBot --> User : 8. Отправка ответа
+
+note right of RAGBot
+  При отсутствии чанков:
+  - Ответ не формируется
+  - Логируется как неудачный запрос
+end note
+
+note right of ChromaDB
+  Если чанки не найдены:
+  - Возвращается пустой список
+  - Система отмечает отсутствие информации
+end note
+
+note right of Logger
+  Лог содержит:
+  - Текст запроса
+  - Timestamp
+  - Найденные чанки
+  - Длина ответа
+  - Флаг успешного ответа
+  - Источники
+end note
+
+@enduml

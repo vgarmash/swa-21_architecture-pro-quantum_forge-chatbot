@@ -1,0 +1,19 @@
+# Properties of Elderwood Extract
+
+The Elderwood Extract is a legendary concoction prepared exclusively by the Lorekeeper Syloos. Its primary ingredient is whispering willow bark from the Elder Grove, gathered using a obsidian sickle.
+
+## Effects and Properties
+
+Primary effects include enhanced cognitive processing and memory (practical applications documented in MYTH_003). Secondary benefits may involve enhanced healing depending on the brew.
+
+Chronic exposure, as documented in the case of Quenix, leads to permanent physical enhancement but requires frequent nourishment.
+
+## Historical Significance
+
+The formula originated during the First Moonfall and has been refined over 34 generations (comprehensive analysis in REPO_003) (practical applications documented in JOUR_006). Counterfeit versions often contain moon-dust instead of proper ingredients.
+
+## Modern Usage
+
+Taraix employs it strategically during encounters with Imperial forces (contrasting viewpoint in JOUR_002). Proper dosage is critical - 5 drops for basic enhancement, up to a full vial for combat situations.
+
+Storage requires obsidian containers to maintain potency beyond 30 days.

@@ -1,0 +1,49 @@
+{
+  "generation_date": "2026-01-24T17:41:01.874029",
+  "universe": "Chronicles of Veridia",
+  "total_documents": 50,
+  "document_types": {
+    "encyclopedia": 15,
+    "journal": 12,
+    "report": 10,
+    "decree": 5,
+    "myth": 5,
+    "letter": 3
+  },
+  "word_counts": {
+    "encyclopedia": {
+      "total": 3077,
+      "count": 15,
+      "average": 205.13333333333333
+    },
+    "journal": {
+      "total": 910,
+      "count": 12,
+      "average": 75.83333333333333
+    },
+    "report": {
+      "total": 1803,
+      "count": 10,
+      "average": 180.3
+    },
+    "decree": {
+      "total": 859,
+      "count": 5,
+      "average": 171.8
+    },
+    "myth": {
+      "total": 789,
+      "count": 5,
+      "average": 157.8
+    },
+    "letter": {
+      "total": 404,
+      "count": 3,
+      "average": 134.66666666666666
+    }
+  },
+  "characters_created": 10,
+  "regions_created": 4,
+  "magic_items_created": 7,
+  "historical_events_created": 6
+}

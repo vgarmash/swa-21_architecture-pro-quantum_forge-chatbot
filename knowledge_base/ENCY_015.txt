@@ -1,0 +1,19 @@
+# Properties of Crystal Essence
+
+The Crystal Essence is a legendary concoction prepared exclusively by the Lorekeeper Syloos. Its primary ingredient is moonleaf harvested during the twin moon convergence, gathered using a obsidian sickle.
+
+## Effects and Properties
+
+Primary effects include temporary enhanced vitality and endurance (historical context in REPO_005) (related discussion in JOUR_002). Secondary benefits may involve elemental resistance depending on the brew.
+
+Chronic exposure, as documented in the case of Quenix, leads to permanent physical enhancement but requires frequent nourishment.
+
+## Historical Significance
+
+The formula originated during the Crystal Accord and has been refined over 11 generations. According to Syloos's research, the formula varies by season.
+
+## Modern Usage
+
+Taraix employs it strategically during encounters with Imperial forces (contrasting viewpoint in ENCY_008) (comprehensive analysis in ENCY_012). Proper dosage is critical - 11 drops for basic enhancement, up to a full vial for combat situations.
+
+Storage requires crystal vials to maintain potency beyond 42 days.

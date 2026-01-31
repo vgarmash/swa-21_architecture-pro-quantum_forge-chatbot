@@ -1,0 +1,10 @@
+langchain
+langchain-community
+langchain-core
+langchain-huggingface
+langchain-chroma
+langchain-openai
+chromadb
+sentence-transformers
+chonkie[hub]
+python-telegram-bot==22.5

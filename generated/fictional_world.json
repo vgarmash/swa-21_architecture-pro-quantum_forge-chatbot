@@ -1,0 +1,568 @@
+{
+  "original_universe": "Asterix and Obelix",
+  "fictional_universe": "Chronicles of Veridia",
+  "description": "A fully fictional fantasy world inspired by comic adventure structure with original everything",
+  "country_name": "Veridia",
+  "time_period": "Age of Twin Moons",
+  "era_suffix": "AM (After Moonfall)",
+  "regions": [
+    {
+      "id": "region_0",
+      "name": "Stardale",
+      "type": "village",
+      "description": "A village in Veridia with temperate climate, known for miraculously resists Imperial occupation.",
+      "climate": "temperate",
+      "key_locations": [
+        "Grand Market",
+        "Secret Shrine"
+      ]
+    },
+    {
+      "id": "region_1",
+      "name": "Riverwatch",
+      "type": "forest",
+      "description": "A forest in Veridia with misty climate, known for ancient magical woods.",
+      "climate": "misty",
+      "key_locations": [
+        "New Market",
+        "Ancient Grove"
+      ]
+    },
+    {
+      "id": "region_2",
+      "name": "Crystalwatch",
+      "type": "mountain",
+      "description": "A mountain in Veridia with alpine climate, known for crystal-rich peaks.",
+      "climate": "alpine",
+      "key_locations": [
+        "Central Hall",
+        "Sacred Cavern"
+      ]
+    },
+    {
+      "id": "region_3",
+      "name": "Ironreach",
+      "type": "coastal",
+      "description": "A coastal in Veridia with humid climate, known for bustling trade port.",
+      "climate": "humid",
+      "key_locations": [
+        "Central Square",
+        "Forgotten Spring"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_0",
+      "name": "Valewardens",
+      "type": "resistance",
+      "description": "A resistance faction known for being proud, resilient.",
+      "symbol": "Orb Standard",
+      "colors": [
+        "Green",
+        "Silver"
+      ]
+    },
+    {
+      "id": "faction_1",
+      "name": "Valewardens",
+      "type": "empire",
+      "description": "A empire faction known for being expansionist, disciplined.",
+      "symbol": "Eagle Sigil",
+      "colors": [
+        "Gold",
+        "Black"
+      ]
+    },
+    {
+      "id": "faction_2",
+      "name": "Crystal Order",
+      "type": "scholars",
+      "description": "A scholars faction known for being wise, secretive.",
+      "symbol": "Eagle Standard",
+      "colors": [
+        "Blue",
+        "Silver"
+      ]
+    },
+    {
+      "id": "faction_3",
+      "name": "Valewardens",
+      "type": "merchants",
+      "description": "A merchants faction known for being wealthy, connected.",
+      "symbol": "Oak Sigil",
+      "colors": [
+        "Gold",
+        "Bronze"
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "hero",
+      "original_name": "Hero",
+      "fictional_name": "Taraix",
+      "type": "hero",
+      "description": "A clever hero known for tactics.",
+      "traits": [
+        "clever",
+        "strategic",
+        "agile"
+      ],
+      "skills": [
+        "tactics",
+        "stealth",
+        "leadership"
+      ],
+      "unique_feature": "has a distinctive tattoo"
+    },
+    {
+      "id": "strong_hero",
+      "original_name": "Strong Hero",
+      "fictional_name": "Quenix",
+      "type": "strong_hero",
+      "description": "A strong strong hero known for strength.",
+      "traits": [
+        "strong",
+        "loyal",
+        "hearty"
+      ],
+      "skills": [
+        "strength",
+        "endurance",
+        "crafting"
+      ],
+      "unique_feature": "carries a ancient tool"
+    },
+    {
+      "id": "alchemist",
+      "original_name": "Alchemist",
+      "fictional_name": "Syloos",
+      "type": "alchemist",
+      "description": "A wise alchemist known for herbalism.",
+      "traits": [
+        "wise",
+        "patient",
+        "perceptive"
+      ],
+      "skills": [
+        "herbalism",
+        "brewing",
+        "lore"
+      ],
+      "unique_feature": "carries a unique tool"
+    },
+    {
+      "id": "chief",
+      "original_name": "Chief",
+      "fictional_name": "Lugous",
+      "type": "chief",
+      "description": "A proud chief known for diplomacy.",
+      "traits": [
+        "proud",
+        "decisive",
+        "charismatic"
+      ],
+      "skills": [
+        "diplomacy",
+        "strategy",
+        "oration"
+      ],
+      "unique_feature": "has a mysterious past involving the ancient order"
+    },
+    {
+      "id": "bard",
+      "original_name": "Bard",
+      "fictional_name": "Beloix",
+      "type": "bard",
+      "description": "A creative bard known for music.",
+      "traits": [
+        "creative",
+        "optimistic",
+        "energetic"
+      ],
+      "skills": [
+        "music",
+        "storytelling",
+        "entertainment"
+      ],
+      "unique_feature": "has a distinctive tattoo"
+    },
+    {
+      "id": "emperor",
+      "original_name": "Emperor",
+      "fictional_name": "Taraor",
+      "type": "emperor",
+      "description": "A ambitious emperor known for strategy.",
+      "traits": [
+        "ambitious",
+        "calculating",
+        "disciplined"
+      ],
+      "skills": [
+        "strategy",
+        "administration",
+        "warfare"
+      ],
+      "unique_feature": "has a mysterious past involving the fallen kingdom"
+    },
+    {
+      "id": "blacksmith",
+      "original_name": "Blacksmith",
+      "fictional_name": "Taraix",
+      "type": "blacksmith",
+      "description": "A strong blacksmith known for forging.",
+      "traits": [
+        "strong",
+        "skilled",
+        "temperamental"
+      ],
+      "skills": [
+        "forging",
+        "repair",
+        "design"
+      ],
+      "unique_feature": "has a mysterious past involving the fallen kingdom"
+    },
+    {
+      "id": "fisher",
+      "original_name": "Fisher",
+      "fictional_name": "Sylorix",
+      "type": "fisher",
+      "description": "A stubborn fisher known for fishing.",
+      "traits": [
+        "stubborn",
+        "traditional",
+        "observant"
+      ],
+      "skills": [
+        "fishing",
+        "navigation",
+        "weather"
+      ],
+      "unique_feature": "has a mysterious past involving the ancient order"
+    },
+    {
+      "id": "scout",
+      "original_name": "Scout",
+      "fictional_name": "Belorix",
+      "type": "scout",
+      "description": "A stealthy scout known for tracking.",
+      "traits": [
+        "stealthy",
+        "observant",
+        "enduring"
+      ],
+      "skills": [
+        "tracking",
+        "reconnaissance",
+        "survival"
+      ],
+      "unique_feature": "has a mysterious past involving the lost city"
+    },
+    {
+      "id": "healer",
+      "original_name": "Healer",
+      "fictional_name": "Syloos",
+      "type": "healer",
+      "description": "A compassionate healer known for medicine.",
+      "traits": [
+        "compassionate",
+        "knowledgeable",
+        "calm"
+      ],
+      "skills": [
+        "medicine",
+        "herbalism",
+        "healing"
+      ],
+      "unique_feature": "carries a unique amulet"
+    }
+  ],
+  "magic_items": [
+    {
+      "original": "Magic Potion",
+      "fictional": "Obsidian Stone",
+      "type": "potion",
+      "effects": [
+        "strength",
+        "speed",
+        "invulnerability"
+      ],
+      "description": "A potion used for strength, speed. Often found in ancient ruins.",
+      "rarity": "legendary"
+    },
+    {
+      "original": "Golden Sickle",
+      "fictional": "Amber Crown",
+      "type": "tool",
+      "effects": [
+        "harvesting",
+        "purifying",
+        "focusing"
+      ],
+      "description": "A tool used for harvesting, purifying. Often found in secret laboratories.",
+      "rarity": "common"
+    },
+    {
+      "original": "Menhir",
+      "fictional": "Golden Chalice",
+      "type": "artifact",
+      "effects": [
+        "protection",
+        "energy",
+        "memory"
+      ],
+      "description": "A artifact used for protection, energy. Often found in sacred groves.",
+      "rarity": "rare"
+    },
+    {
+      "original": "Roman Standard",
+      "fictional": "Obsidian Blade",
+      "type": "symbol",
+      "effects": [
+        "authority",
+        "morale",
+        "command"
+      ],
+      "description": "A symbol used for authority, morale. Often found in secret laboratories.",
+      "rarity": "common"
+    },
+    {
+      "original": "Wild Boar",
+      "fictional": "Iron Talisman",
+      "type": "creature",
+      "effects": [
+        "nourishment",
+        "celebration",
+        "tradition"
+      ],
+      "description": "A creature used for nourishment, celebration. Often found in ancient ruins.",
+      "rarity": "rare"
+    },
+    {
+      "original": "Druid's Staff",
+      "fictional": "Sun Blade",
+      "type": "focus",
+      "effects": [
+        "channeling",
+        "amplification",
+        "guidance"
+      ],
+      "description": "A focus used for channeling, amplification. Often found in sacred groves.",
+      "rarity": "rare"
+    },
+    {
+      "original": "Invisibility Potion",
+      "fictional": "Jade Seal",
+      "type": "potion",
+      "effects": [
+        "stealth",
+        "evasion",
+        "infiltration"
+      ],
+      "description": "A potion used for stealth, evasion. Often found in secret laboratories.",
+      "rarity": "legendary"
+    }
+  ],
+  "historical_events": [
+    {
+      "id": "event_0",
+      "original": "Historical Event 1",
+      "fictional": "The Emerald Rebellion",
+      "year": "379 AM",
+      "description": "A forgotten event that shaped the realm.",
+      "impact": "low",
+      "factions_involved": [
+        "Valewardens",
+        "Crystal Order",
+        "Valewardens"
+      ]
+    },
+    {
+      "id": "event_1",
+      "original": "Historical Event 2",
+      "fictional": "The Forgotten Alliance",
+      "year": "464 AM",
+      "description": "A forgotten event that divided the realm.",
+      "impact": "high",
+      "factions_involved": [
+        "Valewardens",
+        "Crystal Order",
+        "Valewardens"
+      ]
+    },
+    {
+      "id": "event_2",
+      "original": "Historical Event 3",
+      "fictional": "The Emerald Rebellion",
+      "year": "109 AM",
+      "description": "A forgotten event that divided the realm.",
+      "impact": "high",
+      "factions_involved": [
+        "Valewardens",
+        "Valewardens"
+      ]
+    },
+    {
+      "id": "event_3",
+      "original": "Historical Event 4",
+      "fictional": "The Ancient Convergence",
+      "year": "494 AM",
+      "description": "A major event that united the realm.",
+      "impact": "medium",
+      "factions_involved": [
+        "Valewardens",
+        "Valewardens"
+      ]
+    },
+    {
+      "id": "event_4",
+      "original": "Historical Event 5",
+      "fictional": "The Crystal Pact",
+      "year": "146 AM",
+      "description": "A minor event that united the realm.",
+      "impact": "high",
+      "factions_involved": [
+        "Valewardens",
+        "Valewardens"
+      ]
+    },
+    {
+      "id": "event_5",
+      "original": "Historical Event 6",
+      "fictional": "The Iron Accord",
+      "year": "415 AM",
+      "description": "A forgotten event that shaped the realm.",
+      "impact": "low",
+      "factions_involved": [
+        "Valewardens",
+        "Valewardens",
+        "Crystal Order"
+      ]
+    }
+  ],
+  "lore_elements": [],
+  "unique_terms": [
+    {
+      "original": "Gaul",
+      "fictional": "Mythoria",
+      "category": "material"
+    },
+    {
+      "original": "Rome",
+      "fictional": "The Imperium",
+      "category": "material"
+    },
+    {
+      "original": "mistletoe",
+      "fictional": "sun-lichen",
+      "category": "creature"
+    },
+    {
+      "original": "boar",
+      "fictional": "crystal-tusk",
+      "category": "material"
+    },
+    {
+      "original": "feast",
+      "fictional": "sun celebration",
+      "category": "concept"
+    },
+    {
+      "original": "centurion",
+      "fictional": "legionnaire",
+      "category": "material"
+    },
+    {
+      "original": "legion",
+      "fictional": "crystal legion",
+      "category": "concept"
+    },
+    {
+      "original": "druid",
+      "fictional": "star-seer",
+      "category": "creature"
+    },
+    {
+      "original": "bard",
+      "fictional": "skald",
+      "category": "place"
+    },
+    {
+      "original": "village",
+      "fictional": "hamlet",
+      "category": "place"
+    },
+    {
+      "original": "camp",
+      "fictional": "encampment",
+      "category": "place"
+    },
+    {
+      "original": "forest",
+      "fictional": "grove",
+      "category": "creature"
+    },
+    {
+      "original": "potion",
+      "fictional": "draught",
+      "category": "place"
+    },
+    {
+      "original": "sword",
+      "fictional": "glaive",
+      "category": "place"
+    },
+    {
+      "original": "shield",
+      "fictional": "buckler",
+      "category": "material"
+    },
+    {
+      "original": "armor",
+      "fictional": "plate",
+      "category": "creature"
+    },
+    {
+      "original": "gold",
+      "fictional": "sun-metal",
+      "category": "creature"
+    },
+    {
+      "original": "silver",
+      "fictional": "star-dust",
+      "category": "title"
+    },
+    {
+      "original": "emperor",
+      "fictional": "high ruler",
+      "category": "material"
+    },
+    {
+      "original": "chief",
+      "fictional": "headman",
+      "category": "concept"
+    },
+    {
+      "original": "warrior",
+      "fictional": "champion",
+      "category": "material"
+    },
+    {
+      "original": "magic",
+      "fictional": "thaumaturgy",
+      "category": "title"
+    },
+    {
+      "original": "stone",
+      "fictional": "monolith",
+      "category": "concept"
+    },
+    {
+      "original": "tree",
+      "fictional": "elm",
+      "category": "material"
+    }
+  ]
+}
