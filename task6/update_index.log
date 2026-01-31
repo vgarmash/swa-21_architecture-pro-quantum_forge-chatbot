@@ -1,0 +1,5 @@
+2026-01-31 16:51:07,317 | INFO | Index update started | knowledge base=C:\Users\v\dev\VSCodeProjects\swa-21_chat-bot\swa-21_architecture-pro-quantum_forge-chatbot\knowledge_base
+2026-01-31 16:51:07,321 | INFO | Use pytorch device_name: cpu
+2026-01-31 16:51:07,321 | INFO | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-31 16:51:09,814 | INFO | Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-31 16:51:09,971 | INFO | Index update completed | changed=0 | removed_files=0 | unchanged=51 | added_chunks=0 | removed_chunks=0 | total_chunks=187 | elapsed=2.65s
